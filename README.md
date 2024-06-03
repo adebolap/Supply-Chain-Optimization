@@ -27,14 +27,3 @@ The repository is organized into the following directories and files:
 - `requirements.txt`: A list of Python packages required to run the project.
 
 - `README.md`: Project description and instructions.
-
-data_loading.py: Script for loading data.
-data_cleaning.py: Script for cleaning data.
-eda.py: Script for exploratory data analysis.
-feature_engineering.py: Script for engineering features.
-model.py: Script for training and evaluating the machine learning model.
-main.py: The main script that orchestrates the entire workflow from data loading to model evaluation.
-
-requirements.txt: A list of Python packages required to run the project.
-
-README.md: Project description and instructions.

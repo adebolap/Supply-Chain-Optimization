@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 445.64077447060146,
+            "y": 403.34599586626757
+          },
+          "nodeIndex": "Lead",
+          "nodeLineageTag": "ef4905f1-ece5-49b1-bc30-67bb1d45fa7e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 692.38500405849845,
+            "y": 175.93199531257551
+          },
+          "nodeIndex": "Mapping",
+          "nodeLineageTag": "15de50f8-35f5-441a-84c0-86346498880a",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 249.52117205380978,
+            "y": -50
+          },
+          "nodeIndex": "Opportunity",
+          "nodeLineageTag": "24afd00f-dea8-4ca0-97bd-d829942548a9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 158.64254982204636,
+            "y": 656.16962657648878
+          },
+          "nodeIndex": "Task",
+          "nodeLineageTag": "d57d1c71-8109-4234-a071-18014cb1b649",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 303.666093892904
+          },
+          "nodeIndex": "User",
+          "nodeLineageTag": "783b8c7b-c0c0-437e-9cef-dd6bef9fd06e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

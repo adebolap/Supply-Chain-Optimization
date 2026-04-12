@@ -1,0 +1,14 @@
+[
+  {"visual_type": "slicer",       "title": "Date Range",    "x": 24,   "y": 120, "width": 370, "height": 60},
+  {"visual_type": "slicer",       "title": "Business Unit", "x": 410,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",       "title": "Region",        "x": 686,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",       "title": "Lead Source",   "x": 962,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",       "title": "Lead Type",     "x": 1238, "y": 120, "width": 260, "height": 60},
+  {"visual_type": "cardVisual",   "title": "% Leads Assigned",    "x": 24,   "y": 196, "width": 450, "height": 140},
+  {"visual_type": "cardVisual",   "title": "% Leads Converted",   "x": 490,  "y": 196, "width": 450, "height": 140},
+  {"visual_type": "cardVisual",   "title": "% Leads Followed Up", "x": 956,  "y": 196, "width": 450, "height": 140},
+  {"visual_type": "cardVisual",   "title": "Avg Lead Cycle Days", "x": 1422, "y": 196, "width": 474, "height": 140},
+  {"visual_type": "funnel",       "title": "Lead Funnel",         "x": 24,   "y": 352, "width": 1872,"height": 260},
+  {"visual_type": "lineChart",    "title": "Conversion Rate Trend (12 Months)", "x": 24,  "y": 628, "width": 912, "height": 300},
+  {"visual_type": "clusteredBarChart", "title": "Top Performing Regions",      "x": 952, "y": 628, "width": 944, "height": 300}
+]

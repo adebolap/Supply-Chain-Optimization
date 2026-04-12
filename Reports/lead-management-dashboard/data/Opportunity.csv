@@ -1,0 +1,8 @@
+Id,Name,AccountId,OwnerId,Amount,StageName,CloseDate,Probability,IsClosed,IsWon,IsDeleted,Type,LeadSource,CreatedDate,CreatedById,LastModifiedDate,CampaignId,TER_Business_Line__c,TER_Country__c,TER_Region_Code__c,TER_Awarded_Amount__c,TER_Initial_Amount__c,TER_Projected_Amount__c
+006000001,Opportunity 01,001000001,005C001,457145,Closed Won,2024-03-11,100,True,True,False,Upsell,Trade Show,2024-02-09,005C001,2024-03-11,701000001,DNA,Belgium,EMEA,457145,457145,457145
+006000002,Opportunity 02,001000002,005C001,306552,Closed Won,2024-05-05,100,True,True,False,New Business,Website,2024-02-25,005C001,2024-05-05,701000003,Cardiovascular,France,EMEA,306552,306552,306552
+006000003,Opportunity 03,001000003,005B002,350379,Closed Won,2024-04-13,100,True,True,False,Upsell,Direct Mail,2024-03-06,005B002,2024-04-13,701000002,Cardiovascular,Belgium,EMEA,350379,350379,350379
+006000004,Opportunity 04,001000004,005A002,64784,Closed Won,2024-05-22,100,True,True,False,Upsell,Partner Referral,2024-03-23,005A002,2024-05-22,701000001,DNA,United Kingdom,EMEA,64784,64784,64784
+006000005,Opportunity 05,001000005,005A002,152251,Closed Won,2024-06-10,100,True,True,False,New Business,Partner Referral,2024-04-10,005A002,2024-06-10,701000001,Cardiovascular,United Kingdom,EMEA,152251,152251,152251
+006000006,Opportunity 06,001000006,005A001,0,Closed Lost,2024-05-22,0,True,False,False,Upsell,Webinar,2024-03-26,005A001,2024-05-22,701000001,DNA,United Kingdom,EMEA,0,0,0
+006000007,Opportunity 07,001000007,005B001,0,Closed Lost,2024-06-13,0,True,False,False,Upsell,Direct Mail,2024-05-04,005B001,2024-06-13,701000003,Vascular Care,Netherlands,EMEA,0,0,0

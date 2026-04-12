@@ -1,0 +1,13 @@
+[
+  {"visual_type": "slicer",       "title": "Date Range",           "x": 24,   "y": 120, "width": 370, "height": 60},
+  {"visual_type": "slicer",       "title": "Business Line",        "x": 410,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",       "title": "Country",              "x": 686,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",       "title": "Sales Rep",            "x": 962,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "cardVisual",   "title": "Total Opportunity Value",    "x": 24,   "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",   "title": "Leads with Opportunity",     "x": 648,  "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",   "title": "Avg Value per Lead",         "x": 1272, "y": 196, "width": 624, "height": 140},
+  {"visual_type": "funnel",       "title": "Opportunity Creation Funnel","x": 24,   "y": 352, "width": 1872,"height": 220},
+  {"visual_type": "treemap",      "title": "ROI by Business Line",       "x": 24,   "y": 588, "width": 920, "height": 280},
+  {"visual_type": "scatterChart", "title": "Campaign ROI vs Conversion", "x": 960,  "y": 588, "width": 936, "height": 280},
+  {"visual_type": "tableEx",      "title": "Attribution by Campaign",    "x": 24,   "y": 884, "width": 1872,"height": 180}
+]

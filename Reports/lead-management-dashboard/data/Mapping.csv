@@ -1,0 +1,8 @@
+Id,TER_Country__c,TER_Country_Code__c,TER_Region_Code__c
+MAP001,Germany,DE,DACH
+MAP002,France,FR,France
+MAP003,United Kingdom,GB,UK
+MAP004,Spain,ES,Iberia
+MAP005,Italy,IT,Italy
+MAP006,Netherlands,NL,Benelux
+MAP007,Belgium,BE,Benelux

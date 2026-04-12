@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "MarketShare"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c0d6d467-7045-4254-aeb1-4a19cb9f979e"
+  }
+}

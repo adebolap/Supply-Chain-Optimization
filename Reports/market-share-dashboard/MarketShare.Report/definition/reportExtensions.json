@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json",
+  "name": "extension",
+  "entities": [
+    {
+      "name": "fact_market_potential",
+      "measures": [
+        {
+          "name": "_CF Realization Bar Color",
+          "expression": "SWITCH(TRUE(), [Pot Realization %] >= 0.5, \"#1D9E75\", [Pot Realization %] >= 0.3, \"#5DCAA5\", [Pot Realization %] >= 0.15, \"#EF9F27\", \"#E24B4A\")",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF RI Bar Color",
+          "expression": "SWITCH(TRUE(), [MS Realization Index] >= 150, \"#1D9E75\", [MS Realization Index] >= 100, \"#5DCAA5\", [MS Realization Index] >= 50, \"#EF9F27\", \"#E24B4A\")",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF Strength Badge BG",
+          "expression": "SWITCH([MS Customer Strength Badge], \"Champion\", \"#EAF3DE\", \"Above average\", \"#E1F5EE\", \"Below average\", \"#FAEEDA\", \"Growth target\", \"#FCEBEB\", BLANK())",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF Strength Badge Text",
+          "expression": "SWITCH([MS Customer Strength Badge], \"Champion\", \"#27500A\", \"Above average\", \"#085041\", \"Below average\", \"#633806\", \"Growth target\", \"#791F1F\", BLANK())",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF Mix Index BG",
+          "expression": "SWITCH(TRUE(), [MS Mix Index] >= 150, \"#EAF3DE\", [MS Mix Index] >= 80, \"#E6F1FB\", [MS Mix Index] >= 1, \"#FAEEDA\", \"#FCEBEB\")",
+          "dataType": "Text"
+        }
+      ]
+    }
+  ]
+}

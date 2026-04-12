@@ -1,0 +1,26 @@
+Id,Name,FirstName,LastName,Company,Email,Status,IsConverted,ConvertedDate,ConvertedAccountId,ConvertedContactId,ConvertedOpportunityId,Country,OwnerId,CreatedDate,LastModifiedDate,LastActivityDate,TER_Department_Unit__c,TER_Source_Campaign__c,TER_Marketo_Score__c,TER_Region_Code__c,IsDeleted,MasterRecordId,TER_Converted_Opportunity_Tender__c
+00Q000001,Lead 01,First01,Last01,Company Delta 1,lead01@example.com,New,False,,,,,Spain,005B002,2024-01-11,2024-01-21,,CV Neuro,Webinar,25,EMEA,False,,
+00Q000002,Lead 02,First02,Last02,Company Gamma 2,lead02@example.com,New,False,,,,,United Kingdom,005B001,2024-01-21,2024-01-24,,Vascular Care,Direct Mail,72,EMEA,False,,
+00Q000003,Lead 03,First03,Last03,Company Alpha 3,lead03@example.com,New,False,,,,,Italy,005A001,2024-01-31,2024-02-16,,Vascular Care,Trade Show,71,EMEA,False,,
+00Q000004,Lead 04,First04,Last04,Company Omega 4,lead04@example.com,New,False,,,,,Belgium,005A002,2024-02-10,2024-02-26,,CV Interventional,Direct Mail,76,EMEA,False,,
+00Q000005,Lead 05,First05,Last05,Company Gamma 5,lead05@example.com,New,False,,,,,Belgium,005A002,2024-02-20,2024-02-26,,CV Neuro,Website,35,EMEA,False,,
+00Q000006,Lead 06,First06,Last06,Company Omega 6,lead06@example.com,Working,False,,,,,Germany,005C001,2024-03-01,2024-03-04,2024-03-09,CV Interventional,Website,40,EMEA,False,,
+00Q000007,Lead 07,First07,Last07,Company Delta 7,lead07@example.com,Working,False,,,,,United Kingdom,005B002,2024-03-11,2024-03-14,2024-03-24,CV Interventional,Webinar,54,EMEA,False,,
+00Q000008,Lead 08,First08,Last08,Company Beta 8,lead08@example.com,Working,False,,,,,Spain,005B002,2024-03-21,2024-03-25,2024-03-29,CV Neuro,Partner Referral,85,EMEA,False,,
+00Q000009,Lead 09,First09,Last09,Company Omega 9,lead09@example.com,Working,False,,,,,France,005A001,2024-03-31,2024-04-08,2024-04-15,CV Neuro,Website,41,EMEA,False,,
+00Q000010,Lead 10,First10,Last10,Company Beta 10,lead10@example.com,Working,False,,,,,Netherlands,005B001,2024-04-10,2024-04-21,2024-04-25,Vascular Care,Trade Show,69,EMEA,False,,
+00Q000011,Lead 11,First11,Last11,Company Gamma 11,lead11@example.com,Nurturing,False,,,,,Netherlands,005B002,2024-04-20,2024-04-30,2024-04-27,Vascular Care,Webinar,83,EMEA,False,,
+00Q000012,Lead 12,First12,Last12,Company Gamma 12,lead12@example.com,Nurturing,False,,,,,France,005A003,2024-04-30,2024-05-18,2024-05-14,CV Neuro,Webinar,82,EMEA,False,,
+00Q000013,Lead 13,First13,Last13,Company Gamma 13,lead13@example.com,Nurturing,False,,,,,Netherlands,005A003,2024-05-10,2024-05-16,2024-05-18,DNA,Webinar,36,EMEA,False,,
+00Q000014,Lead 14,First14,Last14,Company Gamma 14,lead14@example.com,Nurturing,False,,,,,Spain,005A001,2024-05-20,2024-05-29,2024-05-25,DNA,Partner Referral,85,EMEA,False,,
+00Q000015,Lead 15,First15,Last15,Company Gamma 15,lead15@example.com,Nurturing,False,,,,,United Kingdom,005B002,2024-05-30,2024-06-13,2024-06-11,DNA,Webinar,60,EMEA,False,,
+00Q000016,Lead 16,First16,Last16,Company Gamma 16,lead16@example.com,Unqualified,False,,,,,Belgium,005B002,2024-06-09,2024-06-19,,DNA,Direct Mail,32,EMEA,False,,
+00Q000017,Lead 17,First17,Last17,Company Omega 17,lead17@example.com,Unqualified,False,,,,,Germany,005A002,2024-06-19,2024-06-29,,Vascular Care,Trade Show,65,EMEA,False,,
+00Q000018,Lead 18,First18,Last18,Company Omega 18,lead18@example.com,Unqualified,False,,,,,United Kingdom,005A002,2024-06-29,2024-07-05,,CV Neuro,Partner Referral,81,EMEA,False,,
+00Q000019,Lead 19,First19,Last19,Company Delta 19,lead19@example.com,Converted,True,2024-02-09,001000001,003000001,006000001,Belgium,005C001,2024-07-09,2024-07-16,2024-07-20,DNA,Trade Show,60,EMEA,False,,006000001
+00Q000020,Lead 20,First20,Last20,Company Omega 20,lead20@example.com,Converted,True,2024-02-25,001000002,003000002,006000002,France,005C001,2024-07-19,2024-08-05,2024-08-03,CV Interventional,Website,82,EMEA,False,,006000002
+00Q000021,Lead 21,First21,Last21,Company Omega 21,lead21@example.com,Converted,True,2024-03-06,001000003,003000003,006000003,Belgium,005B002,2024-07-29,2024-08-10,2024-08-11,Vascular Care,Direct Mail,55,EMEA,False,,006000003
+00Q000022,Lead 22,First22,Last22,Company Beta 22,lead22@example.com,Converted,True,2024-03-23,001000004,003000004,006000004,United Kingdom,005A002,2024-08-08,2024-08-18,2024-08-21,CV Neuro,Partner Referral,41,EMEA,False,,006000004
+00Q000023,Lead 23,First23,Last23,Company Omega 23,lead23@example.com,Converted,True,2024-04-10,001000005,003000005,006000005,United Kingdom,005A002,2024-08-18,2024-09-07,2024-08-24,CV Interventional,Partner Referral,82,EMEA,False,,006000005
+00Q000024,Lead 24,First24,Last24,Company Beta 24,lead24@example.com,Converted,True,2024-03-26,001000006,003000006,006000006,United Kingdom,005A001,2024-08-28,2024-08-30,2024-09-10,DNA,Webinar,39,EMEA,False,,006000006
+00Q000025,Lead 25,First25,Last25,Company Delta 25,lead25@example.com,Converted,True,2024-05-04,001000007,003000007,006000007,Netherlands,005B001,2024-09-07,2024-09-25,2024-09-20,DNA,Direct Mail,29,EMEA,False,,006000007

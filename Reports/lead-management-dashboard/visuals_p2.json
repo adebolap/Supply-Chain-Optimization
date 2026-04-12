@@ -1,0 +1,13 @@
+[
+  {"visual_type": "slicer",                      "title": "Date Range",             "x": 24,   "y": 120, "width": 370, "height": 60},
+  {"visual_type": "slicer",                      "title": "Country / Cluster",      "x": 410,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",                      "title": "Lead Type",              "x": 686,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",                      "title": "Lead Nature",            "x": 962,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "cardVisual",                  "title": "Leads Assigned to Reps", "x": 24,   "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",                  "title": "Leads in Queue",         "x": 648,  "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",                  "title": "Leads Unqualified",      "x": 1272, "y": 196, "width": 624, "height": 140},
+  {"visual_type": "stackedBarChart",             "title": "Working vs Nurturing Split", "x": 24, "y": 352, "width": 1872, "height": 120},
+  {"visual_type": "stackedColumnChart", "title": "Assignment by Event",  "x": 24,  "y": 488, "width": 912, "height": 280},
+  {"visual_type": "columnChart",                 "title": "Queue Days Distribution", "x": 952, "y": 488, "width": 944, "height": 280},
+  {"visual_type": "pivotTable",                  "title": "Assignment Detail by Manager and Rep", "x": 24, "y": 784, "width": 1872, "height": 264}
+]

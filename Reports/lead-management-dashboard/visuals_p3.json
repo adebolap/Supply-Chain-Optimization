@@ -1,0 +1,14 @@
+[
+  {"visual_type": "slicer",            "title": "Date Range",          "x": 24,   "y": 120, "width": 370, "height": 60},
+  {"visual_type": "slicer",            "title": "Country",             "x": 410,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",            "title": "Lead Source",         "x": 686,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",            "title": "Lead Type",           "x": 962,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",            "title": "Sales Manager",       "x": 1238, "y": 120, "width": 260, "height": 60},
+  {"visual_type": "cardVisual",        "title": "% Leads Converted",   "x": 24,   "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",        "title": "% Leads Followed Up", "x": 648,  "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",        "title": "Avg Response Days",   "x": 1272, "y": 196, "width": 624, "height": 140},
+  {"visual_type": "funnel",            "title": "Conversion by Lead Type", "x": 24, "y": 352, "width": 1872, "height": 200},
+  {"visual_type": "clusteredColumnChart", "title": "Conversion by Nature", "x": 24,  "y": 568, "width": 920, "height": 260},
+  {"visual_type": "donutChart",        "title": "Follow-up Engagement", "x": 960, "y": 568, "width": 936, "height": 260},
+  {"visual_type": "tableEx",           "title": "Rep Performance vs Team Average", "x": 24, "y": 844, "width": 1872, "height": 220}
+]

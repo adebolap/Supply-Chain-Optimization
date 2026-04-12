@@ -1,0 +1,7 @@
+Id,Name,FirstName,LastName,Email,UserRoleId,ManagerId,IsActive,TER_Region_Code__c
+005A001,Sarah Johnson,Sarah,Johnson,sarah.johnson@terumo.com,ROLE_MANAGER_001,,True,EMEA
+005A002,Michael Chen,Michael,Chen,michael.chen@terumo.com,ROLE_MANAGER_002,,True,EMEA
+005A003,Emma Schmidt,Emma,Schmidt,emma.schmidt@terumo.com,ROLE_MANAGER_003,,True,EMEA
+005B001,David Martinez,David,Martinez,david.martinez@terumo.com,ROLE_REP_001,005A001,True,EMEA
+005B002,Sophie Dubois,Sophie,Dubois,sophie.dubois@terumo.com,ROLE_REP_002,005A002,True,EMEA
+005C001,James Wilson,James,Wilson,james.wilson@terumo.com,ROLE_REP_003,005A003,True,EMEA

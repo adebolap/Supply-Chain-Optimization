@@ -1,0 +1,13 @@
+[
+  {"visual_type": "slicer",                    "title": "Date Range",         "x": 24,   "y": 120, "width": 370, "height": 60},
+  {"visual_type": "slicer",                    "title": "BU Event",           "x": 410,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",                    "title": "Lead Type",          "x": 686,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "slicer",                    "title": "Lead Nature",        "x": 962,  "y": 120, "width": 260, "height": 60},
+  {"visual_type": "cardVisual",                "title": "Avg Days in Queue",  "x": 24,   "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",                "title": "Avg Full Cycle Days","x": 648,  "y": 196, "width": 608, "height": 140},
+  {"visual_type": "cardVisual",                "title": "Median Cycle Days",  "x": 1272, "y": 196, "width": 624, "height": 140},
+  {"visual_type": "lineChart", "title": "Cycle Time Trend", "x": 24, "y": 352, "width": 1872, "height": 280},
+  {"visual_type": "clusteredBarChart",         "title": "Cycle Time by Country", "x": 24,  "y": 648, "width": 920, "height": 260},
+  {"visual_type": "columnChart",               "title": "Cycle Time Distribution", "x": 960, "y": 648, "width": 936, "height": 260},
+  {"visual_type": "tableEx",                   "title": "Outlier Leads Over 30 Days", "x": 24, "y": 924, "width": 1872, "height": 140}
+]

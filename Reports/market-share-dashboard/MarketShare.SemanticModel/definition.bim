@@ -1,0 +1,2822 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "annotations": [
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      },
+      {
+        "name": "DummySemanticModel",
+        "value": "true"
+      },
+      {
+        "name": "TargetReport",
+        "value": "Terumo Market Share — Where to Go / How to Win"
+      }
+    ],
+    "tables": [
+      {
+        "name": "DATA",
+        "columns": [
+          {
+            "name": "OIH Amt",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OIH Qty",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Value Type for Reporting Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Currency",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SalesAssignmentID",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Net Sales Actual",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Qty Plan",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Qty Actual",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Fiscal year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_FxRates",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final_Material",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Hierarchy Final",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Record Type",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_Branch_CountryFinalDestination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Deemed Cost",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Plan (EUR)",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FxtoEUR",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FxtoLC",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          }
+        ],
+        "measures": [
+          {
+            "name": "100pct",
+            "expression": "1",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Achvt Target",
+            "expression": "1",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Achvt Max",
+            "expression": "1.5",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Achvt Minimum",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge GP% Max",
+            "expression": "0.75",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge GP% Min",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge GP% Target",
+            "expression": "0.5",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Growth Minimum",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Growth Target",
+            "expression": "0.15",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Gauge Growth Max",
+            "expression": "0.3",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Before_last_sales_month",
+            "expression": "12",
+            "formatString": "0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DATA-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"OIH Amt\",",
+                "            \"OIH Qty\",",
+                "            \"Value Type for Reporting Text\",",
+                "            \"Currency\",",
+                "            \"Profit Center\",",
+                "            \"Customer\",",
+                "            \"SalesAssignmentID\",",
+                "            \"Date\",",
+                "            \"Net Sales Actual\",",
+                "            \"Net Sales Qty Plan\",",
+                "            \"Net Sales Qty Actual\",",
+                "            \"Fiscal year\",",
+                "            \"Index_FxRates\",",
+                "            \"Final_Material\",",
+                "            \"Product Hierarchy Final\",",
+                "            \"Customer Name\",",
+                "            \"Final Destination Text\",",
+                "            \"Final Destination\",",
+                "            \"Record Type\",",
+                "            \"Index_Branch_CountryFinalDestination\",",
+                "            \"Deemed Cost\",",
+                "            \"Net Sales Plan (EUR)\",",
+                "            \"FxtoEUR\",",
+                "            \"FxtoLC\"",
+                "        },",
+                "        {",
+                "            {120000, 150, \"Actual\", \"EUR\", \"PC-Cardio\", \"CUST001\", \"SA001\", #datetime(2025, 1, 15, 0, 0, 0), 245000, 180, 150, 2025, \"EUR-2025-01\", \"MAT001\", \"PH-CV\", \"St. Mary Hospital\", \"United Kingdom\", \"FD001\", \"Actual\", \"UK-FD001\", 132000, 260000, 1, 0.86},",
+                "            {85000, 95, \"Actual\", \"EUR\", \"PC-Access\", \"CUST002\", \"SA002\", #datetime(2025, 2, 10, 0, 0, 0), 168000, 110, 95, 2025, \"EUR-2025-02\", \"MAT002\", \"PH-ONC\", \"Dublin Clinic\", \"Ireland\", \"FD002\", \"Actual\", \"IE-FD002\", 94000, 175000, 1, 1},",
+                "            {67000, 70, \"Plan\", \"EUR\", \"PC-Cardio\", \"CUST001\", \"SA001\", #datetime(2025, 3, 5, 0, 0, 0), 0, 75, 0, 2025, \"EUR-2025-03\", \"MAT003\", \"PH-CV\", \"St. Mary Hospital\", \"United Kingdom\", \"FD001\", \"Plan\", \"UK-FD001\", 38000, 120000, 1, 0.86}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"OIH Amt\", type number},",
+                "            {\"OIH Qty\", type number},",
+                "            {\"Value Type for Reporting Text\", type text},",
+                "            {\"Currency\", type text},",
+                "            {\"Profit Center\", type text},",
+                "            {\"Customer\", type text},",
+                "            {\"SalesAssignmentID\", type text},",
+                "            {\"Date\", type datetime},",
+                "            {\"Net Sales Actual\", type number},",
+                "            {\"Net Sales Qty Plan\", type number},",
+                "            {\"Net Sales Qty Actual\", type number},",
+                "            {\"Fiscal year\", Int64.Type},",
+                "            {\"Index_FxRates\", type text},",
+                "            {\"Final_Material\", type text},",
+                "            {\"Product Hierarchy Final\", type text},",
+                "            {\"Customer Name\", type text},",
+                "            {\"Final Destination Text\", type text},",
+                "            {\"Final Destination\", type text},",
+                "            {\"Record Type\", type text},",
+                "            {\"Index_Branch_CountryFinalDestination\", type text},",
+                "            {\"Deemed Cost\", type number},",
+                "            {\"Net Sales Plan (EUR)\", type number},",
+                "            {\"FxtoEUR\", type number},",
+                "            {\"FxtoLC\", type number}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Cust",
+        "columns": [
+          {
+            "name": "Customer Account Group Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer account group Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Language key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Source System",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name 2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name 3",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Name 1",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Postal Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Region (State, Province, County)",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sort Field",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "House number and street",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Tax Number 1",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GPO Combined",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OLD NAME",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "NEW NAME",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "New_SAP",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Customer",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CITY",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Location",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Combined",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TIS Final Segmenation",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Cust-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Customer Account Group Code\",",
+                "            \"Customer account group Text\",",
+                "            \"Location\",",
+                "            \"Country\",",
+                "            \"Country Text\",",
+                "            \"Customer\",",
+                "            \"Customer Name\",",
+                "            \"Language key\",",
+                "            \"Source System\",",
+                "            \"Name 2\",",
+                "            \"Name 3\",",
+                "            \"Name 1\",",
+                "            \"Postal Code\",",
+                "            \"Region (State, Province, County)\",",
+                "            \"Sort Field\",",
+                "            \"House number and street\",",
+                "            \"Tax Number 1\",",
+                "            \"GPO Combined\",",
+                "            \"OLD NAME\",",
+                "            \"NEW NAME\",",
+                "            \"New_SAP\",",
+                "            \"Final Customer\",",
+                "            \"Final Name\",",
+                "            \"CITY\",",
+                "            \"Final Location\",",
+                "            \"Customer Combined\",",
+                "            \"TIS Final Segmenation\"",
+                "        },",
+                "        {",
+                "            {\"HOSP\", \"Hospital\", \"London\", \"GB\", \"United Kingdom\", \"CUST001\", \"St. Mary Hospital\", \"EN\", \"SAP\", \"\", \"\", \"St. Mary Hospital\", \"SW1A 1AA\", \"London\", \"1\", \"1 Queen Street\", \"GB123\", \"NHS\", \"\", \"\", \"Y\", \"FD001\", \"St. Mary Hospital\", \"London\", \"London\", \"CUST001 - St. Mary Hospital\", \"Strategic\"},",
+                "            {\"CLIN\", \"Clinic\", \"Dublin\", \"IE\", \"Ireland\", \"CUST002\", \"Dublin Clinic\", \"EN\", \"SAP\", \"\", \"\", \"Dublin Clinic\", \"D02\", \"Leinster\", \"2\", \"22 River Road\", \"IE456\", \"\", \"\", \"\", \"Y\", \"FD002\", \"Dublin Clinic\", \"Dublin\", \"Dublin\", \"CUST002 - Dublin Clinic\", \"Growth\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Customer Account Group Code\", type text},",
+                "            {\"Customer account group Text\", type text},",
+                "            {\"Location\", type text},",
+                "            {\"Country\", type text},",
+                "            {\"Country Text\", type text},",
+                "            {\"Customer\", type text},",
+                "            {\"Customer Name\", type text},",
+                "            {\"Language key\", type text},",
+                "            {\"Source System\", type text},",
+                "            {\"Name 2\", type text},",
+                "            {\"Name 3\", type text},",
+                "            {\"Name 1\", type text},",
+                "            {\"Postal Code\", type text},",
+                "            {\"Region (State, Province, County)\", type text},",
+                "            {\"Sort Field\", type text},",
+                "            {\"House number and street\", type text},",
+                "            {\"Tax Number 1\", type text},",
+                "            {\"GPO Combined\", type text},",
+                "            {\"OLD NAME\", type text},",
+                "            {\"NEW NAME\", type text},",
+                "            {\"New_SAP\", type text},",
+                "            {\"Final Customer\", type text},",
+                "            {\"Final Name\", type text},",
+                "            {\"CITY\", type text},",
+                "            {\"Final Location\", type text},",
+                "            {\"Customer Combined\", type text},",
+                "            {\"TIS Final Segmenation\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Product",
+        "columns": [
+          {
+            "name": "Material Description",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Business Unit Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Business Line Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Area Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Group Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Subgroup Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Material",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Hierarchy Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Material Code & Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Area Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center 2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center 3",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Area",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Group 1",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Group 2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Group 3",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Portfolio Category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Portfolio Category 2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Product-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Material Description\",",
+                "            \"Business Unit Text\",",
+                "            \"Business Line Text\",",
+                "            \"Product Area Text\",",
+                "            \"Product Group Text\",",
+                "            \"Product Subgroup Text\",",
+                "            \"Material\",",
+                "            \"Product Hierarchy Code\",",
+                "            \"Material Code & Name\",",
+                "            \"Product Area Code\",",
+                "            \"Profit Center\",",
+                "            \"Profit Center 2\",",
+                "            \"Profit Center 3\",",
+                "            \"Product Area\",",
+                "            \"Product Group 1\",",
+                "            \"Product Group 2\",",
+                "            \"Product Group 3\",",
+                "            \"Portfolio Category\",",
+                "            \"Portfolio Category 2\"",
+                "        },",
+                "        {",
+                "            {\"Guidewire Alpha\", \"Interventional\", \"Cardiology\", \"Coronary\", \"Guidewires\", \"Standard\", \"MAT001\", \"PH-CV\", \"MAT001 - Guidewire Alpha\", \"PA-COR\", \"PC-Cardio\", \"PC2-Cardio\", \"PC3-Cardio\", \"Coronary\", \"Cardio\", \"Guidewires\", \"Coronary Guidewires\", \"Core\", \"Growth\"},",
+                "            {\"Catheter Beta\", \"Interventional\", \"Oncology\", \"Access\", \"Catheters\", \"Specialty\", \"MAT002\", \"PH-ONC\", \"MAT002 - Catheter Beta\", \"PA-ACC\", \"PC-Access\", \"PC2-Access\", \"PC3-Access\", \"Access\", \"Oncology\", \"Catheters\", \"Specialty Catheters\", \"Focus\", \"Priority\"},",
+                "            {\"Guidewire Gamma\", \"Interventional\", \"Cardiology\", \"Coronary\", \"Guidewires\", \"Premium\", \"MAT003\", \"PH-CV\", \"MAT003 - Guidewire Gamma\", \"PA-COR\", \"PC-Cardio\", \"PC2-Cardio\", \"PC3-Cardio\", \"Coronary\", \"Cardio\", \"Guidewires\", \"Coronary Guidewires\", \"Premium\", \"Strategic\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Material Description\", type text},",
+                "            {\"Business Unit Text\", type text},",
+                "            {\"Business Line Text\", type text},",
+                "            {\"Product Area Text\", type text},",
+                "            {\"Product Group Text\", type text},",
+                "            {\"Product Subgroup Text\", type text},",
+                "            {\"Material\", type text},",
+                "            {\"Product Hierarchy Code\", type text},",
+                "            {\"Material Code & Name\", type text},",
+                "            {\"Product Area Code\", type text},",
+                "            {\"Profit Center\", type text},",
+                "            {\"Profit Center 2\", type text},",
+                "            {\"Profit Center 3\", type text},",
+                "            {\"Product Area\", type text},",
+                "            {\"Product Group 1\", type text},",
+                "            {\"Product Group 2\", type text},",
+                "            {\"Product Group 3\", type text},",
+                "            {\"Portfolio Category\", type text},",
+                "            {\"Portfolio Category 2\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Cal",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MMM",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Month",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IsCurrentMonth",
+            "dataType": "boolean",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Quarter Number",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected Products",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "Current Fiscal Year",
+            "expression": "2025",
+            "formatString": "0"
+          },
+          {
+            "name": "Last Fiscal Year",
+            "expression": "2024",
+            "formatString": "0"
+          },
+          {
+            "name": "Last 2 Fiscal Year",
+            "expression": "2023",
+            "formatString": "0"
+          },
+          {
+            "name": "Title GP 1",
+            "expression": "\"Gross Profit\""
+          },
+          {
+            "name": "Title GP 2",
+            "expression": "\"GP %\""
+          },
+          {
+            "name": "Title Actual Sales",
+            "expression": "\"Actual Sales\""
+          },
+          {
+            "name": "Title Actual GP",
+            "expression": "\"Actual GP\""
+          },
+          {
+            "name": "Title Actual GP%",
+            "expression": "\"Actual GP %\""
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Cal-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Date\",",
+                "            \"Calendar Year\",",
+                "            \"Month\",",
+                "            \"Fiscal Year\",",
+                "            \"Month Name\",",
+                "            \"MMM\",",
+                "            \"Fiscal Month\",",
+                "            \"IsCurrentMonth\",",
+                "            \"Fiscal Quarter Number\"",
+                "        },",
+                "        {",
+                "            {#datetime(2025, 1, 15, 0, 0, 0), 2025, 1, 2025, \"January\", \"Jan\", 1, false, 1},",
+                "            {#datetime(2025, 2, 10, 0, 0, 0), 2025, 2, 2025, \"February\", \"Feb\", 2, false, 1},",
+                "            {#datetime(2025, 3, 5, 0, 0, 0), 2025, 3, 2025, \"March\", \"Mar\", 3, true, 1}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Date\", type datetime},",
+                "            {\"Calendar Year\", Int64.Type},",
+                "            {\"Month\", Int64.Type},",
+                "            {\"Fiscal Year\", Int64.Type},",
+                "            {\"Month Name\", type text},",
+                "            {\"MMM\", type text},",
+                "            {\"Fiscal Month\", Int64.Type},",
+                "            {\"IsCurrentMonth\", type logical},",
+                "            {\"Fiscal Quarter Number\", Int64.Type}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Measurement Collections",
+        "columns": [],
+        "measures": [
+          {
+            "name": "FY Figures CY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures LY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures LY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures Plan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures vsPlan%",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY Figures vsPlan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures vsLY%",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY Figures vsLY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Figures vsLY2%",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY Figures vsLY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Sales LY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Sales LY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Sales Plan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Units CY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Units LY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Units LY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY Units Plan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY ASP CY",
+            "expression": "0",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "FY ASP LY",
+            "expression": "0",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "FY ASP LY2",
+            "expression": "0",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "FY ASP Plan",
+            "expression": "0",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "FY DC CY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY DC LY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY DC LY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY DC Plan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY GP CY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY GP LY",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY GP LY2",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY GP Plan",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "FY GP% CY",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY GP% LY",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY GP% LY2",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY GP% Plan",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "FY Sales CY",
+            "expression": "0",
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Measurement Collections-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "        },",
+                "        {",
+                "            {}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_market_potential",
+        "columns": [
+          {
+            "name": "region_group",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_iso2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id_",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_segment",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "procedure_group",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "qty_units_per_procedure",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "mapping_row_count",
+            "dataType": "int64",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "procedures",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "usage_rate_final",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "mapping_cardinality",
+            "dataType": "int64",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "allocation_weight",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "customer_market_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "final_destination_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "potential_units",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Pot Total Potential Units",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pot Total Potential Units (2024)",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pot Total Procedures (dedup)",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pot Realized Qty",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pot Realized Sales EUR (DNA total)",
+            "expression": "0",
+            "formatString": "€#,0"
+          },
+          {
+            "name": "Pot Gap Units",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pot Realization %",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Pot Realized Sales EUR",
+            "expression": "0",
+            "formatString": "€#,0"
+          },
+          {
+            "name": "Pot Avg Price EUR",
+            "expression": "0",
+            "formatString": "€#,0.00"
+          },
+          {
+            "name": "Pot Potential Value EUR",
+            "expression": "0",
+            "formatString": "€#,0"
+          },
+          {
+            "name": "Pot Gap EUR",
+            "expression": "0",
+            "formatString": "€#,0"
+          },
+          {
+            "name": "MS National Realization Pct",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Realization Index",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Avg Price by Category",
+            "expression": "0",
+            "formatString": "€#,0.00"
+          },
+          {
+            "name": "MS Category Revenue Share",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Customer Revenue Share",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Revenue Opportunity",
+            "expression": "0",
+            "formatString": "€#,0"
+          },
+          {
+            "name": "MS Customer Category Mix",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS National Category Mix",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Mix Index",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Category Coverage",
+            "expression": "0",
+            "formatString": "0%"
+          },
+          {
+            "name": "MS Whitespace Count",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Customer Strength Badge",
+            "expression": "\"Growth target\""
+          },
+          {
+            "name": "MS Customer Action Badge",
+            "expression": "\"Grow\""
+          },
+          {
+            "name": "MS Account Priority Score",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Weighted Opportunity Score",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Category Priority Score",
+            "expression": "0",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Target RI Value",
+            "expression": "100",
+            "formatString": "0"
+          },
+          {
+            "name": "MS Target RI Label",
+            "expression": "\"RI 100 = National average\""
+          },
+          {
+            "name": "MS Units to Target",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Units to Reach RI 50",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Units to Reach RI 75",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Units to Reach RI 100",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Units to Reach RI 150",
+            "expression": "0",
+            "formatString": "#,0"
+          },
+          {
+            "name": "MS Current vs Target Status",
+            "expression": "\"Below target\""
+          },
+          {
+            "name": "MS Estimated Share %",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Benchmark Share %",
+            "expression": "0",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "MS Benchmark Level",
+            "expression": "\"Average\""
+          },
+          {
+            "name": "MS Targetable Units",
+            "expression": "0",
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_market_potential-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"region_group\",",
+                "            \"country_code\",",
+                "            \"country_name\",",
+                "            \"country_iso2\",",
+                "            \"country_text\",",
+                "            \"customer_id_\",",
+                "            \"customer_id\",",
+                "            \"customer_name\",",
+                "            \"customer_segment\",",
+                "            \"Final Destination\",",
+                "            \"Final Destination Text\",",
+                "            \"year\",",
+                "            \"procedure_group\",",
+                "            \"terumo_category\",",
+                "            \"terumo_category_key\",",
+                "            \"qty_units_per_procedure\",",
+                "            \"mapping_row_count\",",
+                "            \"procedures\",",
+                "            \"usage_rate_final\",",
+                "            \"mapping_cardinality\",",
+                "            \"allocation_weight\",",
+                "            \"customer_market_key\",",
+                "            \"final_destination_key\",",
+                "            \"potential_units\"",
+                "        },",
+                "        {",
+                "            {\"UK-IE\", \"GB\", \"United Kingdom\", \"GB\", \"United Kingdom\", \"CUST001\", \"CUST001\", \"St. Mary Hospital\", \"Strategic\", \"FD001\", \"United Kingdom\", 2025, \"PCI\", \"Guidewires\", \"TC001\", 1.2, 2, 420, 0.68, 1, 1, \"CM001\", \"FD001\", 504},",
+                "            {\"UK-IE\", \"IE\", \"Ireland\", \"IE\", \"Ireland\", \"CUST002\", \"CUST002\", \"Dublin Clinic\", \"Growth\", \"FD002\", \"Ireland\", 2025, \"EVAR\", \"Catheters\", \"TC002\", 2.5, 1, 180, 0.54, 1, 1, \"CM002\", \"FD002\", 450}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"region_group\", type text},",
+                "            {\"country_code\", type text},",
+                "            {\"country_name\", type text},",
+                "            {\"country_iso2\", type text},",
+                "            {\"country_text\", type text},",
+                "            {\"customer_id_\", type text},",
+                "            {\"customer_id\", type text},",
+                "            {\"customer_name\", type text},",
+                "            {\"customer_segment\", type text},",
+                "            {\"Final Destination\", type text},",
+                "            {\"Final Destination Text\", type text},",
+                "            {\"year\", Int64.Type},",
+                "            {\"procedure_group\", type text},",
+                "            {\"terumo_category\", type text},",
+                "            {\"terumo_category_key\", type text},",
+                "            {\"qty_units_per_procedure\", type number},",
+                "            {\"mapping_row_count\", Int64.Type},",
+                "            {\"procedures\", type number},",
+                "            {\"usage_rate_final\", type number},",
+                "            {\"mapping_cardinality\", Int64.Type},",
+                "            {\"allocation_weight\", type number},",
+                "            {\"customer_market_key\", type text},",
+                "            {\"final_destination_key\", type text},",
+                "            {\"potential_units\", type number}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_terumo_category",
+        "columns": [
+          {
+            "name": "terumo_category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_terumo_category-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"terumo_category\",",
+                "            \"terumo_category_key\"",
+                "        },",
+                "        {",
+                "            {\"Guidewires\", \"TC001\"},",
+                "            {\"Catheters\", \"TC002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"terumo_category\", type text},",
+                "            {\"terumo_category_key\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_procedure",
+        "columns": [
+          {
+            "name": "procedure_group",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "procedure_group_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_procedure-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"procedure_group\",",
+                "            \"procedure_group_key\"",
+                "        },",
+                "        {",
+                "            {\"PCI\", \"PG001\"},",
+                "            {\"EVAR\", \"PG002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"procedure_group\", type text},",
+                "            {\"procedure_group_key\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sales_Category",
+        "columns": [
+          {
+            "name": "Customer Id",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Combined",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Segment",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CountryIso2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Terumo Category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Qty Sold",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Sales EUR",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sales_Category-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Customer Id\",",
+                "            \"Customer Name\",",
+                "            \"Customer Combined\",",
+                "            \"Customer Segment\",",
+                "            \"CountryIso2\",",
+                "            \"Country Name\",",
+                "            \"Year\",",
+                "            \"Terumo Category\",",
+                "            \"Qty Sold\",",
+                "            \"Sales EUR\"",
+                "        },",
+                "        {",
+                "            {\"CUST001\", \"St. Mary Hospital\", \"CUST001 - St. Mary Hospital\", \"Strategic\", \"GB\", \"United Kingdom\", 2025, \"Guidewires\", 150, 245000},",
+                "            {\"CUST002\", \"Dublin Clinic\", \"CUST002 - Dublin Clinic\", \"Growth\", \"IE\", \"Ireland\", 2025, \"Catheters\", 95, 168000}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Customer Id\", type text},",
+                "            {\"Customer Name\", type text},",
+                "            {\"Customer Combined\", type text},",
+                "            {\"Customer Segment\", type text},",
+                "            {\"CountryIso2\", type text},",
+                "            {\"Country Name\", type text},",
+                "            {\"Year\", Int64.Type},",
+                "            {\"Terumo Category\", type text},",
+                "            {\"Qty Sold\", type number},",
+                "            {\"Sales EUR\", type number}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "UK-IE",
+        "columns": [
+          {
+            "name": "Business Area",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Business Area Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Relevant Account Flag - For Customer column",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Relevant Account Flag - For Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Current TIS Segmentation Reference (T360)",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "New Relevant Flag",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HCO (Y/N)",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Original Sales Org",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Postal Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "House number and street",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Tax Number",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "key total",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Procedure",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Procedure Year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Number of Procedures Done",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "UK-IE-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Business Area\",",
+                "            \"Business Area Text\",",
+                "            \"Customer\",",
+                "            \"Relevant Account Flag - For Customer column\",",
+                "            \"Customer Name\",",
+                "            \"Final Destination\",",
+                "            \"Relevant Account Flag - For Final Destination\",",
+                "            \"Final Destination Text\",",
+                "            \"Current TIS Segmentation Reference (T360)\",",
+                "            \"New Relevant Flag\",",
+                "            \"HCO (Y/N)\",",
+                "            \"Original Sales Org\",",
+                "            \"Country\",",
+                "            \"Country Text\",",
+                "            \"Postal Code\",",
+                "            \"Location\",",
+                "            \"House number and street\",",
+                "            \"Tax Number\",",
+                "            \"key total\",",
+                "            \"Procedure\",",
+                "            \"Procedure Year\",",
+                "            \"Number of Procedures Done\"",
+                "        },",
+                "        {",
+                "            {\"EMEA\", \"Europe\", \"CUST001\", \"Y\", \"St. Mary Hospital\", \"FD001\", \"Y\", \"United Kingdom\", \"Strategic\", \"Y\", \"Y\", \"UK01\", \"GB\", \"United Kingdom\", \"SW1A 1AA\", \"London\", \"1 Queen Street\", \"GB123\", \"UK-FD001\", \"PCI\", 2025, 420},",
+                "            {\"EMEA\", \"Europe\", \"CUST002\", \"Y\", \"Dublin Clinic\", \"FD002\", \"Y\", \"Ireland\", \"Growth\", \"Y\", \"Y\", \"IE01\", \"IE\", \"Ireland\", \"D02\", \"Dublin\", \"22 River Road\", \"IE456\", \"IE-FD002\", \"EVAR\", 2025, 180}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Business Area\", type text},",
+                "            {\"Business Area Text\", type text},",
+                "            {\"Customer\", type text},",
+                "            {\"Relevant Account Flag - For Customer column\", type text},",
+                "            {\"Customer Name\", type text},",
+                "            {\"Final Destination\", type text},",
+                "            {\"Relevant Account Flag - For Final Destination\", type text},",
+                "            {\"Final Destination Text\", type text},",
+                "            {\"Current TIS Segmentation Reference (T360)\", type text},",
+                "            {\"New Relevant Flag\", type text},",
+                "            {\"HCO (Y/N)\", type text},",
+                "            {\"Original Sales Org\", type text},",
+                "            {\"Country\", type text},",
+                "            {\"Country Text\", type text},",
+                "            {\"Postal Code\", type text},",
+                "            {\"Location\", type text},",
+                "            {\"House number and street\", type text},",
+                "            {\"Tax Number\", type text},",
+                "            {\"key total\", type text},",
+                "            {\"Procedure\", type text},",
+                "            {\"Procedure Year\", Int64.Type},",
+                "            {\"Number of Procedures Done\", type number}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Final Destination",
+        "columns": [
+          {
+            "name": "Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final Destination Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal year",
+            "dataType": "int64",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_Branch_CountryFinalDestination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Hierarchy Final",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Final_Material",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SalesAssignmentID",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Net Sales Actual",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Qty Actual",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Qty Plan",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Net Sales Plan (EUR)",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Product Group Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Subgroup Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Hierarchy Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Area Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Profit Center 3",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Group 3",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Portfolio Category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Portfolio Category 2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Final Destination-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Final Destination\",",
+                "            \"Final Destination Text\",",
+                "            \"Customer\",",
+                "            \"Customer Name\",",
+                "            \"Fiscal year\",",
+                "            \"Profit Center\",",
+                "            \"Index_Branch_CountryFinalDestination\",",
+                "            \"Product Hierarchy Final\",",
+                "            \"Final_Material\",",
+                "            \"SalesAssignmentID\",",
+                "            \"Net Sales Actual\",",
+                "            \"Net Sales Qty Actual\",",
+                "            \"Net Sales Qty Plan\",",
+                "            \"Net Sales Plan (EUR)\",",
+                "            \"Product Group Text\",",
+                "            \"Product Subgroup Text\",",
+                "            \"Product Hierarchy Code\",",
+                "            \"Product Area Code\",",
+                "            \"Profit Center 3\",",
+                "            \"Product Group 3\",",
+                "            \"Portfolio Category\",",
+                "            \"Portfolio Category 2\"",
+                "        },",
+                "        {",
+                "            {\"FD001\", \"United Kingdom\", \"CUST001\", \"St. Mary Hospital\", 2025, \"PC-Cardio\", \"UK-FD001\", \"PH-CV\", \"MAT001\", \"SA001\", 245000, 150, 180, 260000, \"Guidewires\", \"Standard\", \"PH-CV\", \"PA-COR\", \"PC3-Cardio\", \"Coronary Guidewires\", \"Core\", \"Growth\"},",
+                "            {\"FD002\", \"Ireland\", \"CUST002\", \"Dublin Clinic\", 2025, \"PC-Access\", \"IE-FD002\", \"PH-ONC\", \"MAT002\", \"SA002\", 168000, 95, 110, 175000, \"Catheters\", \"Specialty\", \"PH-ONC\", \"PA-ACC\", \"PC3-Access\", \"Specialty Catheters\", \"Focus\", \"Priority\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Final Destination\", type text},",
+                "            {\"Final Destination Text\", type text},",
+                "            {\"Customer\", type text},",
+                "            {\"Customer Name\", type text},",
+                "            {\"Fiscal year\", Int64.Type},",
+                "            {\"Profit Center\", type text},",
+                "            {\"Index_Branch_CountryFinalDestination\", type text},",
+                "            {\"Product Hierarchy Final\", type text},",
+                "            {\"Final_Material\", type text},",
+                "            {\"SalesAssignmentID\", type text},",
+                "            {\"Net Sales Actual\", type number},",
+                "            {\"Net Sales Qty Actual\", type number},",
+                "            {\"Net Sales Qty Plan\", type number},",
+                "            {\"Net Sales Plan (EUR)\", type number},",
+                "            {\"Product Group Text\", type text},",
+                "            {\"Product Subgroup Text\", type text},",
+                "            {\"Product Hierarchy Code\", type text},",
+                "            {\"Product Area Code\", type text},",
+                "            {\"Profit Center 3\", type text},",
+                "            {\"Product Group 3\", type text},",
+                "            {\"Portfolio Category\", type text},",
+                "            {\"Portfolio Category 2\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "map_product_to_terumo_category",
+        "columns": [
+          {
+            "name": "product_group_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_subgroup_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_group_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_subgroup_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "map_product_to_terumo_category-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"product_group_text\",",
+                "            \"product_subgroup_text\",",
+                "            \"terumo_category\",",
+                "            \"product_group_key\",",
+                "            \"product_subgroup_key\",",
+                "            \"terumo_category_key\"",
+                "        },",
+                "        {",
+                "            {\"Guidewires\", \"Standard\", \"Guidewires\", \"PGK001\", \"PSK001\", \"TC001\"},",
+                "            {\"Catheters\", \"Specialty\", \"Catheters\", \"PGK002\", \"PSK002\", \"TC002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"product_group_text\", type text},",
+                "            {\"product_subgroup_text\", type text},",
+                "            {\"terumo_category\", type text},",
+                "            {\"product_group_key\", type text},",
+                "            {\"product_subgroup_key\", type text},",
+                "            {\"terumo_category_key\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "mapping_estimates_detail",
+        "columns": [
+          {
+            "name": "procedure_group",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_group_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_subgroup_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "profit_center",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "component_family",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "qty_min",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "qty_mode",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "qty_max",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "assumption_notes",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "confidence",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "terumo_category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "qty_expected",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "procedure_group_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "mapping_estimates_detail-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"procedure_group\",",
+                "            \"product_group_text\",",
+                "            \"product_subgroup_text\",",
+                "            \"profit_center\",",
+                "            \"component_family\",",
+                "            \"qty_min\",",
+                "            \"qty_mode\",",
+                "            \"qty_max\",",
+                "            \"assumption_notes\",",
+                "            \"confidence\",",
+                "            \"terumo_category\",",
+                "            \"qty_expected\",",
+                "            \"procedure_group_key\",",
+                "            \"terumo_category_key\"",
+                "        },",
+                "        {",
+                "            {\"PCI\", \"Guidewires\", \"Standard\", \"PC-Cardio\", \"Coronary\", 1, 1.2, 1.5, \"Sample assumption\", 0.8, \"Guidewires\", 1.2, \"PG001\", \"TC001\"},",
+                "            {\"EVAR\", \"Catheters\", \"Specialty\", \"PC-Access\", \"Access\", 2, 2.5, 3, \"Sample assumption\", 0.75, \"Catheters\", 2.5, \"PG002\", \"TC002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"procedure_group\", type text},",
+                "            {\"product_group_text\", type text},",
+                "            {\"product_subgroup_text\", type text},",
+                "            {\"profit_center\", type text},",
+                "            {\"component_family\", type text},",
+                "            {\"qty_min\", type number},",
+                "            {\"qty_mode\", type number},",
+                "            {\"qty_max\", type number},",
+                "            {\"assumption_notes\", type text},",
+                "            {\"confidence\", type number},",
+                "            {\"terumo_category\", type text},",
+                "            {\"qty_expected\", type number},",
+                "            {\"procedure_group_key\", type text},",
+                "            {\"terumo_category_key\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "bridge_procedure_to_terumo",
+        "columns": [
+          {
+            "name": "procedure_group_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "procedure_group",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "terumo_category",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "qty_units_per_procedure",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "mapping_row_count",
+            "dataType": "int64",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "usage_rate_final",
+            "dataType": "double",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "bridge_procedure_to_terumo-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"procedure_group_key\",",
+                "            \"terumo_category_key\",",
+                "            \"procedure_group\",",
+                "            \"terumo_category\",",
+                "            \"qty_units_per_procedure\",",
+                "            \"mapping_row_count\",",
+                "            \"usage_rate_final\"",
+                "        },",
+                "        {",
+                "            {\"PG001\", \"TC001\", \"PCI\", \"Guidewires\", 1.2, 1, 0.68},",
+                "            {\"PG002\", \"TC002\", \"EVAR\", \"Catheters\", 2.5, 1, 0.54}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"procedure_group_key\", type text},",
+                "            {\"terumo_category_key\", type text},",
+                "            {\"procedure_group\", type text},",
+                "            {\"terumo_category\", type text},",
+                "            {\"qty_units_per_procedure\", type number},",
+                "            {\"mapping_row_count\", Int64.Type},",
+                "            {\"usage_rate_final\", type number}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_customer_market",
+        "columns": [
+          {
+            "name": "customer_id_",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_iso2",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_market_key",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_customer_market-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"customer_id_\",",
+                "            \"customer_id\",",
+                "            \"customer_name\",",
+                "            \"country_iso2\",",
+                "            \"country_text\",",
+                "            \"customer_market_key\"",
+                "        },",
+                "        {",
+                "            {\"CUST001\", \"CUST001\", \"St. Mary Hospital\", \"GB\", \"United Kingdom\", \"CM001\"},",
+                "            {\"CUST002\", \"CUST002\", \"Dublin Clinic\", \"IE\", \"Ireland\", \"CM002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"customer_id_\", type text},",
+                "            {\"customer_id\", type text},",
+                "            {\"customer_name\", type text},",
+                "            {\"country_iso2\", type text},",
+                "            {\"country_text\", type text},",
+                "            {\"customer_market_key\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Target RI",
+        "columns": [
+          {
+            "name": "Value",
+            "dataType": "int64",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Target RI-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Value\"",
+                "        },",
+                "        {",
+                "            {50},",
+                "            {75},",
+                "            {100},",
+                "            {150}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Value\", Int64.Type}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shp_Dim_Country_Hierarchy",
+        "columns": [
+          {
+            "name": "Country",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cluster",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Business Area",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Direct/Distrib",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Branch Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Branch Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_Branch_CountryFinalDestination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Final Destination",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Final Destination Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Text",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Shp_Dim_Country_Hierarchy-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Country\",",
+                "            \"Region\",",
+                "            \"Cluster\",",
+                "            \"Business Area\",",
+                "            \"Direct/Distrib\",",
+                "            \"Branch Code\",",
+                "            \"Branch Name\",",
+                "            \"Index_Branch_CountryFinalDestination\",",
+                "            \"Country Final Destination\",",
+                "            \"Country Final Destination Text\",",
+                "            \"Country Text\"",
+                "        },",
+                "        {",
+                "            {\"GB\", \"Northern Europe\", \"UK-IE\", \"EMEA\", \"Direct\", \"UK01\", \"United Kingdom\", \"UK-FD001\", \"FD001\", \"United Kingdom\", \"United Kingdom\"},",
+                "            {\"IE\", \"Northern Europe\", \"UK-IE\", \"EMEA\", \"Direct\", \"IE01\", \"Ireland\", \"IE-FD002\", \"FD002\", \"Ireland\", \"Ireland\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Country\", type text},",
+                "            {\"Region\", type text},",
+                "            {\"Cluster\", type text},",
+                "            {\"Business Area\", type text},",
+                "            {\"Direct/Distrib\", type text},",
+                "            {\"Branch Code\", type text},",
+                "            {\"Branch Name\", type text},",
+                "            {\"Index_Branch_CountryFinalDestination\", type text},",
+                "            {\"Country Final Destination\", type text},",
+                "            {\"Country Final Destination Text\", type text},",
+                "            {\"Country Text\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Data_SA",
+        "columns": [
+          {
+            "name": "SalesAssignmentID",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Mail",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Reps Level",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_Reps_ProductAreaCode",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Mail - Copy",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Corrected_mail",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Mail Final",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Key Account Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Key Account Manager Mail",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Key Account Manager Name",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Branch & KAM Name",
+            "expression": "\"Branch / KAM\""
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Data_SA-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"SalesAssignmentID\",",
+                "            \"Sales Representative Mail\",",
+                "            \"Sales Representative Code\",",
+                "            \"Sales Representative Name\",",
+                "            \"Sales Reps Level\",",
+                "            \"Index_Reps_ProductAreaCode\",",
+                "            \"Sales Representative Mail - Copy\",",
+                "            \"Corrected_mail\",",
+                "            \"Sales Representative Mail Final\",",
+                "            \"Key Account Manager\",",
+                "            \"Key Account Manager Mail\",",
+                "            \"Key Account Manager Name\"",
+                "        },",
+                "        {",
+                "            {\"SA001\", \"alice@example.com\", \"REP001\", \"Alice Smith\", \"Territory\", \"REP001-PA-COR\", \"alice@example.com\", \"alice@example.com\", \"alice@example.com\", \"KAM001\", \"kam.uk@example.com\", \"James Carter\"},",
+                "            {\"SA002\", \"brenda@example.com\", \"REP002\", \"Brenda Walsh\", \"Territory\", \"REP002-PA-ACC\", \"brenda@example.com\", \"brenda@example.com\", \"brenda@example.com\", \"KAM002\", \"kam.ie@example.com\", \"Nora Doyle\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"SalesAssignmentID\", type text},",
+                "            {\"Sales Representative Mail\", type text},",
+                "            {\"Sales Representative Code\", type text},",
+                "            {\"Sales Representative Name\", type text},",
+                "            {\"Sales Reps Level\", type text},",
+                "            {\"Index_Reps_ProductAreaCode\", type text},",
+                "            {\"Sales Representative Mail - Copy\", type text},",
+                "            {\"Corrected_mail\", type text},",
+                "            {\"Sales Representative Mail Final\", type text},",
+                "            {\"Key Account Manager\", type text},",
+                "            {\"Key Account Manager Mail\", type text},",
+                "            {\"Key Account Manager Name\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shp_Dim_SalesRep_Hierarchy",
+        "columns": [
+          {
+            "name": "Business Area Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Email Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Number Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Name Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee email Regional Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Name Regional Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Number Regional Sales Manager",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Number Sales Reps",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Name Sales Reps",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Area Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Index_Reps_ProductAreaCode",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee email Sales Reps",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Organisation",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Representative Code",
+            "dataType": "string",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Shp_Dim_SalesRep_Hierarchy-Empty",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {",
+                "            \"Business Area Code\",",
+                "            \"Employee Email Sales Manager\",",
+                "            \"Employee Number Sales Manager\",",
+                "            \"Employee Name Sales Manager\",",
+                "            \"Employee email Regional Sales Manager\",",
+                "            \"Employee Name Regional Sales Manager\",",
+                "            \"Employee Number Regional Sales Manager\",",
+                "            \"Employee Number Sales Reps\",",
+                "            \"Employee Name Sales Reps\",",
+                "            \"Product Area Code\",",
+                "            \"Index_Reps_ProductAreaCode\",",
+                "            \"Employee email Sales Reps\",",
+                "            \"Sales Organisation\",",
+                "            \"Sales Representative Code\"",
+                "        },",
+                "        {",
+                "            {\"EMEA\", \"manager.uk@example.com\", \"SM001\", \"Emma Brown\", \"regional.uk@example.com\", \"Olivia Green\", \"RSM001\", \"REP001\", \"Alice Smith\", \"PA-COR\", \"REP001-PA-COR\", \"alice@example.com\", \"UK01\", \"REP001\"},",
+                "            {\"EMEA\", \"manager.ie@example.com\", \"SM002\", \"Liam Kelly\", \"regional.ie@example.com\", \"Sofia Byrne\", \"RSM002\", \"REP002\", \"Brenda Walsh\", \"PA-ACC\", \"REP002-PA-ACC\", \"brenda@example.com\", \"IE01\", \"REP002\"}",
+                "        }",
+                "    ),",
+                "    Typed = Table.TransformColumnTypes(",
+                "        Source,",
+                "        {",
+                "            {\"Business Area Code\", type text},",
+                "            {\"Employee Email Sales Manager\", type text},",
+                "            {\"Employee Number Sales Manager\", type text},",
+                "            {\"Employee Name Sales Manager\", type text},",
+                "            {\"Employee email Regional Sales Manager\", type text},",
+                "            {\"Employee Name Regional Sales Manager\", type text},",
+                "            {\"Employee Number Regional Sales Manager\", type text},",
+                "            {\"Employee Number Sales Reps\", type text},",
+                "            {\"Employee Name Sales Reps\", type text},",
+                "            {\"Product Area Code\", type text},",
+                "            {\"Index_Reps_ProductAreaCode\", type text},",
+                "            {\"Employee email Sales Reps\", type text},",
+                "            {\"Sales Organisation\", type text},",
+                "            {\"Sales Representative Code\", type text}",
+                "        }",
+                "    )",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "toColumn": "Customer",
+        "toTable": "Dim_Cust",
+        "fromColumn": "customer_id",
+        "name": "fact_market_potential_customer_id_to_Dim_Cust_Customer",
+        "fromTable": "fact_market_potential"
+      },
+      {
+        "toColumn": "terumo_category",
+        "toTable": "dim_terumo_category",
+        "fromColumn": "terumo_category",
+        "name": "fact_market_potential_terumo_category_to_dim_terumo_category_terumo_category",
+        "fromTable": "fact_market_potential"
+      },
+      {
+        "toColumn": "procedure_group",
+        "toTable": "dim_procedure",
+        "fromColumn": "procedure_group",
+        "name": "fact_market_potential_procedure_group_to_dim_procedure_procedure_group",
+        "fromTable": "fact_market_potential"
+      },
+      {
+        "toColumn": "customer_market_key",
+        "toTable": "dim_customer_market",
+        "fromColumn": "customer_market_key",
+        "name": "fact_market_potential_customer_market_key_to_dim_customer_market_customer_market_key",
+        "fromTable": "fact_market_potential"
+      },
+      {
+        "toColumn": "Customer",
+        "toTable": "Dim_Cust",
+        "fromColumn": "Customer Id",
+        "name": "Sales_Category_Customer_Id_to_Dim_Cust_Customer",
+        "fromTable": "Sales_Category"
+      },
+      {
+        "toColumn": "terumo_category",
+        "toTable": "dim_terumo_category",
+        "fromColumn": "Terumo Category",
+        "name": "Sales_Category_Terumo_Category_to_dim_terumo_category_terumo_category",
+        "fromTable": "Sales_Category"
+      },
+      {
+        "name": "DATA_Customer_to_Dim_Cust_Customer",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "Customer",
+        "toTable": "Dim_Cust",
+        "toColumn": "Customer",
+        "fromTable": "DATA"
+      },
+      {
+        "toColumn": "Material",
+        "toTable": "Dim_Product",
+        "fromColumn": "Final_Material",
+        "name": "DATA_Final_Material_to_Dim_Product_Material",
+        "fromTable": "DATA"
+      },
+      {
+        "toColumn": "Date",
+        "toTable": "Dim_Cal",
+        "fromColumn": "Date",
+        "name": "DATA_Date_to_Dim_Cal_Date",
+        "fromTable": "DATA"
+      },
+      {
+        "toColumn": "Customer",
+        "toTable": "Dim_Cust",
+        "fromColumn": "Customer",
+        "name": "UK_IE_Customer_to_Dim_Cust_Customer",
+        "fromTable": "UK-IE"
+      },
+      {
+        "toColumn": "Customer",
+        "toTable": "Dim_Cust",
+        "fromColumn": "Customer",
+        "name": "Final_Destination_Customer_to_Dim_Cust_Customer",
+        "fromTable": "Final Destination"
+      },
+      {
+        "toColumn": "terumo_category",
+        "toTable": "dim_terumo_category",
+        "fromColumn": "terumo_category",
+        "name": "mapping_estimates_detail_terumo_category_to_dim_terumo_category_terumo_category",
+        "fromTable": "mapping_estimates_detail"
+      },
+      {
+        "toColumn": "procedure_group",
+        "toTable": "dim_procedure",
+        "fromColumn": "procedure_group",
+        "name": "mapping_estimates_detail_procedure_group_to_dim_procedure_procedure_group",
+        "fromTable": "mapping_estimates_detail"
+      }
+    ]
+  }
+}

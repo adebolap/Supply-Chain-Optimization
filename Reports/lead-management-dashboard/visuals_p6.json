@@ -1,0 +1,6 @@
+[
+  {"visual_type": "tableEx",   "title": "Lead Detail List",          "x": 24,  "y": 120, "width": 1872, "height": 320},
+  {"visual_type": "textbox",   "title": "Activity Timeline",         "x": 24,  "y": 456, "width": 920,  "height": 260},
+  {"visual_type": "cardVisual","title": "Action Items & Alerts",     "x": 960, "y": 456, "width": 936,  "height": 260},
+  {"visual_type": "lineChart", "title": "Lead Score History",        "x": 24,  "y": 732, "width": 1872, "height": 300}
+]

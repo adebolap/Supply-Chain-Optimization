@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "LeadManagement"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c4d39d46-f66c-4170-9ac1-65fec1c6411a"
+  }
+}

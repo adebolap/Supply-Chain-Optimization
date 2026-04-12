@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "MarketShare",
+    "description": "Dummy semantic model used to keep the MarketShare PBIP transferable before the real model is attached."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a0d2d53d-e2a6-4631-8e5e-541cf825e574"
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "name": "p4-tbl",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Cust"
+                    }
+                  },
+                  "Property": "Customer Name"
+                }
+              },
+              "queryRef": "Dim_Cust.Customer Name",
+              "nativeQueryRef": "Customer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "customer_segment"
+                }
+              },
+              "queryRef": "fact_market_potential.customer_segment",
+              "nativeQueryRef": "customer_segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Shp_Dim_Country_Hierarchy"
+                    }
+                  },
+                  "Property": "Country Text"
+                }
+              },
+              "queryRef": "Shp_Dim_Country_Hierarchy.Country Text",
+              "nativeQueryRef": "Country Text"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Realized Qty"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Realized Qty",
+              "nativeQueryRef": "Pot Realized Qty"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Realized Sales EUR"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Realized Sales EUR",
+              "nativeQueryRef": "Pot Realized Sales EUR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Realization Index"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Realization Index",
+              "nativeQueryRef": "MS Realization Index"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Gap Units"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Gap Units",
+              "nativeQueryRef": "Pot Gap Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Gap EUR"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Gap EUR",
+              "nativeQueryRef": "Pot Gap EUR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Customer Priority in Category"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Customer Priority in Category",
+              "nativeQueryRef": "MS Customer Priority in Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Customer Action in Category"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Customer Action in Category",
+              "nativeQueryRef": "MS Customer Action in Category"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_market_potential",
+                          "Schema": "extension"
+                        }
+                      },
+                      "Property": "_CF RI BG"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer Detail by Category'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#475569'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 16,
+    "y": 480,
+    "z": 0,
+    "width": 1248,
+    "height": 224,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

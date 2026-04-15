@@ -1,0 +1,195 @@
+{
+  "name": "p1-tbl",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Shp_Dim_Country_Hierarchy"
+                    }
+                  },
+                  "Property": "Country Text"
+                }
+              },
+              "queryRef": "Shp_Dim_Country_Hierarchy.Country Text",
+              "nativeQueryRef": "Country Text"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Realized Sales EUR"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Realized Sales EUR",
+              "nativeQueryRef": "Pot Realized Sales EUR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Realization Index"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Realization Index",
+              "nativeQueryRef": "MS Realization Index"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Gap EUR"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Gap EUR",
+              "nativeQueryRef": "Pot Gap EUR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Growth Target Account Count"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Growth Target Account Count",
+              "nativeQueryRef": "MS Growth Target Account Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Champion Account Count"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Champion Account Count",
+              "nativeQueryRef": "MS Champion Account Count"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Country Summary'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#475569'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 640,
+    "y": 480,
+    "z": 0,
+    "width": 624,
+    "height": 208,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

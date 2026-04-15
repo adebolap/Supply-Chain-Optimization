@@ -1,0 +1,106 @@
+{
+  "name": "p5-bar-tgt",
+  "visual": {
+    "visualType": "stackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_terumo_category"
+                    }
+                  },
+                  "Property": "terumo_category"
+                }
+              },
+              "queryRef": "dim_terumo_category.terumo_category",
+              "nativeQueryRef": "terumo_category"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "Pot Realized Qty"
+                }
+              },
+              "queryRef": "fact_market_potential.Pot Realized Qty",
+              "nativeQueryRef": "Pot Realized Qty"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_market_potential"
+                    }
+                  },
+                  "Property": "MS Units to Target"
+                }
+              },
+              "queryRef": "fact_market_potential.MS Units to Target",
+              "nativeQueryRef": "MS Units to Target"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current vs Target Units'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 16,
+    "y": 568,
+    "z": 0,
+    "width": 1248,
+    "height": 136,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

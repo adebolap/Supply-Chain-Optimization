@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json",
+  "name": "extension",
+  "entities": [
+    {
+      "name": "fact_market_potential",
+      "measures": [
+        {
+          "name": "_CF RI BG",
+          "expression": "VAR ri = [MS Realization Index]\nRETURN\nSWITCH(TRUE(),\n    ISBLANK(ri),        BLANK(),\n    ri < 50,            \"#FCEBEB\",\n    ri < 80,            \"#FAEEDA\",\n    ri < 100,           \"#FFF8E1\",\n    ri < 150,           \"#EAF3DE\",\n    \"#C0DD97\"\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF RI Text",
+          "expression": "VAR ri = [MS Realization Index]\nRETURN\nSWITCH(TRUE(),\n    ISBLANK(ri),        BLANK(),\n    ri < 50,            \"#791F1F\",\n    ri < 80,            \"#633806\",\n    ri < 100,           \"#633806\",\n    ri < 150,           \"#27500A\",\n    \"#173404\"\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF Action BG",
+          "expression": "SWITCH([MS Customer Action Badge],\n    \"Protect\",          \"#EAF3DE\",\n    \"Maintain\",         \"#E1F5EE\",\n    \"Monitor\",          \"#FAEEDA\",\n    \"Grow\",             \"#FCEBEB\",\n    BLANK()\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF Action Text",
+          "expression": "SWITCH([MS Customer Action Badge],\n    \"Protect\",          \"#27500A\",\n    \"Maintain\",         \"#085041\",\n    \"Monitor\",          \"#633806\",\n    \"Grow\",             \"#791F1F\",\n    BLANK()\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF CatAction BG",
+          "expression": "SWITCH([MS Customer Action in Category],\n    \"Priority Target\",      \"#FCEBEB\",\n    \"Growth Opportunity\",   \"#FAEEDA\",\n    \"Capture Remaining\",    \"#E6F1FB\",\n    \"Protect Position\",     \"#EAF3DE\",\n    \"Fully Penetrated\",     \"#EAF3DE\",\n    BLANK()\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF TargetStatus BG",
+          "expression": "SWITCH([MS Current vs Target Status],\n    \"Achieved\",             \"#C0DD97\",\n    \"Near target\",          \"#EAF3DE\",\n    \"Halfway\",              \"#FAEEDA\",\n    \"Below target\",         \"#FCEBEB\",\n    BLANK()\n)",
+          "dataType": "Text"
+        },
+        {
+          "name": "_CF RI Bar",
+          "expression": "VAR ri = [MS Realization Index]\nRETURN\nSWITCH(TRUE(),\n    ISBLANK(ri),    BLANK(),\n    ri < 50,        \"#E24B4A\",\n    ri < 100,       \"#EF9F27\",\n    ri < 150,       \"#5DCAA5\",\n    \"#1D9E75\"\n)",
+          "dataType": "Text"
+        }
+      ]
+    }
+  ]
+}

@@ -397,6 +397,63 @@ Copy it from the market-share-dashboard folder, swap project-specific names.
 
 ---
 
+## pbir CLI v0.9.7 — Confirmed command changes (April 2026)
+
+### `pbir add visual` — correct flags
+```bash
+# CORRECT: --width and --height (not --w/--h); --name for explicit ID
+pbir -q add visual VTYPE "Report.Report/Page.Page" \
+  --title "Title" --name "my-short-id" \
+  --x 16 --y 120 --width 408 --height 40
+
+# Explicit --name avoids schema validation failures from long auto-generated slugs
+# Non-hex names generate a UserWarning but are functional
+```
+
+### `pbir visuals bind` — replaces `pbir dax bind`
+```bash
+# CORRECT command name is: pbir visuals bind (NOT pbir dax bind)
+pbir -q visuals bind "Report.Report/Page.Page/visual-id.Visual" \
+  --add "Role:Table.FieldOrMeasure" --type Column --no-validate
+# --type: Column | Measure
+# Use --clear Role before --add to overwrite single-field roles (Category, X, Y, Size)
+```
+
+### Confirmed role names per visual type
+
+| Visual type     | Role       | Type   | Notes |
+|---|---|---|---|
+| slicer          | Values     | Column | NOT "Field" |
+| cardVisual      | Data       | Measure | NOT "Values" |
+| clusteredBarChart | Category | Column | max 1; clear before re-add |
+| clusteredBarChart | Y        | Measure | multiple allowed |
+| treemap         | Category   | Column | NOT "Group" |
+| treemap         | Values     | Measure | |
+| scatterChart    | X          | Measure | max 1 |
+| scatterChart    | Y          | Measure | max 1 |
+| scatterChart    | Size       | Measure | max 1 |
+| scatterChart    | Category   | Column | label (replaces "Details") |
+| scatterChart    | Legend     | Column | ONLY columns; measures not allowed |
+| tableEx         | Values     | Column or Measure | multiple allowed |
+| stackedBarChart | Category   | Column | max 1; clear before re-add |
+| stackedBarChart | Y          | Measure | multiple allowed |
+
+### subprocess calls to pbir.exe from Python
+Strip PYTHON* env vars to avoid Python version conflicts with frozen .exe:
+```python
+_ENV = {k: v for k, v in os.environ.items() if not k.startswith("PYTHON")}
+r = subprocess.run(cmd, capture_output=True, cwd=CWD, env=_ENV)
+out = (r.stdout or b"").decode("utf-8", errors="replace")
+```
+
+### Textbox schema fix
+Textboxes copied via `pbir cp` retain schema `2.2.0`. Upgrade to `2.7.0`:
+```python
+d["$schema"] = "https://developer.microsoft.com/.../visualContainer/2.7.0/schema.json"
+```
+
+---
+
 ## Standard Formatting Playbook Reference
 
 See: `C:\Users\adebo\Reports\STANDARD_FORMAT_PLAYBOOK.sh`

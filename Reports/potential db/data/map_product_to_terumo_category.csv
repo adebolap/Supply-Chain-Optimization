@@ -1,0 +1,17 @@
+product_group_text,product_subgroup_text,terumo_category,product_group_key,product_subgroup_key,terumo_category_key
+Coronary Guidewires,Runthrough,Guide Wires,PGK_COR,PSK_RUN,TC002
+Coronary Guidewires,Sion,Guide Wires,PGK_COR,PSK_SIO,TC002
+Coronary Guidewires,Glidewire Adv,Guide Wires,PGK_COR,PSK_GLI,TC002
+Guiding Catheters,Heartrail,Guiding Catheters,PGK_GUI,PSK_HEA,TC001
+Guiding Catheters,Vista Brite Tip,Guiding Catheters,PGK_GUI,PSK_VIS,TC001
+Balloon Catheters,Ryurei,PTCA Balloon Catheters,PGK_BAL,PSK_RYU,TC003
+Balloon Catheters,Hiryu Plus,PTCA Balloon Catheters,PGK_BAL,PSK_HIR,TC003
+Drug-Eluting Stents,Ultimaster Tansei,Drug-Eluting Stents,PGK_DRU,PSK_ULT,TC004
+Diagnostic Catheters,Optitorque,Diagnostic Catheters,PGK_DIA,PSK_OPT,TC005
+Microcatheters,Progreat,Microcatheters,PGK_MIC,PSK_PRO,TC006
+Microcatheters,Finecross,Microcatheters,PGK_MIC,PSK_FIN,TC006
+Access,Glidesheath Slender,Introducer Sheaths,PGK_ACC,PSK_GLI,TC007
+Access,RadiForce,Introducer Sheaths,PGK_ACC,PSK_RAD,TC007
+Hemostasis,TR Band,Hemostasis Valves,PGK_HEM,PSK_TR ,TC008
+Inflation,Kushi III,Inflation Devices,PGK_INF,PSK_KUS,TC009
+Radial Kits,Radial Kit Pro,Radial Access Kits,PGK_RAD,PSK_RAD,TC010

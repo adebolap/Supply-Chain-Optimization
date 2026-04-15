@@ -1,0 +1,27 @@
+procedure_group_key,terumo_category_key,procedure_group,terumo_category,qty_units_per_procedure,mapping_row_count,usage_rate_final
+PG001,TC001,PCI - Coronary,Guiding Catheters,1.2,1,0.95
+PG001,TC002,PCI - Coronary,Guide Wires,2.0,1,0.98
+PG001,TC003,PCI - Coronary,PTCA Balloon Catheters,1.5,1,0.85
+PG001,TC004,PCI - Coronary,Drug-Eluting Stents,1.3,1,0.7
+PG001,TC009,PCI - Coronary,Inflation Devices,1.0,1,0.9
+PG001,TC008,PCI - Coronary,Hemostasis Valves,1.0,1,0.8
+PG001,TC010,PCI - Coronary,Radial Access Kits,1.0,1,0.6
+PG002,TC001,PCI - Complex,Guiding Catheters,1.5,1,0.98
+PG002,TC002,PCI - Complex,Guide Wires,3.0,1,0.99
+PG002,TC003,PCI - Complex,PTCA Balloon Catheters,2.0,1,0.9
+PG002,TC004,PCI - Complex,Drug-Eluting Stents,2.0,1,0.8
+PG002,TC006,PCI - Complex,Microcatheters,1.0,1,0.65
+PG003,TC005,Diagnostic Angiography,Diagnostic Catheters,2.0,1,0.95
+PG003,TC002,Diagnostic Angiography,Guide Wires,1.5,1,0.9
+PG003,TC007,Diagnostic Angiography,Introducer Sheaths,1.0,1,0.85
+PG003,TC008,Diagnostic Angiography,Hemostasis Valves,1.0,1,0.7
+PG003,TC010,Diagnostic Angiography,Radial Access Kits,1.0,1,0.5
+PG004,TC002,Peripheral Intervention,Guide Wires,2.5,1,0.9
+PG004,TC007,Peripheral Intervention,Introducer Sheaths,1.5,1,0.8
+PG004,TC003,Peripheral Intervention,PTCA Balloon Catheters,1.0,1,0.6
+PG005,TC006,Neurovascular Intervention,Microcatheters,2.0,1,0.95
+PG005,TC002,Neurovascular Intervention,Guide Wires,2.0,1,0.9
+PG006,TC007,Structural Heart,Introducer Sheaths,2.0,1,0.85
+PG006,TC002,Structural Heart,Guide Wires,1.0,1,0.7
+PG007,TC005,Electrophysiology,Diagnostic Catheters,3.0,1,0.8
+PG007,TC007,Electrophysiology,Introducer Sheaths,1.0,1,0.75

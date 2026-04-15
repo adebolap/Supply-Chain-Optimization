@@ -1,0 +1,237 @@
+// hardening_validation_queries.dax
+// Market Potential Model Hardening — Validation Queries
+// Run each block in DAX Studio against the live model after running model_hardening_v1.csx
+// ─────────────────────────────────────────────────────────────────────────────
+
+
+// ── CHECK 1: Segment Parity ───────────────────────────────────────────────────
+// Compare legacy TIS segmentation vs new Benchmark Segment for all customers.
+// Rows where they differ need a signed decision: which is source of truth?
+// Pass: either exact parity across all rows, OR a documented decision.
+
+EVALUATE
+ADDCOLUMNS (
+    FILTER (
+        SUMMARIZE (
+            Dim_Cust,
+            Dim_Cust[Customer],
+            Dim_Cust[Customer Name],
+            Dim_Cust[Country Text],
+            Dim_Cust[TIS Final Segmenation],
+            Dim_Cust[Benchmark Segment]
+        ),
+        NOT ISBLANK ( Dim_Cust[Benchmark Segment] )
+    ),
+    "Segment Match",
+        IF (
+            Dim_Cust[TIS Final Segmenation] = Dim_Cust[Benchmark Segment],
+            "MATCH",
+            "MISMATCH"
+        )
+)
+ORDER BY [Segment Match] DESC, Dim_Cust[Country Text], Dim_Cust[Customer Name]
+
+
+// ── CHECK 2a: Dim_Cust key uniqueness ─────────────────────────────────────────
+// Should return 0. Any rows here mean duplicates in the lookup table.
+
+EVALUATE
+SUMMARIZE (
+    FILTER (
+        ADDCOLUMNS (
+            ALL ( Dim_Cust[Customer] ),
+            "Count", CALCULATE ( COUNTROWS ( Dim_Cust ) )
+        ),
+        [Count] > 1
+    ),
+    Dim_Cust[Customer],
+    [Count]
+)
+
+
+// ── CHECK 2b: dim_terumo_category key uniqueness ──────────────────────────────
+
+EVALUATE
+SUMMARIZE (
+    FILTER (
+        ADDCOLUMNS (
+            ALL ( dim_terumo_category[terumo_category] ),
+            "Count", CALCULATE ( COUNTROWS ( dim_terumo_category ) )
+        ),
+        [Count] > 1
+    ),
+    dim_terumo_category[terumo_category],
+    [Count]
+)
+
+
+// ── CHECK 2c: dim_procedure key uniqueness ────────────────────────────────────
+
+EVALUATE
+SUMMARIZE (
+    FILTER (
+        ADDCOLUMNS (
+            ALL ( dim_procedure[procedure_group] ),
+            "Count", CALCULATE ( COUNTROWS ( dim_procedure ) )
+        ),
+        [Count] > 1
+    ),
+    dim_procedure[procedure_group],
+    [Count]
+)
+
+
+// ── CHECK 2d: dim_customer_market key uniqueness ──────────────────────────────
+
+EVALUATE
+SUMMARIZE (
+    FILTER (
+        ADDCOLUMNS (
+            ALL ( dim_customer_market[customer_market_key] ),
+            "Count", CALCULATE ( COUNTROWS ( dim_customer_market ) )
+        ),
+        [Count] > 1
+    ),
+    dim_customer_market[customer_market_key],
+    [Count]
+)
+
+
+// ── CHECK 3: Benchmark Reconciliation (sample 30 accounts) ───────────────────
+// For manual spot-check: compare key measures side by side.
+// Sort by RI and review top/bottom extremes for plausibility.
+
+EVALUATE
+ADDCOLUMNS (
+    TOPN (
+        30,
+        SUMMARIZE (
+            fact_market_potential,
+            Dim_Cust[Customer],
+            Dim_Cust[Customer Name],
+            Dim_Cust[Country Text],
+            Dim_Cust[Benchmark Segment]
+        ),
+        [MS Realization Index]
+    ),
+    "Realized Qty",       [Pot Realized Qty],
+    "Potential Units",    [Pot Total Potential Units (Latest)],
+    "Estimated Share %",  [MS Estimated Share %],
+    "Benchmark Share %",  [MS Benchmark Share %],
+    "Benchmark Level",    [MS Benchmark Level],
+    "RI",                 [MS Realization Index]
+)
+ORDER BY [RI]
+
+
+// ── CHECK 4: Priority Sanity — Top 20 accounts ───────────────────────────────
+// Review with sales leadership. Rankings should be commercially sensible.
+// No high-gap account should be absent from the top 20.
+
+EVALUATE
+TOPN (
+    20,
+    ADDCOLUMNS (
+        SUMMARIZE (
+            fact_market_potential,
+            Dim_Cust[Customer],
+            Dim_Cust[Customer Name],
+            Dim_Cust[Country Text],
+            Dim_Cust[Benchmark Segment]
+        ),
+        "Priority Score",       [MS Account Priority Score],
+        "Gap EUR",              [Pot Gap EUR],
+        "Realized Sales EUR",   [Pot Realized Sales EUR],
+        "RI",                   [MS Realization Index],
+        "Benchmark Level",      [MS Benchmark Level],
+        "Benchmark Quality",    [MS Benchmark Quality Weight]
+    ),
+    [Priority Score], DESC
+)
+ORDER BY [Priority Score] DESC
+
+
+// ── CHECK 4b: Top 20 customer-category combinations ──────────────────────────
+
+EVALUATE
+TOPN (
+    20,
+    ADDCOLUMNS (
+        SUMMARIZE (
+            fact_market_potential,
+            Dim_Cust[Customer Name],
+            Dim_Cust[Country Text],
+            dim_terumo_category[terumo_category]
+        ),
+        "Category Priority",    [MS Customer Priority in Category],
+        "Gap EUR",              [Pot Gap EUR],
+        "RI",                   [MS Realization Index],
+        "Revenue Importance",   [MS Customer Revenue Share]
+    ),
+    [Category Priority], DESC
+)
+ORDER BY [Category Priority] DESC
+
+
+// ── CHECK 5: Filter Propagation ───────────────────────────────────────────────
+// Test that sales and potential measures move consistently for a single country.
+// Replace "NL" with a country code that has good data coverage in your model.
+
+EVALUATE
+CALCULATETABLE (
+    ADDCOLUMNS (
+        SUMMARIZE (
+            fact_market_potential,
+            dim_terumo_category[terumo_category]
+        ),
+        "Realized Sales EUR",   [Pot Realized Sales EUR],
+        "Potential Units",      [Pot Total Potential Units (Latest)],
+        "Gap EUR",              [Pot Gap EUR],
+        "RI",                   [MS Realization Index]
+    ),
+    Dim_Cust[Country Text] = "Netherlands"  -- replace with a valid country name
+)
+ORDER BY [Realized Sales EUR] DESC
+
+
+// ── CHECK 6: Sparse Cohort — Benchmark Level Distribution ────────────────────
+// Shows how benchmark levels distribute across the data.
+// Many "National" rows in large countries = potential model coverage gap.
+// Many "National" rows in small countries = expected and acceptable.
+
+EVALUATE
+ADDCOLUMNS (
+    SUMMARIZE (
+        ADDCOLUMNS (
+            SUMMARIZE (
+                fact_market_potential,
+                Dim_Cust[Customer],
+                Dim_Cust[Country Text],
+                Dim_Cust[Benchmark Segment]
+            ),
+            "Benchmark Level", [MS Benchmark Level]
+        ),
+        [Benchmark Level],
+        Dim_Cust[Country Text]
+    ),
+    "Customer Count", CALCULATE ( DISTINCTCOUNT ( Dim_Cust[Customer] ) )
+)
+ORDER BY Dim_Cust[Country Text], [Benchmark Level]
+
+
+// ── CHECK 7: TAM comparison — old CROSSJOIN vs new SUMMARIZE ─────────────────
+// Compare the new TAM measure to the old one at country level.
+// Large differences indicate the CROSSJOIN was including phantom combinations.
+// (Requires old measure to still be available under a different name.)
+
+EVALUATE
+ADDCOLUMNS (
+    SUMMARIZE (
+        fact_market_potential,
+        Dim_Cust[Country Text]
+    ),
+    "TAM EUR (new SUMMARIZE)", [MS Total Addressable Market EUR],
+    "Gap EUR",                 [Pot Gap EUR],
+    "Realized EUR",            [Pot Realized Sales EUR]
+)
+ORDER BY [TAM EUR (new SUMMARIZE)] DESC

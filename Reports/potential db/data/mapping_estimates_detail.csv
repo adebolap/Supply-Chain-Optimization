@@ -1,0 +1,50 @@
+procedure_group,product_group_text,product_subgroup_text,profit_center,component_family,qty_min,qty_mode,qty_max,assumption_notes,confidence,terumo_category,qty_expected,procedure_group_key,terumo_category_key
+PCI - Coronary,Guiding Catheters,Heartrail,PC102,Heartrail,0.7,1.2,2.2,Based on clinical protocol for PCI - Coronary,Medium,Guiding Catheters,1.2,PG001,TC001
+PCI - Coronary,Guiding Catheters,Vista Brite Tip,PC102,Vista Brite Tip,0.7,1.2,2.2,Based on clinical protocol for PCI - Coronary,High,Guiding Catheters,1.2,PG001,TC001
+PCI - Coronary,Coronary Guidewires,Runthrough,PC101,Runthrough,1.5,2.0,3.0,Based on clinical protocol for PCI - Coronary,High,Guide Wires,2.0,PG001,TC002
+PCI - Coronary,Coronary Guidewires,Sion,PC101,Sion,1.5,2.0,3.0,Based on clinical protocol for PCI - Coronary,Low,Guide Wires,2.0,PG001,TC002
+PCI - Coronary,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,1.5,2.0,3.0,Based on clinical protocol for PCI - Coronary,Low,Guide Wires,2.0,PG001,TC002
+PCI - Coronary,Balloon Catheters,Ryurei,PC103,Ryurei,1.0,1.5,2.5,Based on clinical protocol for PCI - Coronary,Low,PTCA Balloon Catheters,1.5,PG001,TC003
+PCI - Coronary,Balloon Catheters,Hiryu Plus,PC103,Hiryu Plus,1.0,1.5,2.5,Based on clinical protocol for PCI - Coronary,Medium,PTCA Balloon Catheters,1.5,PG001,TC003
+PCI - Coronary,Drug-Eluting Stents,Ultimaster Tansei,PC104,Ultimaster Tansei,0.8,1.3,2.3,Based on clinical protocol for PCI - Coronary,Medium,Drug-Eluting Stents,1.3,PG001,TC004
+PCI - Coronary,Inflation,Kushi III,PC109,Kushi III,0.5,1.0,2.0,Based on clinical protocol for PCI - Coronary,Medium,Inflation Devices,1.0,PG001,TC009
+PCI - Coronary,Hemostasis,TR Band,PC108,TR Band,0.5,1.0,2.0,Based on clinical protocol for PCI - Coronary,High,Hemostasis Valves,1.0,PG001,TC008
+PCI - Coronary,Radial Kits,Radial Kit Pro,PC110,Radial Kit Pro,0.5,1.0,2.0,Based on clinical protocol for PCI - Coronary,Low,Radial Access Kits,1.0,PG001,TC010
+PCI - Complex,Guiding Catheters,Heartrail,PC102,Heartrail,1.0,1.5,2.5,Based on clinical protocol for PCI - Complex,Low,Guiding Catheters,1.5,PG002,TC001
+PCI - Complex,Guiding Catheters,Vista Brite Tip,PC102,Vista Brite Tip,1.0,1.5,2.5,Based on clinical protocol for PCI - Complex,Medium,Guiding Catheters,1.5,PG002,TC001
+PCI - Complex,Coronary Guidewires,Runthrough,PC101,Runthrough,2.5,3.0,4.0,Based on clinical protocol for PCI - Complex,Medium,Guide Wires,3.0,PG002,TC002
+PCI - Complex,Coronary Guidewires,Sion,PC101,Sion,2.5,3.0,4.0,Based on clinical protocol for PCI - Complex,Medium,Guide Wires,3.0,PG002,TC002
+PCI - Complex,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,2.5,3.0,4.0,Based on clinical protocol for PCI - Complex,Medium,Guide Wires,3.0,PG002,TC002
+PCI - Complex,Balloon Catheters,Ryurei,PC103,Ryurei,1.5,2.0,3.0,Based on clinical protocol for PCI - Complex,Medium,PTCA Balloon Catheters,2.0,PG002,TC003
+PCI - Complex,Balloon Catheters,Hiryu Plus,PC103,Hiryu Plus,1.5,2.0,3.0,Based on clinical protocol for PCI - Complex,Medium,PTCA Balloon Catheters,2.0,PG002,TC003
+PCI - Complex,Drug-Eluting Stents,Ultimaster Tansei,PC104,Ultimaster Tansei,1.5,2.0,3.0,Based on clinical protocol for PCI - Complex,Medium,Drug-Eluting Stents,2.0,PG002,TC004
+PCI - Complex,Microcatheters,Progreat,PC106,Progreat,0.5,1.0,2.0,Based on clinical protocol for PCI - Complex,Low,Microcatheters,1.0,PG002,TC006
+PCI - Complex,Microcatheters,Finecross,PC106,Finecross,0.5,1.0,2.0,Based on clinical protocol for PCI - Complex,High,Microcatheters,1.0,PG002,TC006
+Diagnostic Angiography,Diagnostic Catheters,Optitorque,PC105,Optitorque,1.5,2.0,3.0,Based on clinical protocol for Diagnostic Angiography,High,Diagnostic Catheters,2.0,PG003,TC005
+Diagnostic Angiography,Coronary Guidewires,Runthrough,PC101,Runthrough,1.0,1.5,2.5,Based on clinical protocol for Diagnostic Angiography,Low,Guide Wires,1.5,PG003,TC002
+Diagnostic Angiography,Coronary Guidewires,Sion,PC101,Sion,1.0,1.5,2.5,Based on clinical protocol for Diagnostic Angiography,Low,Guide Wires,1.5,PG003,TC002
+Diagnostic Angiography,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,1.0,1.5,2.5,Based on clinical protocol for Diagnostic Angiography,High,Guide Wires,1.5,PG003,TC002
+Diagnostic Angiography,Access,Glidesheath Slender,PC107,Glidesheath Slender,0.5,1.0,2.0,Based on clinical protocol for Diagnostic Angiography,Medium,Introducer Sheaths,1.0,PG003,TC007
+Diagnostic Angiography,Access,RadiForce,PC107,RadiForce,0.5,1.0,2.0,Based on clinical protocol for Diagnostic Angiography,High,Introducer Sheaths,1.0,PG003,TC007
+Diagnostic Angiography,Hemostasis,TR Band,PC108,TR Band,0.5,1.0,2.0,Based on clinical protocol for Diagnostic Angiography,Low,Hemostasis Valves,1.0,PG003,TC008
+Diagnostic Angiography,Radial Kits,Radial Kit Pro,PC110,Radial Kit Pro,0.5,1.0,2.0,Based on clinical protocol for Diagnostic Angiography,High,Radial Access Kits,1.0,PG003,TC010
+Peripheral Intervention,Coronary Guidewires,Runthrough,PC101,Runthrough,2.0,2.5,3.5,Based on clinical protocol for Peripheral Intervention,Medium,Guide Wires,2.5,PG004,TC002
+Peripheral Intervention,Coronary Guidewires,Sion,PC101,Sion,2.0,2.5,3.5,Based on clinical protocol for Peripheral Intervention,Low,Guide Wires,2.5,PG004,TC002
+Peripheral Intervention,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,2.0,2.5,3.5,Based on clinical protocol for Peripheral Intervention,Low,Guide Wires,2.5,PG004,TC002
+Peripheral Intervention,Access,Glidesheath Slender,PC107,Glidesheath Slender,1.0,1.5,2.5,Based on clinical protocol for Peripheral Intervention,High,Introducer Sheaths,1.5,PG004,TC007
+Peripheral Intervention,Access,RadiForce,PC107,RadiForce,1.0,1.5,2.5,Based on clinical protocol for Peripheral Intervention,Low,Introducer Sheaths,1.5,PG004,TC007
+Peripheral Intervention,Balloon Catheters,Ryurei,PC103,Ryurei,0.5,1.0,2.0,Based on clinical protocol for Peripheral Intervention,High,PTCA Balloon Catheters,1.0,PG004,TC003
+Peripheral Intervention,Balloon Catheters,Hiryu Plus,PC103,Hiryu Plus,0.5,1.0,2.0,Based on clinical protocol for Peripheral Intervention,High,PTCA Balloon Catheters,1.0,PG004,TC003
+Neurovascular Intervention,Microcatheters,Progreat,PC106,Progreat,1.5,2.0,3.0,Based on clinical protocol for Neurovascular Intervention,Low,Microcatheters,2.0,PG005,TC006
+Neurovascular Intervention,Microcatheters,Finecross,PC106,Finecross,1.5,2.0,3.0,Based on clinical protocol for Neurovascular Intervention,Low,Microcatheters,2.0,PG005,TC006
+Neurovascular Intervention,Coronary Guidewires,Runthrough,PC101,Runthrough,1.5,2.0,3.0,Based on clinical protocol for Neurovascular Intervention,High,Guide Wires,2.0,PG005,TC002
+Neurovascular Intervention,Coronary Guidewires,Sion,PC101,Sion,1.5,2.0,3.0,Based on clinical protocol for Neurovascular Intervention,Low,Guide Wires,2.0,PG005,TC002
+Neurovascular Intervention,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,1.5,2.0,3.0,Based on clinical protocol for Neurovascular Intervention,Low,Guide Wires,2.0,PG005,TC002
+Structural Heart,Access,Glidesheath Slender,PC107,Glidesheath Slender,1.5,2.0,3.0,Based on clinical protocol for Structural Heart,Medium,Introducer Sheaths,2.0,PG006,TC007
+Structural Heart,Access,RadiForce,PC107,RadiForce,1.5,2.0,3.0,Based on clinical protocol for Structural Heart,Low,Introducer Sheaths,2.0,PG006,TC007
+Structural Heart,Coronary Guidewires,Runthrough,PC101,Runthrough,0.5,1.0,2.0,Based on clinical protocol for Structural Heart,High,Guide Wires,1.0,PG006,TC002
+Structural Heart,Coronary Guidewires,Sion,PC101,Sion,0.5,1.0,2.0,Based on clinical protocol for Structural Heart,High,Guide Wires,1.0,PG006,TC002
+Structural Heart,Coronary Guidewires,Glidewire Adv,PC101,Glidewire Adv,0.5,1.0,2.0,Based on clinical protocol for Structural Heart,Low,Guide Wires,1.0,PG006,TC002
+Electrophysiology,Diagnostic Catheters,Optitorque,PC105,Optitorque,2.5,3.0,4.0,Based on clinical protocol for Electrophysiology,Medium,Diagnostic Catheters,3.0,PG007,TC005
+Electrophysiology,Access,Glidesheath Slender,PC107,Glidesheath Slender,0.5,1.0,2.0,Based on clinical protocol for Electrophysiology,Low,Introducer Sheaths,1.0,PG007,TC007
+Electrophysiology,Access,RadiForce,PC107,RadiForce,0.5,1.0,2.0,Based on clinical protocol for Electrophysiology,Low,Introducer Sheaths,1.0,PG007,TC007

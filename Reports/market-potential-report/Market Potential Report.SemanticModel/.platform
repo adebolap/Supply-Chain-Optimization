@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Market Potential Report",
+    "description": "Semantic model for the Market Potential Report dashboard (potential.bim)."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a3f2c8d1-7b4e-4f9a-b521-6d0e83c1f274"
+  }
+}

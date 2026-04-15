@@ -1,0 +1,11 @@
+Country,Country Text,Region,Cluster,Business Area,Direct/Distrib,Branch Code,Branch Name,Index_Branch_CountryFinalDestination,Country Final Destination,Country Final Destination Text
+DE,Germany,Central Europe,DACH,BA_DE,Direct,1000,TIS DE,1000_DE,DE,Germany
+FR,France,Western Europe,France,BA_FR,Direct,2000,TIS FR,2000_FR,FR,France
+GB,United Kingdom,Northern Europe,UK-IE,BA_GB,Direct,3000,TIS UK,3000_GB,GB,United Kingdom
+IT,Italy,Southern Europe,Italy,BA_IT,Direct,4000,TIS IT,4000_IT,IT,Italy
+ES,Spain,Southern Europe,Iberia,BA_ES,Direct,5000,TIS ES,5000_ES,ES,Spain
+NL,Netherlands,Western Europe,Benelux,BA_NL,Direct,6000,TIS NL,6000_NL,NL,Netherlands
+BE,Belgium,Western Europe,Benelux,BA_BE,Direct,6000,TIS NL,6000_BE,BE,Belgium
+PL,Poland,Eastern Europe,CEE,BA_PL,Distributor,7000,TIS PL,7000_PL,PL,Poland
+TR,Turkey,MENA,Turkey,BA_TR,Direct,8000,TIS TR,8000_TR,TR,Turkey
+SE,Sweden,Northern Europe,Nordics,BA_SE,Direct,9000,TIS SE,9000_SE,SE,Sweden

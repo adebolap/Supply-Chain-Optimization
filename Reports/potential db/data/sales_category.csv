@@ -1,0 +1,639 @@
+Customer Id,Customer Name,Customer Combined,Customer Segment,CountryIso2,Country Name,Year,Terumo Category,Qty Sold,Sales EUR
+100001,Universitätsklinikum Berlin,100001 - Universitätsklinikum Berlin,University Hospital,DE,Central Europe,2025,Hemostasis Valves,41,398.93
+100001,Universitätsklinikum Berlin,100001 - Universitätsklinikum Berlin,University Hospital,DE,Central Europe,2025,Drug-Eluting Stents,1,438.41
+100001,Universitätsklinikum Berlin,100001 - Universitätsklinikum Berlin,University Hospital,DE,Central Europe,2025,Microcatheters,44,6777.39
+100002,Klinikum Munich,100002 - Klinikum Munich,University Hospital,DE,Central Europe,2025,Inflation Devices,1,13.05
+100002,Klinikum Munich,100002 - Klinikum Munich,University Hospital,DE,Central Europe,2025,PTCA Balloon Catheters,32,2843.14
+100002,Klinikum Munich,100002 - Klinikum Munich,University Hospital,DE,Central Europe,2025,Hemostasis Valves,1,8.9
+100002,Klinikum Munich,100002 - Klinikum Munich,University Hospital,DE,Central Europe,2025,Introducer Sheaths,110,1467.82
+100002,Klinikum Munich,100002 - Klinikum Munich,University Hospital,DE,Central Europe,2025,Microcatheters,4,594.4
+100003,Herzzentrum Hamburg,100003 - Herzzentrum Hamburg,University Hospital,DE,Central Europe,2025,Microcatheters,787,125376.75
+100003,Herzzentrum Hamburg,100003 - Herzzentrum Hamburg,University Hospital,DE,Central Europe,2025,Diagnostic Catheters,853,19809.85
+100003,Herzzentrum Hamburg,100003 - Herzzentrum Hamburg,University Hospital,DE,Central Europe,2025,Introducer Sheaths,594,7440.26
+100003,Herzzentrum Hamburg,100003 - Herzzentrum Hamburg,University Hospital,DE,Central Europe,2025,Guide Wires,1359,23448.01
+100004,Städtisches Krankenhaus Frankfurt,100004 - Städtisches Krankenhaus Frankfurt,Public Hospital,DE,Central Europe,2025,Diagnostic Catheters,12,285.45
+100004,Städtisches Krankenhaus Frankfurt,100004 - Städtisches Krankenhaus Frankfurt,Public Hospital,DE,Central Europe,2025,PTCA Balloon Catheters,21,2224.63
+100004,Städtisches Krankenhaus Frankfurt,100004 - Städtisches Krankenhaus Frankfurt,Public Hospital,DE,Central Europe,2025,Drug-Eluting Stents,6,2396.59
+100004,Städtisches Krankenhaus Frankfurt,100004 - Städtisches Krankenhaus Frankfurt,Public Hospital,DE,Central Europe,2025,Inflation Devices,14,186.76
+100004,Städtisches Krankenhaus Frankfurt,100004 - Städtisches Krankenhaus Frankfurt,Public Hospital,DE,Central Europe,2025,Hemostasis Valves,15,114.58
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Radial Access Kits,5,158.94
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,PTCA Balloon Catheters,27,2619.19
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Hemostasis Valves,4,36.75
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Guiding Catheters,25,700.61
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Drug-Eluting Stents,17,6416.13
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Inflation Devices,4,61.88
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Guide Wires,68,1059.56
+100005,St. Vinzenz-Hospital Cologne,100005 - St. Vinzenz-Hospital Cologne,Public Hospital,DE,Central Europe,2025,Microcatheters,5,696.99
+100006,Universitätsklinikum Stuttgart,100006 - Universitätsklinikum Stuttgart,University Hospital,DE,Central Europe,2025,Guide Wires,982,20043.24
+100006,Universitätsklinikum Stuttgart,100006 - Universitätsklinikum Stuttgart,University Hospital,DE,Central Europe,2025,Diagnostic Catheters,60,1300.65
+100007,Klinikum Düsseldorf,100007 - Klinikum Düsseldorf,University Hospital,DE,Central Europe,2025,Guiding Catheters,38,1172.27
+100007,Klinikum Düsseldorf,100007 - Klinikum Düsseldorf,University Hospital,DE,Central Europe,2025,Introducer Sheaths,137,1787.71
+100007,Klinikum Düsseldorf,100007 - Klinikum Düsseldorf,University Hospital,DE,Central Europe,2025,Drug-Eluting Stents,19,7469.79
+100007,Klinikum Düsseldorf,100007 - Klinikum Düsseldorf,University Hospital,DE,Central Europe,2025,Diagnostic Catheters,164,3820.23
+100008,Herzzentrum Leipzig,100008 - Herzzentrum Leipzig,University Hospital,DE,Central Europe,2025,Hemostasis Valves,55,412.97
+100008,Herzzentrum Leipzig,100008 - Herzzentrum Leipzig,University Hospital,DE,Central Europe,2025,Radial Access Kits,32,1053.19
+100008,Herzzentrum Leipzig,100008 - Herzzentrum Leipzig,University Hospital,DE,Central Europe,2025,Guiding Catheters,42,1147.71
+100008,Herzzentrum Leipzig,100008 - Herzzentrum Leipzig,University Hospital,DE,Central Europe,2025,Inflation Devices,78,1154.95
+100009,Städtisches Krankenhaus Dresden,100009 - Städtisches Krankenhaus Dresden,Heart Center,DE,Central Europe,2025,Guiding Catheters,29,735.83
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Guide Wires,105,1644.81
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Inflation Devices,3,47.12
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Microcatheters,43,6388.2
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Guiding Catheters,6,149.52
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Diagnostic Catheters,87,1821.29
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Hemostasis Valves,9,84.08
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Introducer Sheaths,98,1345.63
+100010,St. Vinzenz-Hospital Hannover,100010 - St. Vinzenz-Hospital Hannover,University Hospital,DE,Central Europe,2025,Radial Access Kits,5,158.32
+100011,Universitätsklinikum Essen,100011 - Universitätsklinikum Essen,University Hospital,DE,Central Europe,2025,Guide Wires,730,15068.12
+100011,Universitätsklinikum Essen,100011 - Universitätsklinikum Essen,University Hospital,DE,Central Europe,2025,Hemostasis Valves,71,558.84
+100011,Universitätsklinikum Essen,100011 - Universitätsklinikum Essen,University Hospital,DE,Central Europe,2025,Guiding Catheters,224,5690.78
+100011,Universitätsklinikum Essen,100011 - Universitätsklinikum Essen,University Hospital,DE,Central Europe,2025,PTCA Balloon Catheters,218,22454.87
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Microcatheters,32,4315.28
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Diagnostic Catheters,20,430.03
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Guide Wires,39,806.27
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Introducer Sheaths,15,168.86
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,PTCA Balloon Catheters,3,270.29
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Drug-Eluting Stents,3,1239.56
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Inflation Devices,2,27.0
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Radial Access Kits,3,103.33
+100012,Klinikum Freiburg,100012 - Klinikum Freiburg,University Hospital,DE,Central Europe,2025,Hemostasis Valves,5,47.75
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Introducer Sheaths,214,2234.6
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Diagnostic Catheters,713,15056.97
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Guiding Catheters,121,3456.35
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Hemostasis Valves,76,680.7
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Microcatheters,382,53263.25
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,177,75988.6
+100013,CHU Paris,100013 - CHU Paris,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,202,18602.98
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Diagnostic Catheters,39,886.8
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Drug-Eluting Stents,16,7725.24
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Guide Wires,73,1170.4
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Guiding Catheters,8,202.0
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Microcatheters,38,6331.97
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Hemostasis Valves,12,116.31
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,Inflation Devices,10,157.55
+100014,Hôpital Lyon,100014 - Hôpital Lyon,Public Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,32,3085.6
+100015,Clinique Marseille,100015 - Clinique Marseille,Private Clinic,FR,Western Europe,2025,Diagnostic Catheters,71,1587.31
+100015,Clinique Marseille,100015 - Clinique Marseille,Private Clinic,FR,Western Europe,2025,PTCA Balloon Catheters,45,4664.45
+100015,Clinique Marseille,100015 - Clinique Marseille,Private Clinic,FR,Western Europe,2025,Inflation Devices,7,108.53
+100015,Clinique Marseille,100015 - Clinique Marseille,Private Clinic,FR,Western Europe,2025,Introducer Sheaths,90,1018.21
+100015,Clinique Marseille,100015 - Clinique Marseille,Private Clinic,FR,Western Europe,2025,Hemostasis Valves,18,163.05
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Introducer Sheaths,94,1020.38
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Radial Access Kits,16,548.68
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Guide Wires,194,3026.25
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Hemostasis Valves,9,68.54
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,1,89.95
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Guiding Catheters,3,80.12
+100016,Centre Cardiologique Toulouse,100016 - Centre Cardiologique Toulouse,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,3,1409.28
+100017,Institut Cardiovasculaire Bordeaux,100017 - Institut Cardiovasculaire Bordeaux,University Hospital,FR,Western Europe,2025,Guide Wires,1050,20150.99
+100017,Institut Cardiovasculaire Bordeaux,100017 - Institut Cardiovasculaire Bordeaux,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,230,106526.52
+100017,Institut Cardiovasculaire Bordeaux,100017 - Institut Cardiovasculaire Bordeaux,University Hospital,FR,Western Europe,2025,Microcatheters,484,77027.52
+100017,Institut Cardiovasculaire Bordeaux,100017 - Institut Cardiovasculaire Bordeaux,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,126,10337.75
+100017,Institut Cardiovasculaire Bordeaux,100017 - Institut Cardiovasculaire Bordeaux,University Hospital,FR,Western Europe,2025,Introducer Sheaths,470,5769.9
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,54,19685.65
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Introducer Sheaths,264,3153.03
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Guiding Catheters,61,1762.65
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Radial Access Kits,19,708.56
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Microcatheters,46,7391.92
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,Diagnostic Catheters,445,8705.56
+100018,CHU Lille,100018 - CHU Lille,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,130,12578.42
+100019,Hôpital Strasbourg,100019 - Hôpital Strasbourg,Heart Center,FR,Western Europe,2025,Drug-Eluting Stents,22,10522.57
+100019,Hôpital Strasbourg,100019 - Hôpital Strasbourg,Heart Center,FR,Western Europe,2025,Hemostasis Valves,10,92.99
+100019,Hôpital Strasbourg,100019 - Hôpital Strasbourg,Heart Center,FR,Western Europe,2025,Guide Wires,235,4510.61
+100019,Hôpital Strasbourg,100019 - Hôpital Strasbourg,Heart Center,FR,Western Europe,2025,PTCA Balloon Catheters,32,2729.32
+100019,Hôpital Strasbourg,100019 - Hôpital Strasbourg,Heart Center,FR,Western Europe,2025,Radial Access Kits,7,242.56
+100020,Clinique Nantes,100020 - Clinique Nantes,Private Clinic,FR,Western Europe,2025,Hemostasis Valves,1,9.47
+100020,Clinique Nantes,100020 - Clinique Nantes,Private Clinic,FR,Western Europe,2025,Guiding Catheters,1,27.75
+100020,Clinique Nantes,100020 - Clinique Nantes,Private Clinic,FR,Western Europe,2025,Guide Wires,7,139.12
+100020,Clinique Nantes,100020 - Clinique Nantes,Private Clinic,FR,Western Europe,2025,Diagnostic Catheters,2,47.0
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Introducer Sheaths,385,4773.91
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Microcatheters,26,3313.85
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Guiding Catheters,83,2663.39
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,109,43934.24
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Hemostasis Valves,61,534.44
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Diagnostic Catheters,232,4400.04
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Guide Wires,257,4922.42
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,Radial Access Kits,87,3062.66
+100021,Centre Cardiologique Rennes,100021 - Centre Cardiologique Rennes,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,76,8071.52
+100022,Institut Cardiovasculaire Montpellier,100022 - Institut Cardiovasculaire Montpellier,University Hospital,FR,Western Europe,2025,Microcatheters,170,24464.33
+100022,Institut Cardiovasculaire Montpellier,100022 - Institut Cardiovasculaire Montpellier,University Hospital,FR,Western Europe,2025,Radial Access Kits,17,564.88
+100022,Institut Cardiovasculaire Montpellier,100022 - Institut Cardiovasculaire Montpellier,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,71,6576.12
+100022,Institut Cardiovasculaire Montpellier,100022 - Institut Cardiovasculaire Montpellier,University Hospital,FR,Western Europe,2025,Drug-Eluting Stents,54,25393.21
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Guiding Catheters,15,442.77
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Hemostasis Valves,4,38.57
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Microcatheters,35,4342.58
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Inflation Devices,7,94.02
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Introducer Sheaths,159,1856.7
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Guide Wires,267,5412.31
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,PTCA Balloon Catheters,67,6815.33
+100023,CHU Grenoble,100023 - CHU Grenoble,University Hospital,FR,Western Europe,2025,Radial Access Kits,3,93.6
+100024,Hôpital Nice,100024 - Hôpital Nice,Private Clinic,FR,Western Europe,2025,Microcatheters,3,463.83
+100024,Hôpital Nice,100024 - Hôpital Nice,Private Clinic,FR,Western Europe,2025,Hemostasis Valves,3,26.98
+100024,Hôpital Nice,100024 - Hôpital Nice,Private Clinic,FR,Western Europe,2025,Diagnostic Catheters,33,658.98
+100025,Royal London,100025 - Royal London,Private Clinic,GB,Northern Europe,2025,Diagnostic Catheters,47,1052.76
+100025,Royal London,100025 - Royal London,Private Clinic,GB,Northern Europe,2025,Inflation Devices,11,175.97
+100025,Royal London,100025 - Royal London,Private Clinic,GB,Northern Europe,2025,Radial Access Kits,14,500.8
+100025,Royal London,100025 - Royal London,Private Clinic,GB,Northern Europe,2025,Guide Wires,262,5275.92
+100026,St. Thomas' Manchester,100026 - St. Thomas' Manchester,Public Hospital,GB,Northern Europe,2025,Microcatheters,117,15800.18
+100026,St. Thomas' Manchester,100026 - St. Thomas' Manchester,Public Hospital,GB,Northern Europe,2025,PTCA Balloon Catheters,66,5840.42
+100026,St. Thomas' Manchester,100026 - St. Thomas' Manchester,Public Hospital,GB,Northern Europe,2025,Guiding Catheters,23,690.54
+100026,St. Thomas' Manchester,100026 - St. Thomas' Manchester,Public Hospital,GB,Northern Europe,2025,Inflation Devices,9,116.81
+100026,St. Thomas' Manchester,100026 - St. Thomas' Manchester,Public Hospital,GB,Northern Europe,2025,Introducer Sheaths,117,1288.45
+100027,University Hospital Birmingham,100027 - University Hospital Birmingham,University Hospital,GB,Northern Europe,2025,Guiding Catheters,53,1442.56
+100027,University Hospital Birmingham,100027 - University Hospital Birmingham,University Hospital,GB,Northern Europe,2025,Guide Wires,244,4890.58
+100027,University Hospital Birmingham,100027 - University Hospital Birmingham,University Hospital,GB,Northern Europe,2025,Introducer Sheaths,65,709.67
+100027,University Hospital Birmingham,100027 - University Hospital Birmingham,University Hospital,GB,Northern Europe,2025,PTCA Balloon Catheters,78,7012.46
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Guiding Catheters,35,1053.21
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Guide Wires,396,6677.8
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Drug-Eluting Stents,28,11048.73
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Diagnostic Catheters,81,2011.05
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Microcatheters,71,10154.01
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Radial Access Kits,20,705.11
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Inflation Devices,16,213.66
+100028,Queen Elizabeth Leeds,100028 - Queen Elizabeth Leeds,Private Clinic,GB,Northern Europe,2025,Hemostasis Valves,24,190.1
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Guide Wires,85,1680.09
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Microcatheters,4,508.09
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,PTCA Balloon Catheters,16,1376.26
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Drug-Eluting Stents,7,2784.42
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Hemostasis Valves,6,47.34
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Radial Access Kits,4,150.66
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Guiding Catheters,15,395.05
+100029,King's College Liverpool,100029 - King's College Liverpool,University Hospital,GB,Northern Europe,2025,Introducer Sheaths,92,942.19
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Microcatheters,47,7098.6
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Drug-Eluting Stents,22,8872.83
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Guiding Catheters,11,350.26
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Radial Access Kits,7,241.69
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Hemostasis Valves,15,122.67
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Inflation Devices,6,101.15
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,PTCA Balloon Catheters,34,3522.63
+100030,Royal Bristol,100030 - Royal Bristol,University Hospital,GB,Northern Europe,2025,Introducer Sheaths,74,957.76
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Radial Access Kits,20,663.9
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Guide Wires,338,5383.56
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Hemostasis Valves,30,261.36
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Diagnostic Catheters,158,3486.82
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Microcatheters,67,9579.28
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,PTCA Balloon Catheters,97,9095.57
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Guiding Catheters,34,941.26
+100031,St. Thomas' Oxford,100031 - St. Thomas' Oxford,Heart Center,GB,Northern Europe,2025,Introducer Sheaths,315,4033.2
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Diagnostic Catheters,131,3257.04
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Guiding Catheters,32,871.5
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Drug-Eluting Stents,75,34012.07
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Radial Access Kits,24,876.76
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Inflation Devices,13,223.83
+100032,University Hospital Cambridge,100032 - University Hospital Cambridge,University Hospital,GB,Northern Europe,2025,Microcatheters,50,8053.92
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,Introducer Sheaths,181,2338.93
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,Guide Wires,361,6425.88
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,PTCA Balloon Catheters,58,5384.58
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,Microcatheters,82,10925.71
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,Hemostasis Valves,11,83.83
+100033,Queen Elizabeth Edinburgh,100033 - Queen Elizabeth Edinburgh,Private Clinic,GB,Northern Europe,2025,Guiding Catheters,14,436.12
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Guide Wires,172,3039.31
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Guiding Catheters,71,2139.72
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Introducer Sheaths,210,2247.94
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Diagnostic Catheters,452,9150.95
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Inflation Devices,15,230.14
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Radial Access Kits,36,1363.02
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Hemostasis Valves,61,477.58
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,Microcatheters,32,5316.09
+100034,King's College Glasgow,100034 - King's College Glasgow,Private Clinic,GB,Northern Europe,2025,PTCA Balloon Catheters,112,10364.08
+100035,Royal Cardiff,100035 - Royal Cardiff,Private Clinic,GB,Northern Europe,2025,Guiding Catheters,14,394.88
+100035,Royal Cardiff,100035 - Royal Cardiff,Private Clinic,GB,Northern Europe,2025,Inflation Devices,5,72.94
+100035,Royal Cardiff,100035 - Royal Cardiff,Private Clinic,GB,Northern Europe,2025,PTCA Balloon Catheters,16,1375.85
+100035,Royal Cardiff,100035 - Royal Cardiff,Private Clinic,GB,Northern Europe,2025,Microcatheters,17,2273.45
+100035,Royal Cardiff,100035 - Royal Cardiff,Private Clinic,GB,Northern Europe,2025,Introducer Sheaths,30,398.61
+100036,St. Thomas' Brighton,100036 - St. Thomas' Brighton,University Hospital,GB,Northern Europe,2025,Introducer Sheaths,31,357.61
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Drug-Eluting Stents,39,18195.59
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Guiding Catheters,36,1146.2
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Diagnostic Catheters,113,2812.03
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Radial Access Kits,18,557.67
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Microcatheters,254,36597.1
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Hemostasis Valves,12,105.19
+100037,Ospedale Milan,100037 - Ospedale Milan,Heart Center,IT,Southern Europe,2025,Inflation Devices,13,219.28
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Microcatheters,88,13761.52
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Diagnostic Catheters,43,861.75
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Introducer Sheaths,75,777.34
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Drug-Eluting Stents,20,9007.96
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Inflation Devices,4,60.96
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,PTCA Balloon Catheters,31,3139.38
+100038,Policlinico Rome,100038 - Policlinico Rome,University Hospital,IT,Southern Europe,2025,Radial Access Kits,4,127.24
+100039,Centro Cardiologico Naples,100039 - Centro Cardiologico Naples,University Hospital,IT,Southern Europe,2025,Introducer Sheaths,318,3436.19
+100039,Centro Cardiologico Naples,100039 - Centro Cardiologico Naples,University Hospital,IT,Southern Europe,2025,Drug-Eluting Stents,64,24212.96
+100039,Centro Cardiologico Naples,100039 - Centro Cardiologico Naples,University Hospital,IT,Southern Europe,2025,Hemostasis Valves,41,347.28
+100039,Centro Cardiologico Naples,100039 - Centro Cardiologico Naples,University Hospital,IT,Southern Europe,2025,Diagnostic Catheters,504,11228.16
+100040,Istituto Clinico Turin,100040 - Istituto Clinico Turin,University Hospital,IT,Southern Europe,2025,Introducer Sheaths,115,1428.24
+100040,Istituto Clinico Turin,100040 - Istituto Clinico Turin,University Hospital,IT,Southern Europe,2025,Diagnostic Catheters,88,1649.44
+100040,Istituto Clinico Turin,100040 - Istituto Clinico Turin,University Hospital,IT,Southern Europe,2025,Guide Wires,32,491.65
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Diagnostic Catheters,166,3492.53
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Inflation Devices,42,550.43
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Radial Access Kits,31,1071.65
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Guiding Catheters,95,2817.39
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Hemostasis Valves,23,214.74
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Drug-Eluting Stents,74,35664.37
+100041,Fondazione Florence,100041 - Fondazione Florence,Private Clinic,IT,Southern Europe,2025,Guide Wires,597,9236.24
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Introducer Sheaths,201,2754.87
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Radial Access Kits,20,788.02
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Hemostasis Valves,14,133.33
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Guiding Catheters,69,1970.71
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Microcatheters,128,20921.72
+100042,Ospedale Bologna,100042 - Ospedale Bologna,Private Clinic,IT,Southern Europe,2025,Inflation Devices,12,168.14
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Radial Access Kits,15,484.12
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Guiding Catheters,63,1705.34
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,PTCA Balloon Catheters,122,11004.92
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Introducer Sheaths,348,3724.93
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Hemostasis Valves,47,426.37
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Inflation Devices,7,119.94
+100043,Policlinico Genoa,100043 - Policlinico Genoa,Public Hospital,IT,Southern Europe,2025,Guide Wires,173,3055.23
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,Guide Wires,546,8606.46
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,Microcatheters,248,39175.42
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,Introducer Sheaths,176,1847.18
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,Hemostasis Valves,22,198.88
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,PTCA Balloon Catheters,58,5906.15
+100044,Centro Cardiologico Padua,100044 - Centro Cardiologico Padua,University Hospital,IT,Southern Europe,2025,Radial Access Kits,20,617.38
+100045,Istituto Clinico Verona,100045 - Istituto Clinico Verona,University Hospital,IT,Southern Europe,2025,Diagnostic Catheters,78,1511.78
+100045,Istituto Clinico Verona,100045 - Istituto Clinico Verona,University Hospital,IT,Southern Europe,2025,Hemostasis Valves,6,51.83
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Microcatheters,91,11877.64
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Introducer Sheaths,111,1251.98
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Guiding Catheters,54,1449.01
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,PTCA Balloon Catheters,104,10534.75
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Drug-Eluting Stents,40,17388.01
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Radial Access Kits,20,623.45
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Hemostasis Valves,15,123.51
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Inflation Devices,19,274.73
+100046,Fondazione Catania,100046 - Fondazione Catania,Public Hospital,IT,Southern Europe,2025,Diagnostic Catheters,280,6049.53
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,Radial Access Kits,3,104.72
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,PTCA Balloon Catheters,8,701.27
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,Diagnostic Catheters,12,289.07
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,Inflation Devices,2,26.52
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,Hemostasis Valves,4,34.94
+100047,Ospedale Bari,100047 - Ospedale Bari,Private Clinic,IT,Southern Europe,2025,Guide Wires,33,626.38
+100048,Policlinico Palermo,100048 - Policlinico Palermo,University Hospital,IT,Southern Europe,2025,Guiding Catheters,3,80.9
+100048,Policlinico Palermo,100048 - Policlinico Palermo,University Hospital,IT,Southern Europe,2025,Drug-Eluting Stents,3,1291.09
+100048,Policlinico Palermo,100048 - Policlinico Palermo,University Hospital,IT,Southern Europe,2025,Inflation Devices,1,16.91
+100048,Policlinico Palermo,100048 - Policlinico Palermo,University Hospital,IT,Southern Europe,2025,PTCA Balloon Catheters,7,648.7
+100048,Policlinico Palermo,100048 - Policlinico Palermo,University Hospital,IT,Southern Europe,2025,Introducer Sheaths,4,50.9
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Inflation Devices,1,13.75
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Guide Wires,32,586.02
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Radial Access Kits,2,64.14
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Introducer Sheaths,14,166.14
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Hemostasis Valves,3,26.96
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,PTCA Balloon Catheters,3,327.55
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Microcatheters,12,1633.22
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Diagnostic Catheters,33,635.8
+100049,Hospital Universitario Madrid,100049 - Hospital Universitario Madrid,University Hospital,ES,Southern Europe,2025,Guiding Catheters,6,179.6
+100050,Clínica Barcelona,100050 - Clínica Barcelona,Private Clinic,ES,Southern Europe,2025,Diagnostic Catheters,9,170.95
+100050,Clínica Barcelona,100050 - Clínica Barcelona,Private Clinic,ES,Southern Europe,2025,Microcatheters,12,1490.79
+100050,Clínica Barcelona,100050 - Clínica Barcelona,Private Clinic,ES,Southern Europe,2025,Hemostasis Valves,1,7.5
+100050,Clínica Barcelona,100050 - Clínica Barcelona,Private Clinic,ES,Southern Europe,2025,Introducer Sheaths,25,338.69
+100050,Clínica Barcelona,100050 - Clínica Barcelona,Private Clinic,ES,Southern Europe,2025,Guide Wires,38,687.28
+100051,Hospital General Valencia,100051 - Hospital General Valencia,Heart Center,ES,Southern Europe,2025,PTCA Balloon Catheters,8,781.02
+100051,Hospital General Valencia,100051 - Hospital General Valencia,Heart Center,ES,Southern Europe,2025,Microcatheters,78,12004.67
+100051,Hospital General Valencia,100051 - Hospital General Valencia,Heart Center,ES,Southern Europe,2025,Introducer Sheaths,97,1252.11
+100051,Hospital General Valencia,100051 - Hospital General Valencia,Heart Center,ES,Southern Europe,2025,Guide Wires,246,3846.91
+100051,Hospital General Valencia,100051 - Hospital General Valencia,Heart Center,ES,Southern Europe,2025,Hemostasis Valves,5,47.24
+100052,Centro Médico Seville,100052 - Centro Médico Seville,Private Clinic,ES,Southern Europe,2025,Microcatheters,104,15583.56
+100052,Centro Médico Seville,100052 - Centro Médico Seville,Private Clinic,ES,Southern Europe,2025,Radial Access Kits,10,334.03
+100052,Centro Médico Seville,100052 - Centro Médico Seville,Private Clinic,ES,Southern Europe,2025,Drug-Eluting Stents,101,43913.56
+100052,Centro Médico Seville,100052 - Centro Médico Seville,Private Clinic,ES,Southern Europe,2025,Hemostasis Valves,16,144.4
+100053,Hospital Clínic Bilbao,100053 - Hospital Clínic Bilbao,Heart Center,ES,Southern Europe,2025,Radial Access Kits,4,124.79
+100053,Hospital Clínic Bilbao,100053 - Hospital Clínic Bilbao,Heart Center,ES,Southern Europe,2025,Guide Wires,84,1369.46
+100053,Hospital Clínic Bilbao,100053 - Hospital Clínic Bilbao,Heart Center,ES,Southern Europe,2025,PTCA Balloon Catheters,11,1105.64
+100053,Hospital Clínic Bilbao,100053 - Hospital Clínic Bilbao,Heart Center,ES,Southern Europe,2025,Hemostasis Valves,7,68.42
+100053,Hospital Clínic Bilbao,100053 - Hospital Clínic Bilbao,Heart Center,ES,Southern Europe,2025,Guiding Catheters,9,251.22
+100054,Hospital Universitario Malaga,100054 - Hospital Universitario Malaga,University Hospital,ES,Southern Europe,2025,PTCA Balloon Catheters,233,22543.94
+100054,Hospital Universitario Malaga,100054 - Hospital Universitario Malaga,University Hospital,ES,Southern Europe,2025,Microcatheters,58,8180.75
+100054,Hospital Universitario Malaga,100054 - Hospital Universitario Malaga,University Hospital,ES,Southern Europe,2025,Hemostasis Valves,93,840.34
+100054,Hospital Universitario Malaga,100054 - Hospital Universitario Malaga,University Hospital,ES,Southern Europe,2025,Diagnostic Catheters,179,3544.89
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Guiding Catheters,15,429.16
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Drug-Eluting Stents,11,4679.75
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Diagnostic Catheters,89,1982.7
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Radial Access Kits,10,377.3
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,PTCA Balloon Catheters,23,2000.5
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Guide Wires,102,1965.98
+100055,Clínica Zaragoza,100055 - Clínica Zaragoza,Private Clinic,ES,Southern Europe,2025,Microcatheters,34,4556.6
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Guiding Catheters,17,520.77
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Hemostasis Valves,12,104.14
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Diagnostic Catheters,69,1562.11
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,PTCA Balloon Catheters,18,1955.73
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Radial Access Kits,5,178.82
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Drug-Eluting Stents,19,8014.51
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Microcatheters,51,8094.23
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Inflation Devices,2,32.25
+100056,Hospital General Murcia,100056 - Hospital General Murcia,Private Clinic,ES,Southern Europe,2025,Introducer Sheaths,77,801.83
+100057,Centro Médico Santiago,100057 - Centro Médico Santiago,Private Clinic,ES,Southern Europe,2025,PTCA Balloon Catheters,9,795.68
+100057,Centro Médico Santiago,100057 - Centro Médico Santiago,Private Clinic,ES,Southern Europe,2025,Radial Access Kits,3,103.49
+100057,Centro Médico Santiago,100057 - Centro Médico Santiago,Private Clinic,ES,Southern Europe,2025,Guide Wires,72,1443.79
+100058,Hospital Clínic Valladolid,100058 - Hospital Clínic Valladolid,Public Hospital,ES,Southern Europe,2025,Introducer Sheaths,148,1559.23
+100058,Hospital Clínic Valladolid,100058 - Hospital Clínic Valladolid,Public Hospital,ES,Southern Europe,2025,Inflation Devices,10,156.07
+100058,Hospital Clínic Valladolid,100058 - Hospital Clínic Valladolid,Public Hospital,ES,Southern Europe,2025,Diagnostic Catheters,125,3038.84
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Inflation Devices,19,307.42
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Introducer Sheaths,142,1768.5
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Drug-Eluting Stents,80,28724.12
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Hemostasis Valves,55,419.53
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Guide Wires,379,7828.6
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Radial Access Kits,26,1045.32
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,PTCA Balloon Catheters,131,13871.75
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Microcatheters,101,16290.03
+100059,Hospital Universitario Salamanca,100059 - Hospital Universitario Salamanca,University Hospital,ES,Southern Europe,2025,Diagnostic Catheters,400,7726.42
+100060,Clínica Granada,100060 - Clínica Granada,Private Clinic,ES,Southern Europe,2025,Guide Wires,80,1263.4
+100060,Clínica Granada,100060 - Clínica Granada,Private Clinic,ES,Southern Europe,2025,Microcatheters,28,3710.95
+100060,Clínica Granada,100060 - Clínica Granada,Private Clinic,ES,Southern Europe,2025,Introducer Sheaths,20,246.74
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Hemostasis Valves,2,16.32
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Guiding Catheters,10,270.15
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Inflation Devices,1,16.69
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Microcatheters,21,3206.81
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,PTCA Balloon Catheters,14,1355.25
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Radial Access Kits,3,94.42
+100061,AMC Amsterdam,100061 - AMC Amsterdam,Public Hospital,NL,Western Europe,2025,Drug-Eluting Stents,11,4222.29
+100062,Erasmus MC Rotterdam,100062 - Erasmus MC Rotterdam,Public Hospital,NL,Western Europe,2025,PTCA Balloon Catheters,4,354.57
+100062,Erasmus MC Rotterdam,100062 - Erasmus MC Rotterdam,Public Hospital,NL,Western Europe,2025,Introducer Sheaths,33,402.34
+100062,Erasmus MC Rotterdam,100062 - Erasmus MC Rotterdam,Public Hospital,NL,Western Europe,2025,Hemostasis Valves,6,52.65
+100062,Erasmus MC Rotterdam,100062 - Erasmus MC Rotterdam,Public Hospital,NL,Western Europe,2025,Guide Wires,50,951.43
+100062,Erasmus MC Rotterdam,100062 - Erasmus MC Rotterdam,Public Hospital,NL,Western Europe,2025,Diagnostic Catheters,164,3779.46
+100063,UMC Utrecht,100063 - UMC Utrecht,Public Hospital,NL,Western Europe,2025,Radial Access Kits,1,32.28
+100063,UMC Utrecht,100063 - UMC Utrecht,Public Hospital,NL,Western Europe,2025,Hemostasis Valves,3,22.22
+100064,Catharina Ziekenhuis Eindhoven,100064 - Catharina Ziekenhuis Eindhoven,Heart Center,NL,Western Europe,2025,Radial Access Kits,1,39.77
+100065,Sint Antonius Groningen,100065 - Sint Antonius Groningen,Heart Center,NL,Western Europe,2025,Guide Wires,20,363.95
+100065,Sint Antonius Groningen,100065 - Sint Antonius Groningen,Heart Center,NL,Western Europe,2025,PTCA Balloon Catheters,5,443.29
+100065,Sint Antonius Groningen,100065 - Sint Antonius Groningen,Heart Center,NL,Western Europe,2025,Introducer Sheaths,13,156.53
+100066,AMC Nijmegen,100066 - AMC Nijmegen,Private Clinic,NL,Western Europe,2025,PTCA Balloon Catheters,21,2249.14
+100066,AMC Nijmegen,100066 - AMC Nijmegen,Private Clinic,NL,Western Europe,2025,Inflation Devices,7,108.54
+100066,AMC Nijmegen,100066 - AMC Nijmegen,Private Clinic,NL,Western Europe,2025,Microcatheters,26,3957.84
+100066,AMC Nijmegen,100066 - AMC Nijmegen,Private Clinic,NL,Western Europe,2025,Drug-Eluting Stents,13,4928.71
+100067,Erasmus MC Leiden,100067 - Erasmus MC Leiden,Public Hospital,NL,Western Europe,2025,PTCA Balloon Catheters,8,674.94
+100067,Erasmus MC Leiden,100067 - Erasmus MC Leiden,Public Hospital,NL,Western Europe,2025,Guiding Catheters,11,286.63
+100067,Erasmus MC Leiden,100067 - Erasmus MC Leiden,Public Hospital,NL,Western Europe,2025,Radial Access Kits,3,113.55
+100068,UMC Maastricht,100068 - UMC Maastricht,Private Clinic,NL,Western Europe,2025,Microcatheters,39,4900.8
+100068,UMC Maastricht,100068 - UMC Maastricht,Private Clinic,NL,Western Europe,2025,Introducer Sheaths,127,1371.7
+100068,UMC Maastricht,100068 - UMC Maastricht,Private Clinic,NL,Western Europe,2025,Diagnostic Catheters,46,1094.98
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Guide Wires,11,216.01
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Drug-Eluting Stents,3,1318.86
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Guiding Catheters,2,51.77
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Hemostasis Valves,6,48.25
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Introducer Sheaths,14,171.61
+100069,Catharina Ziekenhuis Tilburg,100069 - Catharina Ziekenhuis Tilburg,University Hospital,NL,Western Europe,2025,Radial Access Kits,2,73.64
+100070,Sint Antonius Den Haag,100070 - Sint Antonius Den Haag,Public Hospital,NL,Western Europe,2025,PTCA Balloon Catheters,3,289.54
+100071,AMC Breda,100071 - AMC Breda,University Hospital,NL,Western Europe,2025,Drug-Eluting Stents,15,6665.64
+100071,AMC Breda,100071 - AMC Breda,University Hospital,NL,Western Europe,2025,PTCA Balloon Catheters,15,1354.47
+100071,AMC Breda,100071 - AMC Breda,University Hospital,NL,Western Europe,2025,Guide Wires,204,3535.7
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Diagnostic Catheters,62,1446.19
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Guide Wires,48,987.0
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Drug-Eluting Stents,6,2214.26
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Radial Access Kits,1,38.36
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Hemostasis Valves,3,25.0
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Introducer Sheaths,65,718.4
+100072,Erasmus MC Arnhem,100072 - Erasmus MC Arnhem,Private Clinic,NL,Western Europe,2025,Guiding Catheters,8,211.57
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Introducer Sheaths,90,1230.54
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Microcatheters,4,546.65
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Inflation Devices,4,53.16
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Drug-Eluting Stents,14,6208.2
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,PTCA Balloon Catheters,43,4326.27
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Guide Wires,57,1129.4
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Guiding Catheters,17,417.63
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Radial Access Kits,7,234.4
+100073,UZ Brussels,100073 - UZ Brussels,Heart Center,BE,Western Europe,2025,Hemostasis Valves,13,116.37
+100074,CHU Antwerp,100074 - CHU Antwerp,University Hospital,BE,Western Europe,2025,PTCA Balloon Catheters,16,1648.12
+100074,CHU Antwerp,100074 - CHU Antwerp,University Hospital,BE,Western Europe,2025,Guiding Catheters,13,331.04
+100074,CHU Antwerp,100074 - CHU Antwerp,University Hospital,BE,Western Europe,2025,Introducer Sheaths,51,646.2
+100074,CHU Antwerp,100074 - CHU Antwerp,University Hospital,BE,Western Europe,2025,Drug-Eluting Stents,28,10292.49
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Diagnostic Catheters,99,1961.06
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Guide Wires,209,4125.05
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Guiding Catheters,26,625.24
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Hemostasis Valves,20,153.31
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Inflation Devices,8,108.74
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Drug-Eluting Stents,21,9834.54
+100075,AZ Ghent,100075 - AZ Ghent,University Hospital,BE,Western Europe,2025,Microcatheters,36,5406.63
+100076,OLV Ziekenhuis Leuven,100076 - OLV Ziekenhuis Leuven,Public Hospital,BE,Western Europe,2025,Diagnostic Catheters,5,110.85
+100076,OLV Ziekenhuis Leuven,100076 - OLV Ziekenhuis Leuven,Public Hospital,BE,Western Europe,2025,Introducer Sheaths,6,78.37
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Microcatheters,43,6812.34
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Hemostasis Valves,14,113.91
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Inflation Devices,7,96.58
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,PTCA Balloon Catheters,20,1756.28
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Diagnostic Catheters,55,1222.23
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Radial Access Kits,14,524.85
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Introducer Sheaths,91,1238.7
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Guide Wires,142,2926.11
+100077,Cliniques Universitaires Liège,100077 - Cliniques Universitaires Liège,University Hospital,BE,Western Europe,2025,Drug-Eluting Stents,23,10921.23
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,PTCA Balloon Catheters,11,985.14
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Radial Access Kits,3,92.09
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Drug-Eluting Stents,4,1538.28
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Diagnostic Catheters,41,766.88
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Inflation Devices,2,27.31
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Microcatheters,1,154.44
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Guiding Catheters,8,247.14
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Introducer Sheaths,18,185.02
+100078,UZ Bruges,100078 - UZ Bruges,Public Hospital,BE,Western Europe,2025,Guide Wires,36,729.11
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Guide Wires,161,3027.7
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Inflation Devices,6,102.66
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Microcatheters,6,981.93
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Guiding Catheters,31,795.93
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,PTCA Balloon Catheters,41,3515.65
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Drug-Eluting Stents,19,8431.27
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Introducer Sheaths,48,615.54
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Radial Access Kits,17,675.09
+100079,CHU Charleroi,100079 - CHU Charleroi,University Hospital,BE,Western Europe,2025,Hemostasis Valves,14,136.65
+100080,AZ Namur,100080 - AZ Namur,Heart Center,BE,Western Europe,2025,PTCA Balloon Catheters,2,211.96
+100080,AZ Namur,100080 - AZ Namur,Heart Center,BE,Western Europe,2025,Introducer Sheaths,13,165.78
+100080,AZ Namur,100080 - AZ Namur,Heart Center,BE,Western Europe,2025,Diagnostic Catheters,24,589.25
+100080,AZ Namur,100080 - AZ Namur,Heart Center,BE,Western Europe,2025,Guide Wires,15,250.98
+100081,OLV Ziekenhuis Hasselt,100081 - OLV Ziekenhuis Hasselt,Heart Center,BE,Western Europe,2025,Guide Wires,72,1262.57
+100081,OLV Ziekenhuis Hasselt,100081 - OLV Ziekenhuis Hasselt,Heart Center,BE,Western Europe,2025,Microcatheters,93,12883.16
+100081,OLV Ziekenhuis Hasselt,100081 - OLV Ziekenhuis Hasselt,Heart Center,BE,Western Europe,2025,Introducer Sheaths,27,355.96
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Radial Access Kits,3,106.48
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Drug-Eluting Stents,10,3687.31
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,PTCA Balloon Catheters,15,1473.58
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Guiding Catheters,6,144.36
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Microcatheters,4,521.71
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Hemostasis Valves,5,38.13
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Diagnostic Catheters,14,280.79
+100082,Cliniques Universitaires Mechelen,100082 - Cliniques Universitaires Mechelen,University Hospital,BE,Western Europe,2025,Guide Wires,37,705.4
+100083,UZ Kortrijk,100083 - UZ Kortrijk,Private Clinic,BE,Western Europe,2025,Diagnostic Catheters,7,140.12
+100083,UZ Kortrijk,100083 - UZ Kortrijk,Private Clinic,BE,Western Europe,2025,Guide Wires,1,15.74
+100084,CHU Mons,100084 - CHU Mons,University Hospital,BE,Western Europe,2025,Hemostasis Valves,1,8.41
+100084,CHU Mons,100084 - CHU Mons,University Hospital,BE,Western Europe,2025,Diagnostic Catheters,17,324.82
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Guide Wires,56,1123.41
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Radial Access Kits,3,91.74
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Microcatheters,24,3703.74
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Introducer Sheaths,36,483.9
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,24,556.12
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Drug-Eluting Stents,8,2977.24
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Inflation Devices,2,27.06
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,PTCA Balloon Catheters,18,1952.22
+100085,Szpital Kliniczny Warsaw,100085 - Szpital Kliniczny Warsaw,Public Hospital,PL,Eastern Europe,2025,Guiding Catheters,9,223.74
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Guide Wires,111,2029.2
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Introducer Sheaths,41,494.91
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Drug-Eluting Stents,27,9681.06
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Inflation Devices,3,46.18
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Microcatheters,51,6535.37
+100086,Instytut Kardiologii Krakow,100086 - Instytut Kardiologii Krakow,Private Clinic,PL,Eastern Europe,2025,Radial Access Kits,3,107.1
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,Guide Wires,9,157.28
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,Radial Access Kits,1,36.9
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,Inflation Devices,1,14.53
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,Introducer Sheaths,16,202.97
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,PTCA Balloon Catheters,3,282.88
+100087,Centrum Medyczne Wroclaw,100087 - Centrum Medyczne Wroclaw,Heart Center,PL,Eastern Europe,2025,Diagnostic Catheters,14,296.21
+100088,Szpital Wojewódzki Poznan,100088 - Szpital Wojewódzki Poznan,Heart Center,PL,Eastern Europe,2025,Diagnostic Catheters,3,64.85
+100088,Szpital Wojewódzki Poznan,100088 - Szpital Wojewódzki Poznan,Heart Center,PL,Eastern Europe,2025,Radial Access Kits,2,68.05
+100088,Szpital Wojewódzki Poznan,100088 - Szpital Wojewódzki Poznan,Heart Center,PL,Eastern Europe,2025,Introducer Sheaths,16,192.95
+100088,Szpital Wojewódzki Poznan,100088 - Szpital Wojewódzki Poznan,Heart Center,PL,Eastern Europe,2025,Guide Wires,13,202.85
+100088,Szpital Wojewódzki Poznan,100088 - Szpital Wojewódzki Poznan,Heart Center,PL,Eastern Europe,2025,Hemostasis Valves,2,14.78
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Inflation Devices,3,43.12
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Introducer Sheaths,12,138.31
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,PTCA Balloon Catheters,38,3498.39
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Radial Access Kits,8,295.22
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Diagnostic Catheters,18,394.67
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Microcatheters,41,6766.34
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Guiding Catheters,28,796.07
+100089,Klinika Kardiochirurgii Gdansk,100089 - Klinika Kardiochirurgii Gdansk,Private Clinic,PL,Eastern Europe,2025,Drug-Eluting Stents,25,11563.61
+100090,Szpital Kliniczny Katowice,100090 - Szpital Kliniczny Katowice,Public Hospital,PL,Eastern Europe,2025,Guide Wires,93,1526.72
+100090,Szpital Kliniczny Katowice,100090 - Szpital Kliniczny Katowice,Public Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,20,441.75
+100090,Szpital Kliniczny Katowice,100090 - Szpital Kliniczny Katowice,Public Hospital,PL,Eastern Europe,2025,Guiding Catheters,34,1085.41
+100090,Szpital Kliniczny Katowice,100090 - Szpital Kliniczny Katowice,Public Hospital,PL,Eastern Europe,2025,Drug-Eluting Stents,30,12502.09
+100090,Szpital Kliniczny Katowice,100090 - Szpital Kliniczny Katowice,Public Hospital,PL,Eastern Europe,2025,Hemostasis Valves,3,23.0
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Guiding Catheters,7,172.62
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Drug-Eluting Stents,7,3083.2
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,17,359.89
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Hemostasis Valves,9,79.0
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,PTCA Balloon Catheters,7,586.82
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Microcatheters,17,2826.14
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Inflation Devices,4,66.51
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Guide Wires,43,823.02
+100091,Instytut Kardiologii Lodz,100091 - Instytut Kardiologii Lodz,Public Hospital,PL,Eastern Europe,2025,Introducer Sheaths,24,270.62
+100092,Centrum Medyczne Lublin,100092 - Centrum Medyczne Lublin,Heart Center,PL,Eastern Europe,2025,Drug-Eluting Stents,6,2338.13
+100092,Centrum Medyczne Lublin,100092 - Centrum Medyczne Lublin,Heart Center,PL,Eastern Europe,2025,Guiding Catheters,3,81.18
+100092,Centrum Medyczne Lublin,100092 - Centrum Medyczne Lublin,Heart Center,PL,Eastern Europe,2025,Introducer Sheaths,7,89.24
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Drug-Eluting Stents,17,6343.06
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Microcatheters,39,6178.11
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Radial Access Kits,8,253.38
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Inflation Devices,4,57.04
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,35,736.57
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,Hemostasis Valves,10,80.08
+100093,Szpital Wojewódzki Bialystok,100093 - Szpital Wojewódzki Bialystok,University Hospital,PL,Eastern Europe,2025,PTCA Balloon Catheters,50,4509.63
+100094,Klinika Kardiochirurgii Szczecin,100094 - Klinika Kardiochirurgii Szczecin,University Hospital,PL,Eastern Europe,2025,Radial Access Kits,2,63.59
+100094,Klinika Kardiochirurgii Szczecin,100094 - Klinika Kardiochirurgii Szczecin,University Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,2,46.39
+100094,Klinika Kardiochirurgii Szczecin,100094 - Klinika Kardiochirurgii Szczecin,University Hospital,PL,Eastern Europe,2025,Hemostasis Valves,3,24.84
+100094,Klinika Kardiochirurgii Szczecin,100094 - Klinika Kardiochirurgii Szczecin,University Hospital,PL,Eastern Europe,2025,Introducer Sheaths,2,21.49
+100094,Klinika Kardiochirurgii Szczecin,100094 - Klinika Kardiochirurgii Szczecin,University Hospital,PL,Eastern Europe,2025,Guiding Catheters,13,346.82
+100095,Szpital Kliniczny Bydgoszcz,100095 - Szpital Kliniczny Bydgoszcz,University Hospital,PL,Eastern Europe,2025,PTCA Balloon Catheters,1,102.8
+100095,Szpital Kliniczny Bydgoszcz,100095 - Szpital Kliniczny Bydgoszcz,University Hospital,PL,Eastern Europe,2025,Microcatheters,3,390.43
+100095,Szpital Kliniczny Bydgoszcz,100095 - Szpital Kliniczny Bydgoszcz,University Hospital,PL,Eastern Europe,2025,Guide Wires,4,70.57
+100095,Szpital Kliniczny Bydgoszcz,100095 - Szpital Kliniczny Bydgoszcz,University Hospital,PL,Eastern Europe,2025,Guiding Catheters,1,27.4
+100096,Instytut Kardiologii Rzeszow,100096 - Instytut Kardiologii Rzeszow,Public Hospital,PL,Eastern Europe,2025,Introducer Sheaths,34,436.59
+100096,Instytut Kardiologii Rzeszow,100096 - Instytut Kardiologii Rzeszow,Public Hospital,PL,Eastern Europe,2025,Diagnostic Catheters,83,2032.51
+100096,Instytut Kardiologii Rzeszow,100096 - Instytut Kardiologii Rzeszow,Public Hospital,PL,Eastern Europe,2025,Guide Wires,48,761.02
+100096,Instytut Kardiologii Rzeszow,100096 - Instytut Kardiologii Rzeszow,Public Hospital,PL,Eastern Europe,2025,PTCA Balloon Catheters,15,1342.11
+100097,Üniversitesi Hastanesi Istanbul,100097 - Üniversitesi Hastanesi Istanbul,Public Hospital,TR,MENA,2025,Diagnostic Catheters,33,691.75
+100098,Kalp Merkezi Ankara,100098 - Kalp Merkezi Ankara,Heart Center,TR,MENA,2025,Drug-Eluting Stents,8,2980.15
+100098,Kalp Merkezi Ankara,100098 - Kalp Merkezi Ankara,Heart Center,TR,MENA,2025,PTCA Balloon Catheters,33,3409.75
+100098,Kalp Merkezi Ankara,100098 - Kalp Merkezi Ankara,Heart Center,TR,MENA,2025,Introducer Sheaths,79,987.91
+100098,Kalp Merkezi Ankara,100098 - Kalp Merkezi Ankara,Heart Center,TR,MENA,2025,Inflation Devices,10,155.54
+100098,Kalp Merkezi Ankara,100098 - Kalp Merkezi Ankara,Heart Center,TR,MENA,2025,Guiding Catheters,11,266.23
+100099,Devlet Hastanesi Izmir,100099 - Devlet Hastanesi Izmir,University Hospital,TR,MENA,2025,Guiding Catheters,4,118.24
+100099,Devlet Hastanesi Izmir,100099 - Devlet Hastanesi Izmir,University Hospital,TR,MENA,2025,Guide Wires,34,538.74
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Diagnostic Catheters,24,531.67
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,PTCA Balloon Catheters,6,604.79
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Introducer Sheaths,37,382.65
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Hemostasis Valves,5,38.77
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Guiding Catheters,5,132.89
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Radial Access Kits,1,36.8
+100100,Eğitim Araştırma Antalya,100100 - Eğitim Araştırma Antalya,Heart Center,TR,MENA,2025,Microcatheters,24,3829.98
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Hemostasis Valves,3,28.36
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,PTCA Balloon Catheters,27,2457.44
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Guide Wires,126,2217.65
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Introducer Sheaths,52,689.75
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Diagnostic Catheters,92,1726.27
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Guiding Catheters,7,204.66
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Microcatheters,33,5351.34
+100101,Özel Hastane Bursa,100101 - Özel Hastane Bursa,Private Clinic,TR,MENA,2025,Radial Access Kits,3,97.7
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Guide Wires,170,2754.1
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Microcatheters,28,4335.77
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Inflation Devices,8,132.4
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Radial Access Kits,2,78.64
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Guiding Catheters,18,514.42
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Drug-Eluting Stents,17,7378.45
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Diagnostic Catheters,56,1273.16
+100102,Üniversitesi Hastanesi Adana,100102 - Üniversitesi Hastanesi Adana,Heart Center,TR,MENA,2025,Introducer Sheaths,75,1002.59
+100103,Kalp Merkezi Konya,100103 - Kalp Merkezi Konya,Private Clinic,TR,MENA,2025,PTCA Balloon Catheters,10,1013.78
+100103,Kalp Merkezi Konya,100103 - Kalp Merkezi Konya,Private Clinic,TR,MENA,2025,Hemostasis Valves,6,57.97
+100103,Kalp Merkezi Konya,100103 - Kalp Merkezi Konya,Private Clinic,TR,MENA,2025,Introducer Sheaths,50,603.44
+100103,Kalp Merkezi Konya,100103 - Kalp Merkezi Konya,Private Clinic,TR,MENA,2025,Diagnostic Catheters,65,1480.72
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Drug-Eluting Stents,10,3767.73
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Hemostasis Valves,22,206.74
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Microcatheters,64,8096.42
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Inflation Devices,8,110.67
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Introducer Sheaths,58,602.11
+100104,Devlet Hastanesi Gaziantep,100104 - Devlet Hastanesi Gaziantep,University Hospital,TR,MENA,2025,Radial Access Kits,9,328.54
+100105,Eğitim Araştırma Mersin,100105 - Eğitim Araştırma Mersin,University Hospital,TR,MENA,2025,Guide Wires,215,3408.67
+100105,Eğitim Araştırma Mersin,100105 - Eğitim Araştırma Mersin,University Hospital,TR,MENA,2025,Hemostasis Valves,16,138.33
+100105,Eğitim Araştırma Mersin,100105 - Eğitim Araştırma Mersin,University Hospital,TR,MENA,2025,Radial Access Kits,6,184.23
+100105,Eğitim Araştırma Mersin,100105 - Eğitim Araştırma Mersin,University Hospital,TR,MENA,2025,Diagnostic Catheters,276,6288.89
+100105,Eğitim Araştırma Mersin,100105 - Eğitim Araştırma Mersin,University Hospital,TR,MENA,2025,Introducer Sheaths,68,818.04
+100106,Özel Hastane Kayseri,100106 - Özel Hastane Kayseri,Private Clinic,TR,MENA,2025,Hemostasis Valves,31,280.63
+100106,Özel Hastane Kayseri,100106 - Özel Hastane Kayseri,Private Clinic,TR,MENA,2025,Microcatheters,98,14007.65
+100106,Özel Hastane Kayseri,100106 - Özel Hastane Kayseri,Private Clinic,TR,MENA,2025,Inflation Devices,7,110.01
+100106,Özel Hastane Kayseri,100106 - Özel Hastane Kayseri,Private Clinic,TR,MENA,2025,Introducer Sheaths,63,723.15
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Diagnostic Catheters,58,1130.82
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Inflation Devices,8,109.76
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Microcatheters,59,7760.87
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Hemostasis Valves,4,36.62
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Guiding Catheters,4,116.48
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Introducer Sheaths,87,925.99
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Guide Wires,106,1883.61
+100107,Üniversitesi Hastanesi Eskisehir,100107 - Üniversitesi Hastanesi Eskisehir,Private Clinic,TR,MENA,2025,Drug-Eluting Stents,7,2943.7
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Guiding Catheters,2,61.3
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Inflation Devices,1,15.71
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Radial Access Kits,4,132.52
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Diagnostic Catheters,58,1244.86
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Drug-Eluting Stents,3,1332.77
+100108,Kalp Merkezi Trabzon,100108 - Kalp Merkezi Trabzon,University Hospital,TR,MENA,2025,Introducer Sheaths,33,383.87
+100109,Karolinska Stockholm,100109 - Karolinska Stockholm,University Hospital,SE,Northern Europe,2025,Diagnostic Catheters,49,986.59
+100109,Karolinska Stockholm,100109 - Karolinska Stockholm,University Hospital,SE,Northern Europe,2025,Hemostasis Valves,1,9.05
+100109,Karolinska Stockholm,100109 - Karolinska Stockholm,University Hospital,SE,Northern Europe,2025,PTCA Balloon Catheters,24,2568.1
+100109,Karolinska Stockholm,100109 - Karolinska Stockholm,University Hospital,SE,Northern Europe,2025,Guide Wires,74,1416.07
+100109,Karolinska Stockholm,100109 - Karolinska Stockholm,University Hospital,SE,Northern Europe,2025,Drug-Eluting Stents,13,4932.26
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Microcatheters,11,1381.14
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Guide Wires,20,334.83
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Radial Access Kits,4,160.31
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Diagnostic Catheters,19,373.66
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Drug-Eluting Stents,1,455.83
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Introducer Sheaths,16,194.37
+100110,Sahlgrenska Gothenburg,100110 - Sahlgrenska Gothenburg,Heart Center,SE,Northern Europe,2025,Hemostasis Valves,3,25.14
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,Drug-Eluting Stents,5,1793.17
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,Introducer Sheaths,4,49.74
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,Guide Wires,48,959.93
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,Diagnostic Catheters,6,148.29
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,PTCA Balloon Catheters,9,892.87
+100111,Skånes Universitetssjukhus Malmö,100111 - Skånes Universitetssjukhus Malmö,University Hospital,SE,Northern Europe,2025,Guiding Catheters,5,141.96
+100112,Uppsala Akademiska Uppsala,100112 - Uppsala Akademiska Uppsala,Heart Center,SE,Northern Europe,2025,Radial Access Kits,1,31.44
+100112,Uppsala Akademiska Uppsala,100112 - Uppsala Akademiska Uppsala,Heart Center,SE,Northern Europe,2025,Diagnostic Catheters,46,861.91
+100112,Uppsala Akademiska Uppsala,100112 - Uppsala Akademiska Uppsala,Heart Center,SE,Northern Europe,2025,Guide Wires,28,570.15
+100112,Uppsala Akademiska Uppsala,100112 - Uppsala Akademiska Uppsala,Heart Center,SE,Northern Europe,2025,Microcatheters,14,2291.03
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Guiding Catheters,16,448.69
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Diagnostic Catheters,21,467.13
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Hemostasis Valves,6,46.73
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Introducer Sheaths,35,398.82
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Inflation Devices,2,27.47
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,Microcatheters,99,14486.34
+100113,Danderyds sjukhus Linköping,100113 - Danderyds sjukhus Linköping,University Hospital,SE,Northern Europe,2025,PTCA Balloon Catheters,74,7712.66
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Guiding Catheters,8,192.06
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Guide Wires,63,1226.02
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Microcatheters,36,5233.68
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Drug-Eluting Stents,5,1971.75
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Inflation Devices,6,85.15
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Diagnostic Catheters,17,328.67
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Hemostasis Valves,6,55.18
+100114,Karolinska Örebro,100114 - Karolinska Örebro,University Hospital,SE,Northern Europe,2025,Radial Access Kits,3,109.0
+100115,Sahlgrenska Lund,100115 - Sahlgrenska Lund,Public Hospital,SE,Northern Europe,2025,Guide Wires,2,31.19
+100116,Skånes Universitetssjukhus Umeå,100116 - Skånes Universitetssjukhus Umeå,University Hospital,SE,Northern Europe,2025,Guide Wires,5,78.21
+100116,Skånes Universitetssjukhus Umeå,100116 - Skånes Universitetssjukhus Umeå,University Hospital,SE,Northern Europe,2025,Drug-Eluting Stents,2,725.47
+100116,Skånes Universitetssjukhus Umeå,100116 - Skånes Universitetssjukhus Umeå,University Hospital,SE,Northern Europe,2025,Diagnostic Catheters,6,126.36
+100116,Skånes Universitetssjukhus Umeå,100116 - Skånes Universitetssjukhus Umeå,University Hospital,SE,Northern Europe,2025,Introducer Sheaths,1,12.67
+100117,Uppsala Akademiska Västerås,100117 - Uppsala Akademiska Västerås,Private Clinic,SE,Northern Europe,2025,Introducer Sheaths,28,300.12
+100117,Uppsala Akademiska Västerås,100117 - Uppsala Akademiska Västerås,Private Clinic,SE,Northern Europe,2025,Guide Wires,44,890.41
+100117,Uppsala Akademiska Västerås,100117 - Uppsala Akademiska Västerås,Private Clinic,SE,Northern Europe,2025,Diagnostic Catheters,42,987.57
+100118,Danderyds sjukhus Karlstad,100118 - Danderyds sjukhus Karlstad,Public Hospital,SE,Northern Europe,2025,Guiding Catheters,15,450.42
+100118,Danderyds sjukhus Karlstad,100118 - Danderyds sjukhus Karlstad,Public Hospital,SE,Northern Europe,2025,Inflation Devices,10,137.03
+100118,Danderyds sjukhus Karlstad,100118 - Danderyds sjukhus Karlstad,Public Hospital,SE,Northern Europe,2025,PTCA Balloon Catheters,44,4620.73
+100118,Danderyds sjukhus Karlstad,100118 - Danderyds sjukhus Karlstad,Public Hospital,SE,Northern Europe,2025,Radial Access Kits,5,158.41
+100118,Danderyds sjukhus Karlstad,100118 - Danderyds sjukhus Karlstad,Public Hospital,SE,Northern Europe,2025,Introducer Sheaths,66,733.25
+100119,Karolinska Jönköping,100119 - Karolinska Jönköping,University Hospital,SE,Northern Europe,2025,PTCA Balloon Catheters,21,1893.76
+100119,Karolinska Jönköping,100119 - Karolinska Jönköping,University Hospital,SE,Northern Europe,2025,Guiding Catheters,12,351.67
+100119,Karolinska Jönköping,100119 - Karolinska Jönköping,University Hospital,SE,Northern Europe,2025,Hemostasis Valves,23,202.51
+100120,Sahlgrenska Norrköping,100120 - Sahlgrenska Norrköping,Private Clinic,SE,Northern Europe,2025,Microcatheters,14,1828.2

@@ -1,0 +1,79 @@
+Page,VisualId,VisualType,Role,ProjectionIndex,Entity,Property,FieldKind,QueryRef
+How to win — Growth targets,840d15d968590519,cardVisual,Values,1,fact_market_potential,MS Target RI Value,Measure,Sum(fact_market_potential.MS Target RI Value)
+How to win — Growth targets,a36d40b5e06e3e90,cardVisual,Values,1,fact_market_potential,MS Units to Reach RI 50,Measure,Sum(fact_market_potential.MS Units to Reach RI 50)
+How to win — Growth targets,af4f412b3c3461fe,cardVisual,Values,1,fact_market_potential,MS Target RI Label,Measure,Sum(fact_market_potential.MS Target RI Label)
+How to win — Growth targets,c5febc546c90bda6,cardVisual,Values,1,fact_market_potential,MS Units to Reach RI 100,Measure,Sum(fact_market_potential.MS Units to Reach RI 100)
+How to win — Growth targets,e0bb108433062c54,cardVisual,Values,1,fact_market_potential,MS Units to Reach RI 75,Measure,Sum(fact_market_potential.MS Units to Reach RI 75)
+How to win — Growth targets,e7af0ae69bcf94ae,cardVisual,Values,1,fact_market_potential,MS Units to Reach RI 150,Measure,Sum(fact_market_potential.MS Units to Reach RI 150)
+How to win — Growth targets,178fb5bb44318f12,slicer,Field,1,Shp_Dim_Country_Hierarchy,Country Text,Column,Shp_Dim_Country_Hierarchy.Country Text
+How to win — Growth targets,3f296e77ab84e45e,slicer,Field,1,Target RI,Value,Column,Target RI.Value
+How to win — Growth targets,7199ce22e6b71bf7,slicer,Field,1,Dim_Cust,Customer Name,Column,Dim_Cust.Customer Name
+How to win — Growth targets,d2c796926b978d6f,slicer,Field,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — Growth targets,54c0bbc8daf70d63,stackedBarChart,Category,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — Growth targets,54c0bbc8daf70d63,stackedBarChart,Y,1,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+How to win — Growth targets,54c0bbc8daf70d63,stackedBarChart,Y,2,fact_market_potential,MS Units to Target,Measure,Sum(fact_market_potential.MS Units to Target)
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,1,Dim_Cust,Customer Name,Column,Dim_Cust.Customer Name
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,2,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,3,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,4,fact_market_potential,Pot Total Potential Units,Measure,Sum(fact_market_potential.Pot Total Potential Units)
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,5,fact_market_potential,MS Units to Target,Measure,Sum(fact_market_potential.MS Units to Target)
+How to win — Growth targets,1c8dab52f908c568,tableEx,Values,6,fact_market_potential,MS Current vs Target Status,Measure,Sum(fact_market_potential.MS Current vs Target Status)
+How to win — Growth targets,23314d0f411d39d3,tableEx,Values,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — Growth targets,23314d0f411d39d3,tableEx,Values,2,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+How to win — Growth targets,23314d0f411d39d3,tableEx,Values,3,fact_market_potential,MS Mix Index,Measure,Sum(fact_market_potential.MS Mix Index)
+How to win — Growth targets,23314d0f411d39d3,tableEx,Values,4,fact_market_potential,MS Units to Target,Measure,Sum(fact_market_potential.MS Units to Target)
+How to win — Growth targets,23314d0f411d39d3,tableEx,Values,5,fact_market_potential,MS Current vs Target Status,Measure,Sum(fact_market_potential.MS Current vs Target Status)
+How to win — In this account,038f0a5c69419ec0,cardVisual,Values,1,fact_market_potential,Pot Realized Sales EUR,Measure,Sum(fact_market_potential.Pot Realized Sales EUR)
+How to win — In this account,076241e2653c4df7,cardVisual,Values,1,fact_market_potential,MS Customer Strength Badge,Measure,Sum(fact_market_potential.MS Customer Strength Badge)
+How to win — In this account,50a2f931b794a078,cardVisual,Values,1,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+How to win — In this account,62dff02efdfa0f82,cardVisual,Values,1,fact_market_potential,Pot Total Potential Units,Measure,Sum(fact_market_potential.Pot Total Potential Units)
+How to win — In this account,68c842f01a5e38ac,cardVisual,Values,1,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+How to win — In this account,84f041aa29928a68,cardVisual,Values,1,fact_market_potential,MS Whitespace Count,Measure,Sum(fact_market_potential.MS Whitespace Count)
+How to win — In this account,ca8a562d161290cd,cardVisual,Values,1,fact_market_potential,MS Category Coverage,Measure,Sum(fact_market_potential.MS Category Coverage)
+How to win — In this account,5e46d7b686463400,clusteredBarChart,Category,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — In this account,5e46d7b686463400,clusteredBarChart,Y,1,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+How to win — In this account,0cf42a087b0795a9,slicer,Field,1,Dim_Cust,Customer Name,Column,Dim_Cust.Customer Name
+How to win — In this account,4dbba6ba4b73bd13,slicer,Field,1,fact_market_potential,customer_segment,Column,fact_market_potential.customer_segment
+How to win — In this account,ac36277a34c2303d,slicer,Field,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — In this account,d361a601d48cc0da,slicer,Field,1,Shp_Dim_Country_Hierarchy,Country Text,Column,Shp_Dim_Country_Hierarchy.Country Text
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,2,fact_market_potential,MS Customer Category Mix,Measure,Sum(fact_market_potential.MS Customer Category Mix)
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,3,fact_market_potential,MS National Category Mix,Measure,Sum(fact_market_potential.MS National Category Mix)
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,4,fact_market_potential,MS Mix Index,Measure,Sum(fact_market_potential.MS Mix Index)
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,5,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+How to win — In this account,35d4af63a3508cfc,tableEx,Values,6,fact_market_potential,MS Customer Action Badge,Measure,Sum(fact_market_potential.MS Customer Action Badge)
+Where to go — Customers,0894b93bbcfcaf19,cardVisual,Values,1,fact_market_potential,Pot Realized Sales EUR,Measure,Sum(fact_market_potential.Pot Realized Sales EUR)
+Where to go — Customers,76adea487c71688b,cardVisual,Values,1,fact_market_potential,MS National Realization Pct,Measure,Sum(fact_market_potential.MS National Realization Pct)
+Where to go — Customers,85d4f5c87e1efd3b,cardVisual,Values,1,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+Where to go — Customers,66b6549ce6ab5ae4,scatterChart,Details,1,Dim_Cust,Customer Name,Column,Dim_Cust.Customer Name
+Where to go — Customers,66b6549ce6ab5ae4,scatterChart,Legend,1,fact_market_potential,MS Customer Action Badge,Measure,Sum(fact_market_potential.MS Customer Action Badge)
+Where to go — Customers,66b6549ce6ab5ae4,scatterChart,Size,1,fact_market_potential,MS Weighted Opportunity Score,Measure,Sum(fact_market_potential.MS Weighted Opportunity Score)
+Where to go — Customers,66b6549ce6ab5ae4,scatterChart,X,1,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+Where to go — Customers,66b6549ce6ab5ae4,scatterChart,Y,1,fact_market_potential,MS Category Coverage,Measure,Sum(fact_market_potential.MS Category Coverage)
+Where to go — Customers,25993e2d346f580c,slicer,Field,1,fact_market_potential,customer_segment,Column,fact_market_potential.customer_segment
+Where to go — Customers,674f54ac67de62b7,slicer,Field,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+Where to go — Customers,afb7ff882d462674,slicer,Field,1,Shp_Dim_Country_Hierarchy,Country Text,Column,Shp_Dim_Country_Hierarchy.Country Text
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,1,Dim_Cust,Customer Name,Column,Dim_Cust.Customer Name
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,2,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,3,fact_market_potential,Pot Realized Sales EUR,Measure,Sum(fact_market_potential.Pot Realized Sales EUR)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,4,fact_market_potential,MS Realization Index,Measure,Sum(fact_market_potential.MS Realization Index)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,5,fact_market_potential,MS Category Coverage,Measure,Sum(fact_market_potential.MS Category Coverage)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,6,fact_market_potential,MS Whitespace Count,Measure,Sum(fact_market_potential.MS Whitespace Count)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,7,fact_market_potential,Pot Gap Units,Measure,Sum(fact_market_potential.Pot Gap Units)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,8,fact_market_potential,MS Account Priority Score,Measure,Sum(fact_market_potential.MS Account Priority Score)
+Where to go — Customers,b65715b91b2b51e5,tableEx,Values,9,fact_market_potential,MS Customer Action Badge,Measure,Sum(fact_market_potential.MS Customer Action Badge)
+Where to go — Products,58a8fd61b5713ede,cardVisual,Values,1,fact_market_potential,Pot Realization %,Measure,Sum(fact_market_potential.Pot Realization %)
+Where to go — Products,5f8d8b1bb48776e9,cardVisual,Values,1,fact_market_potential,Pot Gap Units,Measure,Sum(fact_market_potential.Pot Gap Units)
+Where to go — Products,7b878f17e0fc0b36,cardVisual,Values,1,fact_market_potential,Pot Realized Sales EUR,Measure,Sum(fact_market_potential.Pot Realized Sales EUR)
+Where to go — Products,8e3f9ea6c01cdbe9,cardVisual,Values,1,fact_market_potential,Pot Total Potential Units,Measure,Sum(fact_market_potential.Pot Total Potential Units)
+Where to go — Products,ab4e847ba4d4a778,cardVisual,Values,1,fact_market_potential,Pot Gap EUR,Measure,Sum(fact_market_potential.Pot Gap EUR)
+Where to go — Products,e7b7dfc6168b75d2,cardVisual,Values,1,fact_market_potential,Pot Realized Qty,Measure,Sum(fact_market_potential.Pot Realized Qty)
+Where to go — Products,45765a46ce86b3e2,clusteredBarChart,Category,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+Where to go — Products,45765a46ce86b3e2,clusteredBarChart,Y,1,fact_market_potential,MS Category Revenue Share,Measure,Sum(fact_market_potential.MS Category Revenue Share)
+Where to go — Products,88d924737fd419ff,clusteredBarChart,Category,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+Where to go — Products,88d924737fd419ff,clusteredBarChart,Y,1,fact_market_potential,Pot Realization %,Measure,Sum(fact_market_potential.Pot Realization %)
+Where to go — Products,f203526a193ce077,clusteredBarChart,Category,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+Where to go — Products,f203526a193ce077,clusteredBarChart,Y,1,fact_market_potential,Pot Gap Units,Measure,Sum(fact_market_potential.Pot Gap Units)
+Where to go — Products,72de9da299d1c417,slicer,Field,1,dim_terumo_category,terumo_category,Column,dim_terumo_category.terumo_category
+Where to go — Products,c898a4e940873c0e,slicer,Field,1,Shp_Dim_Country_Hierarchy,Country Text,Column,Shp_Dim_Country_Hierarchy.Country Text
+Where to go — Products,e4f7774d024c8977,slicer,Field,1,dim_procedure,procedure_group,Column,dim_procedure.procedure_group

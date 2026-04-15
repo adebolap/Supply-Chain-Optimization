@@ -1,0 +1,8 @@
+procedure_group,procedure_group_key
+PCI - Coronary,PG001
+PCI - Complex,PG002
+Diagnostic Angiography,PG003
+Peripheral Intervention,PG004
+Neurovascular Intervention,PG005
+Structural Heart,PG006
+Electrophysiology,PG007

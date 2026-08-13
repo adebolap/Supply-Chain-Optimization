@@ -1,92 +1,65 @@
-# Supply Chain Optimization
+# Aisle — Wedding Guest List & RSVP
 
-## Project Overview
+A focused wedding-planning app: guest list, RSVP collection, seating chart,
+and a countdown checklist to the big day. Free for up to 75 guests and one
+event; a one-time payment unlocks unlimited guests, multi-event support, and
+day-of coordinator mode. See [`docs/product-plan.md`](docs/product-plan.md)
+for the market research and monetization design behind these decisions.
 
-Welcome to the Supply Chain Optimization project! This repository contains a comprehensive analysis and machine learning solution aimed at optimizing supply chain operations for a hypothetical business. The project demonstrates the application of data analysis and machine learning techniques to improve supply chain efficiency, reduce costs, and enhance decision-making processes.
+## Stack
 
-## Project Structure
+- Next.js (App Router, TypeScript) + Tailwind CSS
+- Prisma ORM + PostgreSQL
+- NextAuth (Auth.js v5) — email magic link (Resend) in production, plus a
+  dev-only passwordless shortcut so the app can be exercised locally without
+  email credentials
+- Stripe Checkout for the one-time premium unlock
+- `@dnd-kit` for the drag-and-drop seating chart
 
-The repository is organized into the following directories and files:
+## Getting started
 
-```plaintext
-data/
-  - supply_chain_data.csv: The primary dataset containing order details, product information, and customer data.
+1. Install dependencies:
 
-notebooks/
-  - 01_data_loading_and_exploration.ipynb: Notebook for data loading and initial exploration.
-  - 02_data_cleaning_and_preprocessing.ipynb: Notebook for data cleaning and preprocessing.
-  - 03_exploratory_data_analysis.ipynb: Notebook for exploratory data analysis (EDA).
-  - 04_feature_engineering.ipynb: Notebook for feature engineering.
-  - 05_machine_learning_model.ipynb: Notebook for building and evaluating machine learning models.
+   ```bash
+   npm install
+   ```
 
-src/
-  - data_loading.py: Script for loading data.
-  - data_cleaning.py: Script for cleaning data.
-  - eda.py: Script for exploratory data analysis.
-  - feature_engineering.py: Script for engineering features.
-  - model.py: Script for training and evaluating the machine learning model.
-  - main.py: The main script that orchestrates the entire workflow from data loading to model evaluation.
+2. Point `DATABASE_URL` in `.env` at a Postgres database, then run the
+   migration:
 
-requirements.txt: A list of Python packages required to run the project.
+   ```bash
+   npx prisma migrate dev
+   ```
 
-README.md: Project description and instructions.
+3. Start the dev server:
 
-How to Use This Repository
+   ```bash
+   npm run dev
+   ```
 
-1. Clone the Repository
-Clone this repository to your local machine using the following command:
+4. Open [http://localhost:3000](http://localhost:3000). Sign in via the
+   "Continue without email (dev only)" button on `/login` — this shortcut is
+   disabled automatically when `NODE_ENV=production`.
 
-bash
-Copy code
-git clone https://github.com/adebolap/Supply-Chain-Optimization.git
+### Environment variables
 
-2. Set Up the Environment
-Navigate to the project directory and create a virtual environment using Conda:
+See `.env` for the full list. Required for local dev: `DATABASE_URL`,
+`NEXTAUTH_SECRET`, `NEXTAUTH_URL`. Everything else (Stripe, Resend, Twilio)
+is optional locally — those features fall back to dev-only shortcuts
+(simulated premium upgrade) or no-ops when unconfigured, and must be set for
+a production deploy.
 
-bash
-Copy code
-cd Supply-Chain-Optimization
-conda create -n supply-chain python=3.8
-conda activate supply-chain
+## Project structure
 
-3. Install Dependencies
-Install the required Python packages using the requirements.txt file:
-
-bash
-Copy code
-pip install -r requirements.txt
-4. Run the Project
-Run the main script to execute the entire data processing and modeling pipeline:
-
-bash
-Copy code
-python main.py
-Project Workflow
-Data Loading and Exploration:
-
-Load the dataset and perform initial exploration to understand the structure and content of the data.
-Data Cleaning and Preprocessing:
-
-Clean the dataset by handling missing values, removing duplicates, and correcting data types.
-Exploratory Data Analysis (EDA):
-
-Perform exploratory data analysis to uncover patterns, trends, and insights from the data.
-Feature Engineering:
-
-Engineer new features to improve the performance of the machine learning model.
-Machine Learning Model:
-
-Build and evaluate machine learning models to predict and optimize supply chain operations.
-
-Conclusion
-This project provides a comprehensive workflow for analyzing and optimizing supply chain operations using data analysis and machine learning techniques. By following the steps outlined in this repository, you can gain valuable insights into your supply chain data and develop predictive models to enhance efficiency and decision-making.
-
-sql
-Copy code
-
-Copy this content into your `README.md` file, commit the changes, and push them to GitHub:
-
-```bash
-git add README.md
-git commit -m "Update README.md with detailed project description"
-git push origin main
+```
+src/app/dashboard/w/[weddingId]/   couple-facing authenticated app
+  guests/     guest list CRUD + CSV import
+  checklist/  countdown checklist
+  seating/    drag-and-drop seating chart
+  events/     multi-event management
+  settings/   plan + premium upgrade
+src/app/rsvp/[slug]/               public, unauthenticated guest RSVP page
+src/app/api/stripe/webhook/        Stripe checkout.session.completed handler
+src/lib/actions/                   server actions (guests, rsvp, seating, ...)
+prisma/schema.prisma                data model
+```

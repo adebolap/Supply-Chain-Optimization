@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { stripe, PREMIUM_PRICE_USD } from "@/lib/stripe";
@@ -15,7 +16,10 @@ export async function startPremiumCheckout(weddingId: string) {
     );
   }
 
-  const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") ?? "https";
+  const baseUrl = host ? `${protocol}://${host}` : "http://localhost:3000";
 
   const checkoutSession = await stripe.checkout.sessions.create({
     mode: "payment",

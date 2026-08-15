@@ -5,10 +5,10 @@ import { signIn, auth } from "@/lib/auth";
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ callbackUrl?: string }>;
+  searchParams: Promise<{ callbackUrl?: string; error?: string }>;
 }) {
   const session = await auth();
-  const { callbackUrl } = await searchParams;
+  const { callbackUrl, error } = await searchParams;
   if (session?.user) redirect(callbackUrl || "/dashboard");
 
   const isDev = process.env.NODE_ENV !== "production";
@@ -26,6 +26,14 @@ export default async function LoginPage({
         <p className="mb-6 text-sm text-muted-foreground">
           We&apos;ll email you a magic sign-in link. No password needed.
         </p>
+
+        {error && (
+          <p className="mb-4 rounded-lg bg-accent/10 px-3 py-2 text-sm text-accent">
+            We couldn&apos;t send that email just now. Please try again in a
+            moment, or reach out to the couple directly if this keeps
+            happening.
+          </p>
+        )}
 
         <form
           action={async (formData) => {

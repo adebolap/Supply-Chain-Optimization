@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { signIn, auth } from "@/lib/auth";
 
@@ -13,11 +14,17 @@ export default async function LoginPage({
   const isDev = process.env.NODE_ENV !== "production";
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-zinc-50 px-6 dark:bg-black">
-      <div className="w-full max-w-sm rounded-2xl border border-black/10 bg-white p-8 dark:border-white/10 dark:bg-zinc-950">
+    <div className="flex flex-1 items-center justify-center bg-background px-6">
+      <div className="w-full max-w-sm rounded-2xl border border-border bg-surface p-8 shadow-sm">
+        <Link
+          href="/"
+          className="font-display mb-4 block text-center text-2xl font-semibold tracking-tight"
+        >
+          Aisle
+        </Link>
         <h1 className="mb-1 text-xl font-semibold">Sign in</h1>
-        <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
-          We&apos;ll email you a magic sign-in link — no password needed.
+        <p className="mb-6 text-sm text-muted-foreground">
+          We&apos;ll email you a magic sign-in link. No password needed.
         </p>
 
         <form
@@ -33,11 +40,11 @@ export default async function LoginPage({
             name="email"
             required
             placeholder="you@example.com"
-            className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+            className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
           />
           <button
             type="submit"
-            className="rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background"
+            className="rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
           >
             Send magic link
           </button>
@@ -45,10 +52,10 @@ export default async function LoginPage({
 
         {isDev && (
           <>
-            <div className="my-6 flex items-center gap-2 text-xs text-zinc-400">
-              <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+            <div className="my-6 flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="h-px flex-1 bg-border" />
               dev shortcut
-              <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+              <div className="h-px flex-1 bg-border" />
             </div>
             <form
               action={async (formData) => {
@@ -66,11 +73,11 @@ export default async function LoginPage({
                 name="email"
                 required
                 placeholder="you@example.com"
-                className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+                className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
               />
               <button
                 type="submit"
-                className="rounded-lg border border-black/10 px-3 py-2 text-sm font-medium dark:border-white/10"
+                className="rounded-lg border border-border px-3 py-2 text-sm font-medium "
               >
                 Continue without email (dev only)
               </button>

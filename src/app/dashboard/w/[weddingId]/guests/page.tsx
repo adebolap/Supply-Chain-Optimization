@@ -36,7 +36,7 @@ export default async function GuestsPage({
       <div>
         <div className="mb-2 flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">Guest list</h2>
-          <span className="text-sm text-zinc-500">
+          <span className="text-sm text-muted-foreground">
             {guests.length}
             {wedding.tier === "FREE" ? ` / ${FREE_TIER_LIMITS.maxGuests}` : ""} guests
           </span>

@@ -9,22 +9,22 @@ export default function AddGuestForm({ weddingId }: { weddingId: string }) {
         name="firstName"
         required
         placeholder="First name"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <input
         name="lastName"
         placeholder="Last name"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <input
         name="household"
         placeholder="Household (optional)"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <select
         name="side"
         defaultValue="SHARED"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       >
         <option value="SHARED">Shared</option>
         <option value="PARTNER_ONE">Partner 1</option>
@@ -34,26 +34,26 @@ export default function AddGuestForm({ weddingId }: { weddingId: string }) {
         name="email"
         type="email"
         placeholder="Email (optional)"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <input
         name="phone"
         placeholder="Phone (optional)"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <input
         name="tags"
         placeholder="Tags, comma separated"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <input
         name="dietaryNotes"
         placeholder="Dietary notes"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
       <button
         type="submit"
-        className="col-span-2 rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background sm:col-span-4"
+        className="col-span-2 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover sm:col-span-4"
       >
         Add guest
       </button>

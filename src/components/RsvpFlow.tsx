@@ -128,9 +128,9 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-black/10 p-8 text-center dark:border-white/10">
+      <div className="rounded-2xl border border-border p-8 text-center ">
         <h2 className="mb-2 text-lg font-semibold">Thank you!</h2>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-muted-foreground">
           Your RSVP has been recorded. See you there.
         </p>
       </div>
@@ -143,7 +143,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
         {household.guests.map((g) => (
           <div
             key={g.id}
-            className="rounded-2xl border border-black/10 p-5 dark:border-white/10"
+            className="rounded-2xl border border-border p-5 "
           >
             <h3 className="mb-3 font-semibold">
               {g.firstName} {g.lastName}
@@ -152,7 +152,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
               {household.events.map((e) => {
                 const f = form[g.id]?.[e.id];
                 return (
-                  <div key={e.id} className="border-t border-black/5 pt-3 dark:border-white/5">
+                  <div key={e.id} className="border-t border-border-soft pt-3 ">
                     <div className="mb-2 flex items-center justify-between">
                       <span className="text-sm font-medium">{e.name}</span>
                       <div className="flex gap-2 text-xs">
@@ -162,7 +162,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
                           className={`rounded-full px-3 py-1 ${
                             f?.status === "ATTENDING"
                               ? "bg-emerald-600 text-white"
-                              : "border border-black/10 dark:border-white/10"
+                              : "border border-border"
                           }`}
                         >
                           Attending
@@ -172,8 +172,8 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
                           onClick={() => updateField(g.id, e.id, "status", "DECLINED")}
                           className={`rounded-full px-3 py-1 ${
                             f?.status === "DECLINED"
-                              ? "bg-zinc-700 text-white"
-                              : "border border-black/10 dark:border-white/10"
+                              ? "bg-foreground text-background"
+                              : "border border-border"
                           }`}
                         >
                           Can&apos;t make it
@@ -188,7 +188,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
                           onChange={(ev) =>
                             updateField(g.id, e.id, "mealChoice", ev.target.value)
                           }
-                          className="flex-1 rounded-lg border border-black/10 px-3 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="flex-1 rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground"
                         />
                         <label className="flex items-center gap-2 text-sm">
                           <input
@@ -207,7 +207,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
                             onChange={(ev) =>
                               updateField(g.id, e.id, "plusOneName", ev.target.value)
                             }
-                            className="flex-1 rounded-lg border border-black/10 px-3 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                            className="flex-1 rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground"
                           />
                         )}
                       </div>
@@ -221,7 +221,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
         <button
           onClick={handleSubmit}
           disabled={isPending}
-          className="rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background disabled:opacity-50"
+          className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover disabled:opacity-50"
         >
           {isPending ? "Submitting…" : "Submit RSVP"}
         </button>
@@ -239,20 +239,20 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Start typing your name…"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
       />
-      {isPending && <p className="text-xs text-zinc-500">Searching…</p>}
+      {isPending && <p className="text-xs text-muted-foreground">Searching…</p>}
       {matches.length > 0 && (
-        <ul className="flex flex-col divide-y divide-black/5 rounded-lg border border-black/10 dark:divide-white/5 dark:border-white/10">
+        <ul className="flex flex-col divide-y divide-border-soft rounded-lg border border-border  ">
           {matches.map((m) => (
             <li key={m.id}>
               <button
                 onClick={() => selectGuest(m.id)}
-                className="w-full px-3 py-2 text-left text-sm hover:bg-black/[.03] dark:hover:bg-white/[.05]"
+                className="w-full px-3 py-2 text-left text-sm transition-colors hover:bg-muted"
               >
                 {m.firstName} {m.lastName}
                 {m.household && (
-                  <span className="ml-2 text-xs text-zinc-500">{m.household}</span>
+                  <span className="ml-2 text-xs text-muted-foreground">{m.household}</span>
                 )}
               </button>
             </li>
@@ -260,7 +260,7 @@ export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
         </ul>
       )}
       {query.trim().length >= 2 && !isPending && matches.length === 0 && (
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-muted-foreground">
           No matches found. Check the spelling or contact the couple directly.
         </p>
       )}

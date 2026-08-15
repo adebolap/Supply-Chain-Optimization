@@ -27,11 +27,11 @@ export default async function EventsPage({
           {events.map((e) => (
             <li
               key={e.id}
-              className="flex items-center justify-between rounded-lg border border-black/10 px-4 py-2.5 text-sm dark:border-white/10"
+              className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5 text-sm "
             >
               <div>
                 <span className="font-medium">{e.name}</span>{" "}
-                <span className="text-zinc-500">
+                <span className="text-muted-foreground">
                   {new Date(e.startsAt).toLocaleString()}
                   {e.location ? ` · ${e.location}` : ""}
                 </span>
@@ -63,22 +63,22 @@ export default async function EventsPage({
               name="name"
               required
               placeholder="e.g. Rehearsal Dinner"
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
             />
             <input
               name="startsAt"
               type="datetime-local"
               required
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
             />
             <input
               name="location"
               placeholder="Location (optional)"
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
             />
             <button
               type="submit"
-              className="rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background sm:col-span-3"
+              className="rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover sm:col-span-3"
             >
               Add event
             </button>

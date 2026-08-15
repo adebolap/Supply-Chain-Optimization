@@ -33,16 +33,16 @@ export default function GuestList({
 
   if (guests.length === 0) {
     return (
-      <p className="text-sm text-zinc-500">
-        No guests yet — add your first guest above, or import a CSV.
+      <p className="text-sm text-muted-foreground">
+        No guests yet. Add your first guest above, or import a CSV.
       </p>
     );
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-black/10 dark:border-white/10">
+    <div className="overflow-x-auto rounded-xl border border-border">
       <table className="w-full text-sm">
-        <thead className="bg-black/[.03] text-left dark:bg-white/[.05]">
+        <thead className="bg-muted text-left">
           <tr>
             <th className="px-4 py-2 font-medium">Name</th>
             <th className="px-4 py-2 font-medium">Household</th>
@@ -60,15 +60,15 @@ export default function GuestList({
 
             return (
               <Fragment key={g.id}>
-                <tr className="border-t border-black/5 dark:border-white/5">
+                <tr className="border-t border-border-soft">
                   <td className="px-4 py-2">
                     {g.firstName} {g.lastName}
                   </td>
-                  <td className="px-4 py-2 text-zinc-500">
-                    {g.household || "—"}
+                  <td className="px-4 py-2 text-muted-foreground">
+                    {g.household || "-"}
                   </td>
-                  <td className="px-4 py-2 text-zinc-500">
-                    {g.tags.join(", ") || "—"}
+                  <td className="px-4 py-2 text-muted-foreground">
+                    {g.tags.join(", ") || "-"}
                   </td>
                   <td className="px-4 py-2">
                     {pending > 0 && (
@@ -82,7 +82,7 @@ export default function GuestList({
                       </span>
                     )}
                     {declined > 0 && (
-                      <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
                         {declined} no
                       </span>
                     )}
@@ -92,7 +92,7 @@ export default function GuestList({
                       onClick={() =>
                         setEditingId(editingId === g.id ? null : g.id)
                       }
-                      className="mr-2 text-xs text-zinc-500 hover:underline"
+                      className="mr-2 text-xs text-muted-foreground hover:underline"
                     >
                       {editingId === g.id ? "Close" : "Edit"}
                     </button>
@@ -110,7 +110,7 @@ export default function GuestList({
                   </td>
                 </tr>
                 {editingId === g.id && (
-                  <tr className="border-t border-black/5 bg-black/[.02] dark:border-white/5 dark:bg-white/[.03]">
+                  <tr className="border-t border-border-soft bg-muted">
                     <td colSpan={5} className="px-4 py-3">
                       <form
                         action={async (formData) => {
@@ -123,23 +123,23 @@ export default function GuestList({
                           name="firstName"
                           defaultValue={g.firstName}
                           required
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <input
                           name="lastName"
                           defaultValue={g.lastName}
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <input
                           name="household"
                           defaultValue={g.household || ""}
                           placeholder="Household"
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <select
                           name="side"
                           defaultValue={g.side}
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         >
                           <option value="SHARED">Shared</option>
                           <option value="PARTNER_ONE">Partner 1</option>
@@ -149,29 +149,29 @@ export default function GuestList({
                           name="email"
                           defaultValue={g.email || ""}
                           placeholder="Email"
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <input
                           name="phone"
                           defaultValue={g.phone || ""}
                           placeholder="Phone"
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <input
                           name="tags"
                           defaultValue={g.tags.join(", ")}
                           placeholder="Tags"
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <input
                           name="dietaryNotes"
                           defaultValue={g.dietaryNotes || ""}
                           placeholder="Dietary notes"
-                          className="rounded-lg border border-black/10 px-2 py-1.5 text-sm dark:border-white/10 dark:bg-black"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <button
                           type="submit"
-                          className="col-span-2 rounded-lg bg-foreground px-3 py-1.5 text-sm font-medium text-background sm:col-span-4"
+                          className="col-span-2 rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover sm:col-span-4"
                         >
                           Save
                         </button>

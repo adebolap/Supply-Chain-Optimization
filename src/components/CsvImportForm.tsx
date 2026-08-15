@@ -35,10 +35,10 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
   }
 
   return (
-    <div className="rounded-xl border border-dashed border-black/20 p-4 dark:border-white/20">
+    <div className="rounded-xl border border-dashed border-border p-4">
       <label className="flex flex-col gap-2 text-sm">
         <span className="font-medium">Import guests from CSV</span>
-        <span className="text-xs text-zinc-500">
+        <span className="text-xs text-muted-foreground">
           Columns: firstName, lastName, email, phone, household, dietaryNotes
         </span>
         <input
@@ -53,7 +53,7 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
           className="text-sm"
         />
       </label>
-      {isPending && <p className="mt-2 text-xs text-zinc-500">Importing…</p>}
+      {isPending && <p className="mt-2 text-xs text-muted-foreground">Importing…</p>}
       {message && <p className="mt-2 text-xs">{message}</p>}
     </div>
   );

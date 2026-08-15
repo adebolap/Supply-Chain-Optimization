@@ -19,22 +19,24 @@ export default async function SettingsPage({
     <div className="flex flex-col gap-8">
       {upgraded && (
         <p className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">
-          You&apos;re on Premium — unlimited guests and events are unlocked.
+          You&apos;re on Premium. Unlimited guests and events are unlocked.
         </p>
       )}
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Plan</h2>
-        <p className="mb-4 text-sm text-zinc-500">
+        <p className="mb-4 text-sm text-muted-foreground">
           {wedding.tier === "PREMIUM"
-            ? "You have Premium — thanks for supporting Aisle."
+            ? "You have Premium. Thanks for supporting Aisle."
             : `Free plan: up to ${FREE_TIER_LIMITS.maxGuests} guests, ${FREE_TIER_LIMITS.maxEvents} event.`}
         </p>
 
         {wedding.tier === "FREE" && (
-          <div className="rounded-2xl border border-black/10 p-6 dark:border-white/10">
-            <h3 className="mb-1 font-semibold">Upgrade to Premium — ${PREMIUM_PRICE_USD} one-time</h3>
-            <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <div className="rounded-2xl border border-border p-6 ">
+            <h3 className="mb-1 font-semibold">
+              Upgrade to Premium: ${PREMIUM_PRICE_USD} one-time
+            </h3>
+            <p className="mb-4 text-sm text-muted-foreground">
               No subscription. Pay once for this wedding, unlock unlimited
               guests, multi-event support, custom branding, SMS reminders,
               seating chart export, and day-of coordinator mode.
@@ -42,7 +44,7 @@ export default async function SettingsPage({
             <form action={startPremiumCheckout.bind(null, weddingId)}>
               <button
                 type="submit"
-                className="rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background"
+                className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
               >
                 Upgrade with Stripe
               </button>
@@ -55,7 +57,7 @@ export default async function SettingsPage({
               >
                 <button
                   type="submit"
-                  className="rounded-lg border border-black/10 px-4 py-2 text-sm dark:border-white/10"
+                  className="rounded-lg border border-border px-4 py-2 text-sm "
                 >
                   Simulate upgrade (dev only)
                 </button>
@@ -67,7 +69,7 @@ export default async function SettingsPage({
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Wedding link</h2>
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-muted-foreground">
           Slug: <code className="font-mono">{wedding.slug}</code>
         </p>
       </div>

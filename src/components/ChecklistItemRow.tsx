@@ -18,7 +18,7 @@ export default function ChecklistItemRow({ weddingId, item }: Props) {
   const [isPending, startTransition] = useTransition();
 
   return (
-    <li className="flex items-center justify-between rounded-lg border border-black/10 px-4 py-2.5 dark:border-white/10">
+    <li className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5 ">
       <label className="flex items-center gap-3 text-sm">
         <input
           type="checkbox"
@@ -30,11 +30,11 @@ export default function ChecklistItemRow({ weddingId, item }: Props) {
             )
           }
         />
-        <span className={item.isComplete ? "text-zinc-400 line-through" : ""}>
+        <span className={item.isComplete ? "text-muted-foreground line-through" : ""}>
           {item.title}
         </span>
         {item.dueDate && (
-          <span className="text-xs text-zinc-500">
+          <span className="text-xs text-muted-foreground">
             due {new Date(item.dueDate).toLocaleDateString()}
           </span>
         )}

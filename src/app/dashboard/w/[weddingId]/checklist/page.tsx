@@ -24,7 +24,7 @@ export default async function ChecklistPage({
       <div>
         <div className="mb-2 flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">Countdown checklist</h2>
-          <span className="text-sm text-zinc-500">
+          <span className="text-sm text-muted-foreground">
             {done} / {items.length} done
           </span>
         </div>
@@ -33,7 +33,7 @@ export default async function ChecklistPage({
             <ChecklistItemRow key={item.id} weddingId={weddingId} item={item} />
           ))}
           {items.length === 0 && (
-            <p className="text-sm text-zinc-500">No checklist items yet.</p>
+            <p className="text-sm text-muted-foreground">No checklist items yet.</p>
           )}
         </ul>
       </div>
@@ -45,12 +45,12 @@ export default async function ChecklistPage({
             name="title"
             required
             placeholder="Task"
-            className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black sm:col-span-2"
+            className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent sm:col-span-2"
           />
           <select
             name="category"
             defaultValue="GENERAL"
-            className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+            className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
           >
             <option value="GUEST_LIST">Guest list</option>
             <option value="RSVP">RSVP</option>
@@ -60,11 +60,11 @@ export default async function ChecklistPage({
           <input
             name="dueDate"
             type="date"
-            className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+            className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
           />
           <button
             type="submit"
-            className="rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background sm:col-span-4"
+            className="rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover sm:col-span-4"
           >
             Add task
           </button>

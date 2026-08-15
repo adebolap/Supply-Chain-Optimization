@@ -37,7 +37,7 @@ function GuestChip({ guest }: { guest: Guest }) {
           ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
           : undefined,
       }}
-      className={`cursor-grab rounded-full border border-black/10 bg-white px-3 py-1 text-xs dark:border-white/10 dark:bg-zinc-900 ${
+      className={`cursor-grab rounded-full border border-border bg-surface px-3 py-1 text-xs ${
         isDragging ? "opacity-50" : ""
       }`}
     >
@@ -65,13 +65,13 @@ function TableDropzone({
     <div
       ref={setNodeRef}
       className={`flex min-h-[120px] flex-col gap-2 rounded-xl border p-4 ${
-        isOver ? "border-black/40 bg-black/[.03] dark:border-white/40 dark:bg-white/[.05]" : "border-black/10 dark:border-white/10"
+        isOver ? "border-accent bg-accent/10" : "border-border"
       }`}
     >
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium">{table.name}</span>
         <div className="flex items-center gap-2">
-          <span className={`text-xs ${full ? "text-amber-600" : "text-zinc-500"}`}>
+          <span className={`text-xs ${full ? "text-amber-600" : "text-muted-foreground"}`}>
             {seatedGuests.length}/{table.capacity}
           </span>
           <form action={deleteTable.bind(null, weddingId, table.id)}>
@@ -146,7 +146,7 @@ function UnassignedZone({ guests }: { guests: Guest[] }) {
     <div
       ref={setNodeRef}
       className={`mt-6 rounded-xl border p-4 ${
-        isOver ? "border-black/40 bg-black/[.03] dark:border-white/40 dark:bg-white/[.05]" : "border-dashed border-black/20 dark:border-white/20"
+        isOver ? "border-accent bg-accent/10" : "border-dashed border-border"
       }`}
     >
       <div className="mb-2 text-sm font-medium">Unassigned ({guests.length})</div>
@@ -155,7 +155,7 @@ function UnassignedZone({ guests }: { guests: Guest[] }) {
           <GuestChip key={g.id} guest={g} />
         ))}
         {guests.length === 0 && (
-          <p className="text-xs text-zinc-500">Everyone is seated.</p>
+          <p className="text-xs text-muted-foreground">Everyone is seated.</p>
         )}
       </div>
     </div>

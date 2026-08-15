@@ -25,7 +25,7 @@ export async function startPremiumCheckout(weddingId: string) {
           currency: "usd",
           unit_amount: PREMIUM_PRICE_USD * 100,
           product_data: {
-            name: `Premium unlock — ${wedding.title}`,
+            name: `Premium unlock: ${wedding.title}`,
             description:
               "Unlimited guests, multi-event support, custom branding, SMS reminders, coordinator mode.",
           },

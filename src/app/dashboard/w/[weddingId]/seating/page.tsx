@@ -22,7 +22,7 @@ export default async function SeatingPage({
   const activeEvent = events.find((e) => e.id === eventIdParam) || events[0];
 
   if (!activeEvent) {
-    return <p className="text-sm text-zinc-500">Create an event first.</p>;
+    return <p className="text-sm text-muted-foreground">Create an event first.</p>;
   }
 
   const [tables, guests] = await Promise.all([
@@ -61,8 +61,8 @@ export default async function SeatingPage({
             href={`/dashboard/w/${weddingId}/seating?event=${e.id}`}
             className={`rounded-full px-3 py-1.5 text-sm ${
               e.id === activeEvent.id
-                ? "bg-foreground text-background"
-                : "border border-black/10 dark:border-white/10"
+                ? "bg-accent text-accent-foreground"
+                : "border border-border"
             }`}
           >
             {e.name}
@@ -72,27 +72,27 @@ export default async function SeatingPage({
 
       <form action={createTableAction} className="flex flex-wrap items-end gap-3">
         <div className="flex flex-col gap-1">
-          <label className="text-xs text-zinc-500">Table name</label>
+          <label className="text-xs text-muted-foreground">Table name</label>
           <input
             name="name"
             required
             placeholder="Table 1"
-            className="rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-xs text-zinc-500">Capacity</label>
+          <label className="text-xs text-muted-foreground">Capacity</label>
           <input
             name="capacity"
             type="number"
             min={1}
             defaultValue={8}
-            className="w-24 rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-24 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
           />
         </div>
         <button
           type="submit"
-          className="rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background"
+          className="rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
         >
           Add table
         </button>

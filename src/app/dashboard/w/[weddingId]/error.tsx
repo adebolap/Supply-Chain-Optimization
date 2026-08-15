@@ -14,7 +14,7 @@ export default function Error({
       </p>
       <button
         onClick={reset}
-        className="rounded-lg border border-black/10 px-3 py-1.5 text-sm dark:border-white/10"
+        className="rounded-lg border border-border px-3 py-1.5 text-sm "
       >
         Try again
       </button>

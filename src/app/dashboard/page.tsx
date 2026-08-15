@@ -8,7 +8,7 @@ export default async function DashboardPage() {
     <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16">
       <div>
         <h1 className="text-2xl font-semibold">Your weddings</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-muted-foreground">
           Pick a wedding to manage its guest list, or start a new one.
         </p>
       </div>
@@ -19,10 +19,10 @@ export default async function DashboardPage() {
             <li key={w.id}>
               <Link
                 href={`/dashboard/w/${w.id}/guests`}
-                className="flex items-center justify-between rounded-xl border border-black/10 px-5 py-4 hover:bg-black/[.02] dark:border-white/10 dark:hover:bg-white/[.03]"
+                className="flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition-colors hover:bg-muted"
               >
                 <span className="font-medium">{w.title}</span>
-                <span className="text-sm text-zinc-500">
+                <span className="text-sm text-muted-foreground">
                   {new Date(w.weddingDate).toLocaleDateString()} ·{" "}
                   {w.tier === "PREMIUM" ? "Premium" : "Free"}
                 </span>
@@ -32,7 +32,7 @@ export default async function DashboardPage() {
         </ul>
       )}
 
-      <div className="rounded-2xl border border-black/10 p-6 dark:border-white/10">
+      <div className="rounded-2xl border border-border p-6 ">
         <h2 className="mb-4 font-semibold">Start a new wedding</h2>
         <form action={createWedding} className="flex flex-col gap-3">
           <div className="flex flex-col gap-1">
@@ -44,7 +44,7 @@ export default async function DashboardPage() {
               name="title"
               required
               placeholder="Sam & Jordan's Wedding"
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -56,12 +56,12 @@ export default async function DashboardPage() {
               name="weddingDate"
               type="date"
               required
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/10 dark:bg-black"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
             />
           </div>
           <button
             type="submit"
-            className="mt-2 rounded-lg bg-foreground px-3 py-2 text-sm font-medium text-background"
+            className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
           >
             Create wedding
           </button>

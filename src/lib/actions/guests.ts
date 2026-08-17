@@ -5,6 +5,7 @@ import Papa from "papaparse";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
+import { mapGuestRow, type RawGuestRow } from "@/lib/guestImport";
 import type { GuestSide } from "@/generated/prisma/enums";
 import type { ActionState } from "@/lib/actions/types";
 
@@ -44,6 +45,7 @@ export async function addGuest(
       household: String(formData.get("household") || "").trim() || null,
       side: (String(formData.get("side") || "SHARED") as GuestSide),
       dietaryNotes: String(formData.get("dietaryNotes") || "").trim() || null,
+      notes: String(formData.get("notes") || "").trim() || null,
       tags: String(formData.get("tags") || "")
         .split(",")
         .map((t) => t.trim())
@@ -74,6 +76,7 @@ export async function updateGuest(weddingId: string, guestId: string, formData: 
       household: String(formData.get("household") || "").trim() || null,
       side: (String(formData.get("side") || "SHARED") as GuestSide),
       dietaryNotes: String(formData.get("dietaryNotes") || "").trim() || null,
+      notes: String(formData.get("notes") || "").trim() || null,
       tags: String(formData.get("tags") || "")
         .split(",")
         .map((t) => t.trim())
@@ -91,15 +94,6 @@ export async function deleteGuest(weddingId: string, guestId: string) {
   revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
-interface CsvGuestRow {
-  firstName: string;
-  lastName?: string;
-  email?: string;
-  phone?: string;
-  household?: string;
-  dietaryNotes?: string;
-}
-
 interface ImportResult {
   error: string | null;
   imported?: number;
@@ -108,9 +102,10 @@ interface ImportResult {
 async function createGuestsFromRows(
   weddingId: string,
   tier: string,
-  rows: CsvGuestRow[]
+  rawRows: RawGuestRow[]
 ): Promise<ImportResult> {
-  const valid = rows.filter((r) => r.firstName?.trim());
+  const mapped = rawRows.map(mapGuestRow);
+  const valid = mapped.filter((r) => r.firstName);
   const capacityError = await assertGuestCapacity(weddingId, tier, valid.length);
   if (capacityError) return { error: capacityError };
 
@@ -121,16 +116,21 @@ async function createGuestsFromRows(
       const guest = await tx.guest.create({
         data: {
           weddingId,
-          firstName: row.firstName.trim(),
-          lastName: (row.lastName || "").trim(),
-          email: row.email?.trim() || null,
-          phone: row.phone?.trim() || null,
-          household: row.household?.trim() || null,
-          dietaryNotes: row.dietaryNotes?.trim() || null,
+          firstName: row.firstName,
+          lastName: row.lastName,
+          email: row.email || null,
+          phone: row.phone || null,
+          household: row.household || null,
+          dietaryNotes: row.dietaryNotes || null,
+          notes: row.notes || null,
         },
       });
       await tx.rSVP.createMany({
-        data: events.map((e) => ({ guestId: guest.id, eventId: e.id })),
+        data: events.map((e) => ({
+          guestId: guest.id,
+          eventId: e.id,
+          status: row.rsvpStatus || "PENDING",
+        })),
       });
     }
   });
@@ -142,7 +142,7 @@ async function createGuestsFromRows(
 
 export async function importGuestsCsv(
   weddingId: string,
-  rows: CsvGuestRow[]
+  rows: RawGuestRow[]
 ): Promise<ImportResult> {
   try {
     const { wedding } = await requireWeddingOwner(weddingId);
@@ -150,17 +150,6 @@ export async function importGuestsCsv(
   } catch (err) {
     return { error: err instanceof Error ? err.message : "Import failed." };
   }
-}
-
-function mapSheetRow(row: Record<string, string>): CsvGuestRow {
-  return {
-    firstName: row.firstName || row["First Name"] || row.first_name || "",
-    lastName: row.lastName || row["Last Name"] || row.last_name || "",
-    email: row.email || row.Email || "",
-    phone: row.phone || row.Phone || "",
-    household: row.household || row.Household || "",
-    dietaryNotes: row.dietaryNotes || row["Dietary Notes"] || "",
-  };
 }
 
 function parseGoogleSheetUrl(url: string): { id: string; gid: string } | null {
@@ -198,7 +187,7 @@ export async function importGuestsFromSheet(
       skipEmptyLines: true,
     });
 
-    return await createGuestsFromRows(weddingId, wedding.tier, data.map(mapSheetRow));
+    return await createGuestsFromRows(weddingId, wedding.tier, data);
   } catch (err) {
     return {
       error: err instanceof Error ? err.message : "Couldn't import from that sheet.",

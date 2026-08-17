@@ -28,8 +28,8 @@ export default function SheetImportForm({ weddingId }: { weddingId: string }) {
         <span className="font-medium">Import from Google Sheets</span>
         <span className="text-xs text-muted-foreground">
           Share the sheet as &quot;Anyone with the link can view,&quot; then
-          paste its link. Same columns as CSV: firstName, lastName, email,
-          phone, household, dietaryNotes.
+          paste its link. Any column headers work, e.g. Name (or First/Last
+          Name), Email, Phone, Household, RSVP status, Notes.
         </span>
         <div className="flex gap-2">
           <input

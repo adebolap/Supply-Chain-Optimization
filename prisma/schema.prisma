@@ -127,6 +127,7 @@ model Guest {
   side         GuestSide @default(SHARED)
   tags         String[] // e.g. ["family", "bridal party", "plus-one"]
   dietaryNotes String?
+  notes        String? // catch-all, e.g. mailing address imported from a spreadsheet
 
   checkInToken String @unique @default(cuid()) // encoded in the guest's QR code
 

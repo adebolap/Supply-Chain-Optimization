@@ -13,17 +13,8 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        const rows = results.data.map((row) => ({
-          firstName: row.firstName || row["First Name"] || row.first_name || "",
-          lastName: row.lastName || row["Last Name"] || row.last_name || "",
-          email: row.email || row.Email || "",
-          phone: row.phone || row.Phone || "",
-          household: row.household || row.Household || "",
-          dietaryNotes: row.dietaryNotes || row["Dietary Notes"] || "",
-        }));
-
         startTransition(async () => {
-          const result = await importGuestsCsv(weddingId, rows);
+          const result = await importGuestsCsv(weddingId, results.data);
           setMessage(
             result.error ? result.error : `Imported ${result.imported} guest(s).`
           );
@@ -37,7 +28,8 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
       <label className="flex flex-col gap-2 text-sm">
         <span className="font-medium">Import guests from CSV</span>
         <span className="text-xs text-muted-foreground">
-          Columns: firstName, lastName, email, phone, household, dietaryNotes
+          Any column headers work, e.g. Name (or First/Last Name), Email,
+          Phone, Household, RSVP status, Notes.
         </span>
         <input
           type="file"

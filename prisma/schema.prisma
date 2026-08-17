@@ -133,6 +133,7 @@ model Guest {
   notes        String? // catch-all, e.g. mailing address imported from a spreadsheet
 
   checkInToken String @unique @default(cuid()) // encoded in the guest's QR code
+  rsvpToken    String @unique @default(cuid()) // personal RSVP link; distinct from checkInToken so sharing one never leaks the other
 
   rsvps RSVP[]
   seat  Seat?

@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { twilioClient, TWILIO_FROM_NUMBER } from "@/lib/twilio";
@@ -65,7 +66,7 @@ export async function sendBroadcast(
   _prevState: BroadcastState,
   formData: FormData
 ): Promise<BroadcastState> {
-  await requireWeddingOwner(weddingId);
+  const { wedding } = await requireWeddingOwner(weddingId);
 
   const channel = String(formData.get("channel") || "EMAIL") as "EMAIL" | "SMS";
   const audience = String(formData.get("audience") || "ALL") as BroadcastAudience;
@@ -77,14 +78,29 @@ export async function sendBroadcast(
     return { error: "Subject is required for email." };
   }
 
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") ?? "https";
+  const baseUrl = host ? `${protocol}://${host}` : "http://localhost:3000";
+  // Anyone who hasn't responded yet needs a link to act on a reminder, so
+  // it's appended automatically rather than relying on the couple to
+  // remember to paste one in. Each recipient gets their own personal RSVP
+  // link (pre-filled, no name search needed) instead of the shared page.
+  const shouldAppendLink = audience === "NOT_RESPONDED" || /rsvp/i.test(body);
+  function bodyFor(guest: { rsvpToken: string }) {
+    if (!shouldAppendLink) return body;
+    const rsvpUrl = `${baseUrl}/rsvp/${wedding.slug}/g/${guest.rsvpToken}`;
+    return `${body}\n\nRSVP here: ${rsvpUrl}`;
+  }
+
   const guests = await getAudienceGuests(weddingId, audience);
   const recipients = guests.filter((g) => (channel === "EMAIL" ? g.email : g.phone));
 
   const results = await Promise.allSettled(
     recipients.map((guest) =>
       channel === "EMAIL"
-        ? sendEmail(guest.email!, subject, body)
-        : sendSms(guest.phone!, body)
+        ? sendEmail(guest.email!, subject, bodyFor(guest))
+        : sendSms(guest.phone!, bodyFor(guest))
     )
   );
   const sent = results.filter((r) => r.status === "fulfilled").length;

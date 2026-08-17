@@ -8,6 +8,8 @@ interface RsvpForEvent {
   eventName: string;
   status: string;
   checkedInAt: Date | null;
+  admits: number;
+  plusOneName: string | null;
 }
 
 export default function GuestCheckInCard({
@@ -15,12 +17,20 @@ export default function GuestCheckInCard({
   guestId,
   firstName,
   lastName,
+  tableName,
+  primaryEventId,
+  wasAlreadyCheckedIn,
+  justCheckedIn,
   rsvps,
 }: {
   weddingSlug: string;
   guestId: string;
   firstName: string;
   lastName: string;
+  tableName: string | null;
+  primaryEventId: string | null;
+  wasAlreadyCheckedIn: boolean;
+  justCheckedIn: boolean;
   rsvps: RsvpForEvent[];
 }) {
   const [state, setState] = useState(
@@ -35,11 +45,48 @@ export default function GuestCheckInCard({
     });
   }
 
+  const primary = rsvps.find((r) => r.eventId === primaryEventId);
+
   return (
     <div className="rounded-2xl border border-border bg-surface p-6">
-      <h2 className="font-display mb-4 text-2xl font-semibold">
+      <h2 className="font-display mb-1 text-2xl font-semibold">
         {firstName} {lastName}
       </h2>
+      {primary && (
+        <p className="mb-4 text-sm text-muted-foreground">
+          Admits {primary.admits}
+          {primary.plusOneName ? ` (with ${primary.plusOneName})` : ""}
+          {tableName ? ` · Table ${tableName}` : ""}
+        </p>
+      )}
+
+      {primary && justCheckedIn && (
+        <div className="mb-4 rounded-xl bg-emerald-50 px-4 py-3 text-center dark:bg-emerald-900/20">
+          <p className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">
+            Admitted
+          </p>
+          <p className="text-xs text-emerald-700/80 dark:text-emerald-300/80">
+            {primary.eventName}
+          </p>
+        </div>
+      )}
+      {primary && wasAlreadyCheckedIn && (
+        <div className="mb-4 rounded-xl bg-amber-50 px-4 py-3 text-center dark:bg-amber-900/20">
+          <p className="text-lg font-semibold text-amber-800 dark:text-amber-300">
+            Already checked in
+          </p>
+          <p className="text-xs text-amber-800/80 dark:text-amber-300/80">
+            {primary.eventName}
+            {primary.checkedInAt
+              ? ` at ${new Date(primary.checkedInAt).toLocaleTimeString([], {
+                  hour: "numeric",
+                  minute: "2-digit",
+                })}`
+              : ""}
+          </p>
+        </div>
+      )}
+
       <div className="flex flex-col gap-3">
         {rsvps.map((r) => {
           const checkedIn = state[r.eventId];

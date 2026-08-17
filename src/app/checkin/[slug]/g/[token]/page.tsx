@@ -28,6 +28,10 @@ export default async function CheckInGuestPage({
           guestId={data.guest.id}
           firstName={data.guest.firstName}
           lastName={data.guest.lastName}
+          tableName={data.guest.tableName}
+          primaryEventId={data.guest.primaryEventId}
+          wasAlreadyCheckedIn={data.guest.wasAlreadyCheckedIn}
+          justCheckedIn={data.guest.justCheckedIn}
           rsvps={data.guest.rsvps}
         />
         <Link

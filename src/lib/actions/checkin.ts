@@ -37,9 +37,44 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
     where: { checkInToken: token, weddingId: wedding.id },
     include: {
       rsvps: { include: { event: true }, orderBy: { event: { startsAt: "asc" } } },
+      seat: { include: { table: true } },
     },
   });
   if (!guest) return null;
+
+  // Scanning a code at the door is the check-in action itself, so this
+  // admits the guest for whichever event's door they're at (the one
+  // closest to right now) with no extra tap. Showing the code again after
+  // that flips into the "already admitted" warning below instead of
+  // silently re-toggling, so a screenshotted code can't be reused.
+  let primaryEventId: string | null = null;
+  let wasAlreadyCheckedIn = false;
+  let justCheckedIn = false;
+
+  const eligible = guest.rsvps.filter((r) => r.status !== "DECLINED");
+  if (eligible.length > 0) {
+    const now = Date.now();
+    const primary = eligible.reduce((closest, r) =>
+      Math.abs(r.event.startsAt.getTime() - now) <
+      Math.abs(closest.event.startsAt.getTime() - now)
+        ? r
+        : closest
+    );
+    primaryEventId = primary.eventId;
+    wasAlreadyCheckedIn = Boolean(primary.checkedInAt);
+
+    if (!wasAlreadyCheckedIn) {
+      await prisma.rSVP.update({
+        where: { guestId_eventId: { guestId: guest.id, eventId: primary.eventId } },
+        data: { checkedInAt: new Date() },
+      });
+      justCheckedIn = true;
+      // No revalidatePath here: this runs during a page render (not inside
+      // a Server Action), where cache revalidation isn't supported. Every
+      // page that reads check-in state is already fully dynamic (no static
+      // caching), so it picks up this write on its next request regardless.
+    }
+  }
 
   return {
     weddingTitle: wedding.title,
@@ -47,11 +82,17 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
       id: guest.id,
       firstName: guest.firstName,
       lastName: guest.lastName,
+      tableName: guest.seat?.table.name ?? null,
+      primaryEventId,
+      wasAlreadyCheckedIn,
+      justCheckedIn,
       rsvps: guest.rsvps.map((r) => ({
         eventId: r.eventId,
         eventName: r.event.name,
         status: r.status,
-        checkedInAt: r.checkedInAt,
+        checkedInAt: r.eventId === primaryEventId && justCheckedIn ? new Date() : r.checkedInAt,
+        admits: r.status === "DECLINED" ? 0 : r.plusOne ? 2 : 1,
+        plusOneName: r.plusOneName,
       })),
     },
   };

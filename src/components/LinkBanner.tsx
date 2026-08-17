@@ -2,14 +2,19 @@
 
 import { useState } from "react";
 
-export default function RsvpLinkBanner({ slug }: { slug: string }) {
+export default function LinkBanner({
+  label,
+  path,
+}: {
+  label: string;
+  path: string;
+}) {
   const [copied, setCopied] = useState(false);
-  const path = `/rsvp/${slug}`;
 
   return (
     <div className="flex items-center justify-between rounded-xl border border-border bg-muted px-4 py-3 text-sm">
       <span>
-        Guest RSVP page: <code className="font-mono">{path}</code>
+        {label}: <code className="font-mono">{path}</code>
       </span>
       <button
         onClick={() => {

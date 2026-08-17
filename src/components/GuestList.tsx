@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import Link from "next/link";
 import { updateGuest, deleteGuest } from "@/lib/actions/guests";
 
 interface Guest {
@@ -88,6 +89,12 @@ export default function GuestList({
                     )}
                   </td>
                   <td className="px-4 py-2 text-right">
+                    <Link
+                      href={`/dashboard/w/${weddingId}/guests/${g.id}/qr`}
+                      className="mr-2 text-xs text-muted-foreground hover:underline"
+                    >
+                      QR
+                    </Link>
                     <button
                       onClick={() =>
                         setEditingId(editingId === g.id ? null : g.id)

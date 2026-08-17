@@ -6,6 +6,8 @@ const TABS = [
   { href: "checklist", label: "Checklist" },
   { href: "seating", label: "Seating" },
   { href: "events", label: "Events" },
+  { href: "checkin", label: "Check-in" },
+  { href: "broadcast", label: "Broadcast" },
   { href: "settings", label: "Settings" },
 ];
 
@@ -29,7 +31,7 @@ export default async function WeddingLayout({
   return (
     <div className="flex flex-1 flex-col">
       <div className="border-b border-border px-6 py-5">
-        <div className="mx-auto flex w-full max-w-4xl items-center justify-between">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
           <div>
             <Link
               href="/dashboard"
@@ -50,7 +52,7 @@ export default async function WeddingLayout({
             </div>
           </div>
         </div>
-        <nav className="mx-auto mt-4 flex w-full max-w-4xl gap-1 text-sm">
+        <nav className="mx-auto mt-4 flex w-full max-w-5xl flex-wrap gap-1 text-sm">
           {TABS.map((tab) => (
             <Link
               key={tab.href}
@@ -62,7 +64,7 @@ export default async function WeddingLayout({
           ))}
         </nav>
       </div>
-      <div className="mx-auto w-full max-w-4xl flex-1 px-6 py-8">{children}</div>
+      <div className="mx-auto w-full max-w-5xl flex-1 px-6 py-8">{children}</div>
     </div>
   );
 }

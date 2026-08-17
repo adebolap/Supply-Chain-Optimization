@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export default async function CheckInLandingPage({
@@ -27,6 +28,12 @@ export default async function CheckInLandingPage({
             else&apos;s name.
           </p>
         </div>
+        <Link
+          href={`/checkin/${slug}/admin`}
+          className="mt-6 inline-block text-xs text-muted-foreground hover:underline"
+        >
+          Guest without their code? Admin check-in
+        </Link>
       </div>
     </div>
   );

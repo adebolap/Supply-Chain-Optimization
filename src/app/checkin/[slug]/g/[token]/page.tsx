@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { getGuestForCheckIn } from "@/lib/actions/checkin";
+import { pickPhotoForPage } from "@/lib/branding";
 import GuestCheckInCard from "@/components/GuestCheckInCard";
+import WeddingBackdrop from "@/components/WeddingBackdrop";
 
 export default async function CheckInGuestPage({
   params,
@@ -11,13 +13,25 @@ export default async function CheckInGuestPage({
   const data = await getGuestForCheckIn(slug, token);
   if (!data) notFound();
 
+  const photoUrl = pickPhotoForPage(data.photoUrls, "checkin");
+
   return (
-    <div className="flex flex-1 flex-col items-center bg-background px-6 py-16">
+    <div className="relative flex flex-1 flex-col items-center px-6 py-16">
+      <WeddingBackdrop photoUrl={photoUrl} />
       <div className="w-full max-w-lg">
         <div className="mb-8 text-center">
-          <p className="mb-2 text-xs tracking-[0.3em] text-muted-foreground uppercase">
-            Day-of check-in
-          </p>
+          {data.logoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={data.logoUrl}
+              alt={data.weddingTitle}
+              className="mx-auto mb-4 max-h-14 w-auto"
+            />
+          ) : (
+            <p className="mb-2 text-xs tracking-[0.3em] text-muted-foreground uppercase">
+              Day-of check-in
+            </p>
+          )}
           <h1 className="font-display text-3xl font-semibold">
             {data.weddingTitle}
           </h1>

@@ -5,6 +5,14 @@ import {
   ensureCheckInPin,
   regenerateCheckInPin,
 } from "@/lib/actions/weddings";
+import { simulatePremiumUpgrade } from "@/lib/actions/billing";
+import { blobConfigured } from "@/lib/blob";
+import { PREMIUM_PRICE_USD } from "@/lib/stripe";
+import { FREE_TIER_LIMITS } from "@/lib/limits";
+import UpgradeButton from "@/components/UpgradeButton";
+import PartnerEmailForm from "@/components/PartnerEmailForm";
+import LogoUploadForm from "@/components/LogoUploadForm";
+import PhotoGalleryUpload from "@/components/PhotoGalleryUpload";
 
 function toLocalDateTimeInputValue(date: Date) {
   const pad = (n: number) => String(n).padStart(2, "0");
@@ -12,11 +20,6 @@ function toLocalDateTimeInputValue(date: Date) {
     date.getHours()
   )}:${pad(date.getMinutes())}`;
 }
-import { simulatePremiumUpgrade } from "@/lib/actions/billing";
-import { PREMIUM_PRICE_USD } from "@/lib/stripe";
-import { FREE_TIER_LIMITS } from "@/lib/limits";
-import UpgradeButton from "@/components/UpgradeButton";
-import PartnerEmailForm from "@/components/PartnerEmailForm";
 
 export default async function SettingsPage({
   params,
@@ -109,6 +112,32 @@ export default async function SettingsPage({
             Save
           </button>
         </form>
+      </div>
+
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">Branding</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Your logo and photos appear as a subtle accent on the pages
+          guests see (RSVP and check-in), not on your own dashboard.
+          Images are automatically resized and compressed on upload.
+        </p>
+        {!blobConfigured ? (
+          <p className="rounded-lg bg-accent/10 px-3 py-2 text-sm text-accent">
+            Image uploads aren&apos;t configured yet. Set BLOB_READ_WRITE_TOKEN
+            to enable them.
+          </p>
+        ) : (
+          <div className="flex flex-col gap-6">
+            <div>
+              <h3 className="mb-2 text-sm font-medium">Logo</h3>
+              <LogoUploadForm weddingId={weddingId} currentLogoUrl={wedding.logoUrl} />
+            </div>
+            <div>
+              <h3 className="mb-2 text-sm font-medium">Photos (up to 4)</h3>
+              <PhotoGalleryUpload weddingId={weddingId} photoUrls={wedding.photoUrls} />
+            </div>
+          </div>
+        )}
       </div>
 
       {isOwner && (

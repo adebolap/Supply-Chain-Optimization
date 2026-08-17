@@ -89,6 +89,12 @@ model Wedding {
   /// Check-in (scan or admin) admits nobody before this time. Null = no restriction.
   checkInOpensAt DateTime?
 
+  /// Shown on guest-facing pages instead of the default wordmark.
+  logoUrl String?
+  /// Small curated set (capped at upload time) used as a subtle background
+  /// accent on guest-facing pages only, one per page, picked deterministically.
+  photoUrls String[] @default([])
+
   events            Event[]
   guests            Guest[]
   tables            Table[]

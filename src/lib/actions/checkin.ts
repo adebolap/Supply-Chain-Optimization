@@ -27,6 +27,8 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
   if (wedding.checkInOpensAt && Date.now() < wedding.checkInOpensAt.getTime()) {
     return {
       weddingTitle: wedding.title,
+      logoUrl: wedding.logoUrl,
+      photoUrls: wedding.photoUrls,
       notYetOpen: true as const,
       opensAt: wedding.checkInOpensAt,
       guest: null,
@@ -75,6 +77,8 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
 
   return {
     weddingTitle: wedding.title,
+    logoUrl: wedding.logoUrl,
+    photoUrls: wedding.photoUrls,
     notYetOpen: false as const,
     opensAt: null,
     guest: {

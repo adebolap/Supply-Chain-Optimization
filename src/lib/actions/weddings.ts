@@ -59,7 +59,20 @@ export async function createWedding(formData: FormData) {
   });
 
   revalidatePath("/dashboard");
-  redirect(`/dashboard/w/${wedding.id}/guests`);
+  redirect(`/dashboard/w/${wedding.id}`);
+}
+
+export async function updateRsvpDeadline(weddingId: string, formData: FormData) {
+  await requireWeddingOwner(weddingId);
+
+  const raw = String(formData.get("rsvpDeadline") || "").trim();
+  await prisma.wedding.update({
+    where: { id: weddingId },
+    data: { rsvpDeadline: raw ? new Date(raw) : null },
+  });
+
+  revalidatePath(`/dashboard/w/${weddingId}/settings`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 export async function getMyWeddings() {

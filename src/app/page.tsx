@@ -80,6 +80,29 @@ export default async function Home() {
             </div>
           ))}
         </div>
+
+        <div className="w-full rounded-2xl border border-accent/30 bg-accent/5 p-8 text-left">
+          <h2 className="font-display mb-2 text-2xl font-semibold">
+            Every RSVP here is one that didn&apos;t need paper
+          </h2>
+          <p className="mb-4 max-w-lg text-sm text-muted-foreground">
+            No printed invites, no mailed RSVP cards, no reprinting a seating
+            chart every time someone changes their mind. It&apos;s not a
+            footnote, it&apos;s the whole point: a paperless wedding is
+            usually a cheaper, faster, less stressful one too.
+          </p>
+          <ul className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+            <li className="rounded-xl bg-surface px-4 py-3">
+              No printed invites or RSVP cards
+            </li>
+            <li className="rounded-xl bg-surface px-4 py-3">
+              No reprinted seating charts
+            </li>
+            <li className="rounded-xl bg-surface px-4 py-3">
+              No wasted place cards for no-shows
+            </li>
+          </ul>
+        </div>
       </main>
 
       <footer className="border-t border-border px-6 py-6 text-center text-xs text-muted-foreground">

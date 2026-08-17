@@ -48,6 +48,7 @@ export async function addGuest(weddingId: string, formData: FormData) {
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 export async function updateGuest(weddingId: string, guestId: string, formData: FormData) {
@@ -77,6 +78,7 @@ export async function deleteGuest(weddingId: string, guestId: string) {
   await requireWeddingOwner(weddingId);
   await prisma.guest.delete({ where: { id: guestId } });
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 interface CsvGuestRow {
@@ -118,6 +120,7 @@ async function createGuestsFromRows(
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
   return { imported: valid.length };
 }
 

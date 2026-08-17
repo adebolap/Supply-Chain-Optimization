@@ -1,4 +1,4 @@
-import { requireWeddingOwner } from "@/lib/actions/weddings";
+import { requireWeddingOwner, updateRsvpDeadline } from "@/lib/actions/weddings";
 import { startPremiumCheckout, simulatePremiumUpgrade } from "@/lib/actions/billing";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
@@ -65,6 +65,41 @@ export default async function SettingsPage({
             )}
           </div>
         )}
+      </div>
+
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">RSVP deadline</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Guests see this on their invite, and it powers reminder
+          announcements to anyone who hasn&apos;t responded yet.
+        </p>
+        <form
+          action={updateRsvpDeadline.bind(null, weddingId)}
+          className="flex items-end gap-3"
+        >
+          <div className="flex flex-col gap-1">
+            <label className="text-xs text-muted-foreground" htmlFor="rsvpDeadline">
+              Deadline date
+            </label>
+            <input
+              id="rsvpDeadline"
+              name="rsvpDeadline"
+              type="date"
+              defaultValue={
+                wedding.rsvpDeadline
+                  ? new Date(wedding.rsvpDeadline).toISOString().slice(0, 10)
+                  : ""
+              }
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+          >
+            Save
+          </button>
+        </form>
       </div>
 
       <div>

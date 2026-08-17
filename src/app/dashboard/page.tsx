@@ -18,7 +18,7 @@ export default async function DashboardPage() {
           {weddings.map((w) => (
             <li key={w.id}>
               <Link
-                href={`/dashboard/w/${w.id}/guests`}
+                href={`/dashboard/w/${w.id}`}
                 className="flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition-colors hover:bg-muted"
               >
                 <span className="font-medium">{w.title}</span>

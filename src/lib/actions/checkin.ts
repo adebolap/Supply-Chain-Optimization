@@ -72,6 +72,8 @@ export async function toggleCheckIn(
   });
 
   revalidatePath(`/checkin/${weddingSlug}`);
+  revalidatePath(`/dashboard/w/${wedding.id}`);
+  revalidatePath(`/dashboard/w/${wedding.id}/checkin`);
 }
 
 export async function getCheckInStats(weddingId: string) {

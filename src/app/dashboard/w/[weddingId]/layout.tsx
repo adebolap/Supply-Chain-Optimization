@@ -2,6 +2,7 @@ import Link from "next/link";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 
 const TABS = [
+  { href: "", label: "Overview" },
   { href: "guests", label: "Guest list" },
   { href: "checklist", label: "Checklist" },
   { href: "seating", label: "Seating" },
@@ -30,7 +31,7 @@ export default async function WeddingLayout({
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="border-b border-border px-6 py-5">
+      <div className="print:hidden border-b border-border px-6 py-5">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
           <div>
             <Link
@@ -56,7 +57,7 @@ export default async function WeddingLayout({
           {TABS.map((tab) => (
             <Link
               key={tab.href}
-              href={`/dashboard/w/${weddingId}/${tab.href}`}
+              href={`/dashboard/w/${weddingId}${tab.href ? `/${tab.href}` : ""}`}
               className="rounded-full px-3 py-1.5 transition-colors hover:bg-muted"
             >
               {tab.label}

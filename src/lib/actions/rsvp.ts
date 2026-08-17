@@ -104,4 +104,5 @@ export async function submitRsvps(weddingSlug: string, entries: RsvpEntry[]) {
   );
 
   revalidatePath(`/rsvp/${weddingSlug}`);
+  revalidatePath(`/dashboard/w/${wedding.id}`);
 }

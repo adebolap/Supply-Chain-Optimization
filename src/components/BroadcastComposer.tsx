@@ -116,6 +116,12 @@ export default function BroadcastComposer({
           placeholder="Your message to guests..."
           className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
         />
+        {(audience === "NOT_RESPONDED" || /rsvp/i.test(body)) && (
+          <p className="text-xs text-muted-foreground">
+            Your RSVP link will be added to the end of this message
+            automatically.
+          </p>
+        )}
         <button
           type="submit"
           disabled={isPending}

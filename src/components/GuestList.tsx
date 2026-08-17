@@ -15,6 +15,7 @@ interface Guest {
   tags: string[];
   dietaryNotes: string | null;
   notes: string | null;
+  rsvpToken: string;
 }
 
 interface RsvpSummary {
@@ -24,14 +25,24 @@ interface RsvpSummary {
 
 export default function GuestList({
   weddingId,
+  weddingSlug,
   guests,
   rsvpByGuest,
 }: {
   weddingId: string;
+  weddingSlug: string;
   guests: Guest[];
   rsvpByGuest: Record<string, RsvpSummary[]>;
 }) {
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  function copyRsvpLink(guestId: string, token: string) {
+    const url = `${window.location.origin}/rsvp/${weddingSlug}/g/${token}`;
+    navigator.clipboard.writeText(url);
+    setCopiedId(guestId);
+    setTimeout(() => setCopiedId((id) => (id === guestId ? null : id)), 2000);
+  }
 
   if (guests.length === 0) {
     return (
@@ -90,6 +101,12 @@ export default function GuestList({
                     )}
                   </td>
                   <td className="px-4 py-2 text-right">
+                    <button
+                      onClick={() => copyRsvpLink(g.id, g.rsvpToken)}
+                      className="mr-2 text-xs text-muted-foreground hover:underline"
+                    >
+                      {copiedId === g.id ? "Copied!" : "RSVP link"}
+                    </button>
                     <Link
                       href={`/dashboard/w/${weddingId}/guests/${g.id}/qr`}
                       className="mr-2 text-xs text-muted-foreground hover:underline"

@@ -29,6 +29,17 @@ export async function findGuestsByName(weddingSlug: string, query: string) {
   }));
 }
 
+/** Resolves a guest's personal RSVP link to their id, for the pre-filled flow. */
+export async function getGuestIdFromRsvpToken(weddingSlug: string, token: string) {
+  const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
+  if (!wedding) return null;
+
+  const guest = await prisma.guest.findFirst({
+    where: { rsvpToken: token, weddingId: wedding.id },
+  });
+  return guest?.id ?? null;
+}
+
 export async function getHouseholdForRsvp(weddingSlug: string, guestId: string) {
   const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
   if (!wedding) return null;

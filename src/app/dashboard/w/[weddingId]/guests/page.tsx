@@ -50,7 +50,12 @@ export default async function GuestsPage({
             </a>
           </p>
         )}
-        <GuestList weddingId={weddingId} guests={guests} rsvpByGuest={rsvpByGuest} />
+        <GuestList
+          weddingId={weddingId}
+          weddingSlug={wedding.slug}
+          guests={guests}
+          rsvpByGuest={rsvpByGuest}
+        />
       </div>
 
       {!atLimit && (

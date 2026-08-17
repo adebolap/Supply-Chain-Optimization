@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import {
   findGuestsByName,
   getHouseholdForRsvp,
@@ -46,13 +46,24 @@ interface HouseholdData {
 
 type FormState = Record<string, Record<string, Partial<RsvpEntry>>>;
 
-export default function RsvpFlow({ weddingSlug }: { weddingSlug: string }) {
+export default function RsvpFlow({
+  weddingSlug,
+  initialGuestId,
+}: {
+  weddingSlug: string;
+  initialGuestId?: string;
+}) {
   const [query, setQuery] = useState("");
   const [matches, setMatches] = useState<Match[]>([]);
   const [household, setHousehold] = useState<HouseholdData | null>(null);
   const [form, setForm] = useState<FormState>({});
   const [submitted, setSubmitted] = useState(false);
   const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    if (initialGuestId) selectGuest(initialGuestId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialGuestId]);
 
   function handleSearch(value: string) {
     setQuery(value);

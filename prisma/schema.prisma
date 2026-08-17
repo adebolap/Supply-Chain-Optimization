@@ -80,6 +80,9 @@ model Wedding {
   ownerId String
   owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
+  /// Co-planner's email, granted the same access as the owner once they sign in with it.
+  partnerEmail String?
+
   events            Event[]
   guests            Guest[]
   tables            Table[]

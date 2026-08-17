@@ -1,4 +1,8 @@
-import { requireWeddingOwner, updateRsvpDeadline } from "@/lib/actions/weddings";
+import {
+  requireWeddingOwner,
+  updateRsvpDeadline,
+  updatePartnerEmail,
+} from "@/lib/actions/weddings";
 import { startPremiumCheckout, simulatePremiumUpgrade } from "@/lib/actions/billing";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
@@ -11,7 +15,7 @@ export default async function SettingsPage({
   searchParams: Promise<{ upgraded?: string }>;
 }) {
   const { weddingId } = await params;
-  const { wedding } = await requireWeddingOwner(weddingId);
+  const { wedding, isOwner } = await requireWeddingOwner(weddingId);
   const { upgraded } = await searchParams;
   const isDev = process.env.NODE_ENV !== "production";
 
@@ -101,6 +105,41 @@ export default async function SettingsPage({
           </button>
         </form>
       </div>
+
+      {isOwner && (
+        <div>
+          <h2 className="mb-1 text-lg font-semibold">Share with your spouse</h2>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Add their email and they&apos;ll get full access to this wedding
+            the moment they sign in with it, no separate invite link to
+            manage.
+          </p>
+          <form
+            action={updatePartnerEmail.bind(null, weddingId)}
+            className="flex items-end gap-3"
+          >
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-muted-foreground" htmlFor="partnerEmail">
+                Spouse&apos;s email
+              </label>
+              <input
+                id="partnerEmail"
+                name="partnerEmail"
+                type="email"
+                placeholder="partner@example.com"
+                defaultValue={wedding.partnerEmail || ""}
+                className="w-64 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
+              />
+            </div>
+            <button
+              type="submit"
+              className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      )}
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Wedding link</h2>

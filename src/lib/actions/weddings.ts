@@ -12,14 +12,19 @@ export async function requireSession() {
   return session;
 }
 
-/** Loads a wedding and verifies the current user owns it, or redirects. */
+/** Loads a wedding and verifies the current user owns it or is the invited
+ * partner, or redirects. */
 export async function requireWeddingOwner(weddingId: string) {
   const session = await requireSession();
   const wedding = await prisma.wedding.findUnique({ where: { id: weddingId } });
-  if (!wedding || wedding.ownerId !== session.user!.id) {
+  const isOwner = wedding?.ownerId === session.user!.id;
+  const isPartner =
+    !!wedding?.partnerEmail &&
+    wedding.partnerEmail.toLowerCase() === session.user!.email?.toLowerCase();
+  if (!wedding || (!isOwner && !isPartner)) {
     redirect("/dashboard");
   }
-  return { session, wedding };
+  return { session, wedding, isOwner };
 }
 
 export async function createWedding(formData: FormData) {
@@ -75,10 +80,32 @@ export async function updateRsvpDeadline(weddingId: string, formData: FormData) 
   revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
+export async function updatePartnerEmail(weddingId: string, formData: FormData) {
+  const { session, wedding } = await requireWeddingOwner(weddingId);
+  if (wedding.ownerId !== session.user!.id) {
+    throw new Error("Only the wedding owner can change who it's shared with.");
+  }
+
+  const raw = String(formData.get("partnerEmail") || "").trim();
+  await prisma.wedding.update({
+    where: { id: weddingId },
+    data: { partnerEmail: raw || null },
+  });
+
+  revalidatePath(`/dashboard/w/${weddingId}/settings`);
+}
+
 export async function getMyWeddings() {
   const session = await requireSession();
   return prisma.wedding.findMany({
-    where: { ownerId: session.user!.id! },
+    where: {
+      OR: [
+        { ownerId: session.user!.id! },
+        ...(session.user!.email
+          ? [{ partnerEmail: { equals: session.user!.email, mode: "insensitive" as const } }]
+          : []),
+      ],
+    },
     orderBy: { weddingDate: "asc" },
   });
 }

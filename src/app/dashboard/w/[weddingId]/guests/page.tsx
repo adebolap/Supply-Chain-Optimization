@@ -4,7 +4,7 @@ import { FREE_TIER_LIMITS } from "@/lib/limits";
 import AddGuestForm from "@/components/AddGuestForm";
 import CsvImportForm from "@/components/CsvImportForm";
 import GuestList from "@/components/GuestList";
-import RsvpLinkBanner from "@/components/RsvpLinkBanner";
+import LinkBanner from "@/components/LinkBanner";
 
 export default async function GuestsPage({
   params,
@@ -31,7 +31,7 @@ export default async function GuestsPage({
 
   return (
     <div className="flex flex-col gap-8">
-      <RsvpLinkBanner slug={wedding.slug} />
+      <LinkBanner label="Guest RSVP page" path={`/rsvp/${wedding.slug}`} />
 
       <div>
         <div className="mb-2 flex items-baseline justify-between">

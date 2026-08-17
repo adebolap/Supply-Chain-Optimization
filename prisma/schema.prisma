@@ -79,10 +79,11 @@ model Wedding {
   ownerId String
   owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
-  events         Event[]
-  guests         Guest[]
-  tables         Table[]
-  checklistItems ChecklistItem[]
+  events            Event[]
+  guests            Guest[]
+  tables            Table[]
+  checklistItems    ChecklistItem[]
+  broadcastMessages BroadcastMessage[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -123,6 +124,8 @@ model Guest {
   tags         String[] // e.g. ["family", "bridal party", "plus-one"]
   dietaryNotes String?
 
+  checkInToken String @unique @default(cuid()) // encoded in the guest's QR code
+
   rsvps RSVP[]
   seat  Seat?
 
@@ -150,6 +153,8 @@ model RSVP {
   plusOne    Boolean    @default(false)
   plusOneName String?
   notes      String?
+
+  checkedInAt DateTime?
 
   respondedAt DateTime?
   createdAt   DateTime  @default(now())
@@ -204,6 +209,30 @@ model ChecklistItem {
   dueDate    DateTime?
   category   ChecklistCategory @default(GENERAL)
   isComplete Boolean           @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([weddingId])
+}
+
+// --- Broadcast messaging (email/SMS announcements to the guest list) ---
+
+enum BroadcastChannel {
+  EMAIL
+  SMS
+}
+
+model BroadcastMessage {
+  id        String  @id @default(cuid())
+  weddingId String
+  wedding   Wedding @relation(fields: [weddingId], references: [id], onDelete: Cascade)
+
+  channel        BroadcastChannel
+  subject        String? // email only
+  body           String
+  audience       String // human-readable description, e.g. "All guests" or "Haven't RSVP'd yet"
+  recipientCount Int    @default(0)
+  failureCount   Int    @default(0)
 
   createdAt DateTime @default(now())
 

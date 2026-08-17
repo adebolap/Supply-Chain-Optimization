@@ -7,7 +7,7 @@ import { prisma } from "@/lib/prisma";
 const providers: NextAuthConfig["providers"] = [
   Resend({
     apiKey: process.env.RESEND_API_KEY,
-    from: "Wedding App <onboarding@resend.dev>",
+    from: "Aisle <hello@theweddingguest.space>",
   }),
 ];
 

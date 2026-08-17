@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/lib/auth";
-import { getMyWeddings, createWedding } from "@/lib/actions/weddings";
+import { getMyWeddings } from "@/lib/actions/weddings";
+import CreateWeddingForm from "@/components/CreateWeddingForm";
 
 export default async function DashboardPage() {
   const [session, weddings] = await Promise.all([auth(), getMyWeddings()]);
@@ -42,38 +43,7 @@ export default async function DashboardPage() {
 
       <div className="rounded-2xl border border-border p-6 ">
         <h2 className="mb-4 font-semibold">Start a new wedding</h2>
-        <form action={createWedding} className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium" htmlFor="title">
-              Wedding title
-            </label>
-            <input
-              id="title"
-              name="title"
-              required
-              placeholder="Sam & Jordan's Wedding"
-              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium" htmlFor="weddingDate">
-              Wedding date
-            </label>
-            <input
-              id="weddingDate"
-              name="weddingDate"
-              type="date"
-              required
-              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
-            />
-          </div>
-          <button
-            type="submit"
-            className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
-          >
-            Create wedding
-          </button>
-        </form>
+        <CreateWeddingForm />
       </div>
     </div>
   );

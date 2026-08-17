@@ -65,12 +65,14 @@ test("couple can toggle a checklist item", async ({ page }) => {
   });
 });
 
-test("couple can simulate a premium upgrade and unlock broadcast", async ({ page }) => {
+test("broadcast is available on the free plan, and premium upgrade still works", async ({
+  page,
+}) => {
   await devSignIn(page, `e2e-premium-${Date.now()}@example.com`);
   const weddingId = await createWedding(page, "E2E Premium Wedding", "2026-09-01");
 
   await page.goto(`/dashboard/w/${weddingId}/broadcast`);
-  await expect(page.locator("text=is a Premium feature")).toBeVisible();
+  await expect(page.locator("text=Send an announcement")).toBeVisible();
 
   await page.goto(`/dashboard/w/${weddingId}/settings`);
   await page.click("text=Simulate upgrade (dev only)");

@@ -1,11 +1,9 @@
-import {
-  requireWeddingOwner,
-  updateRsvpDeadline,
-  updatePartnerEmail,
-} from "@/lib/actions/weddings";
-import { startPremiumCheckout, simulatePremiumUpgrade } from "@/lib/actions/billing";
+import { requireWeddingOwner, updateRsvpDeadline } from "@/lib/actions/weddings";
+import { simulatePremiumUpgrade } from "@/lib/actions/billing";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
+import UpgradeButton from "@/components/UpgradeButton";
+import PartnerEmailForm from "@/components/PartnerEmailForm";
 
 export default async function SettingsPage({
   params,
@@ -42,17 +40,10 @@ export default async function SettingsPage({
             </h3>
             <p className="mb-4 text-sm text-muted-foreground">
               No subscription. Pay once for this wedding, unlock unlimited
-              guests, multi-event support, custom branding, SMS reminders,
-              seating chart export, and day-of coordinator mode.
+              guests, multi-event support, custom branding, seating chart
+              export, and day-of coordinator mode.
             </p>
-            <form action={startPremiumCheckout.bind(null, weddingId)}>
-              <button
-                type="submit"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
-              >
-                Upgrade with Stripe
-              </button>
-            </form>
+            <UpgradeButton weddingId={weddingId} />
 
             {isDev && (
               <form
@@ -114,30 +105,7 @@ export default async function SettingsPage({
             the moment they sign in with it, no separate invite link to
             manage.
           </p>
-          <form
-            action={updatePartnerEmail.bind(null, weddingId)}
-            className="flex items-end gap-3"
-          >
-            <div className="flex flex-col gap-1">
-              <label className="text-xs text-muted-foreground" htmlFor="partnerEmail">
-                Spouse&apos;s email
-              </label>
-              <input
-                id="partnerEmail"
-                name="partnerEmail"
-                type="email"
-                placeholder="partner@example.com"
-                defaultValue={wedding.partnerEmail || ""}
-                className="w-64 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
-              />
-            </div>
-            <button
-              type="submit"
-              className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
-            >
-              Save
-            </button>
-          </form>
+          <PartnerEmailForm weddingId={weddingId} currentEmail={wedding.partnerEmail} />
         </div>
       )}
 

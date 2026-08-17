@@ -12,12 +12,12 @@ export default function SheetImportForm({ weddingId }: { weddingId: string }) {
     e.preventDefault();
     if (!url.trim()) return;
     startTransition(async () => {
-      try {
-        const result = await importGuestsFromSheet(weddingId, url.trim());
+      const result = await importGuestsFromSheet(weddingId, url.trim());
+      if (result.error) {
+        setMessage(result.error);
+      } else {
         setMessage(`Imported ${result.imported} guest(s).`);
         setUrl("");
-      } catch (err) {
-        setMessage(err instanceof Error ? err.message : "Import failed.");
       }
     });
   }

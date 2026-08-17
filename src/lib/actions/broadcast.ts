@@ -5,6 +5,11 @@ import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { twilioClient, TWILIO_FROM_NUMBER } from "@/lib/twilio";
 
+export interface BroadcastState {
+  error: string | null;
+  sent?: number;
+}
+
 export type BroadcastAudience = "ALL" | "ATTENDING" | "NOT_RESPONDED" | "DECLINED";
 
 const AUDIENCE_LABELS: Record<BroadcastAudience, string> = {
@@ -55,20 +60,21 @@ async function sendSms(to: string, body: string) {
   await twilioClient.messages.create({ to, from: TWILIO_FROM_NUMBER, body });
 }
 
-export async function sendBroadcast(weddingId: string, formData: FormData) {
-  const { wedding } = await requireWeddingOwner(weddingId);
-  if (wedding.tier !== "PREMIUM") {
-    throw new Error("Broadcast messaging is a Premium feature.");
-  }
+export async function sendBroadcast(
+  weddingId: string,
+  _prevState: BroadcastState,
+  formData: FormData
+): Promise<BroadcastState> {
+  await requireWeddingOwner(weddingId);
 
   const channel = String(formData.get("channel") || "EMAIL") as "EMAIL" | "SMS";
   const audience = String(formData.get("audience") || "ALL") as BroadcastAudience;
   const subject = String(formData.get("subject") || "").trim();
   const body = String(formData.get("body") || "").trim();
 
-  if (!body) throw new Error("Message body is required.");
+  if (!body) return { error: "Message body is required." };
   if (channel === "EMAIL" && !subject) {
-    throw new Error("Subject is required for email.");
+    return { error: "Subject is required for email." };
   }
 
   const guests = await getAudienceGuests(weddingId, audience);
@@ -97,6 +103,7 @@ export async function sendBroadcast(weddingId: string, formData: FormData) {
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/broadcast`);
+  return { error: null, sent };
 }
 
 export async function getBroadcastHistory(weddingId: string) {

@@ -6,14 +6,19 @@ import { headers } from "next/headers";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { stripe, PREMIUM_PRICE_USD } from "@/lib/stripe";
+import type { ActionState } from "@/lib/actions/types";
 
-export async function startPremiumCheckout(weddingId: string) {
+export async function startPremiumCheckout(
+  weddingId: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- required by useActionState's action signature
+  _prevState: ActionState
+): Promise<ActionState> {
   const { wedding } = await requireWeddingOwner(weddingId);
 
   if (!stripe) {
-    throw new Error(
-      "Stripe isn't configured yet. Set STRIPE_SECRET_KEY to enable real checkout."
-    );
+    return {
+      error: "Stripe isn't configured yet. Set STRIPE_SECRET_KEY to enable real checkout.",
+    };
   }
 
   const headersList = await headers();
@@ -31,7 +36,7 @@ export async function startPremiumCheckout(weddingId: string) {
           product_data: {
             name: `Premium unlock: ${wedding.title}`,
             description:
-              "Unlimited guests, multi-event support, custom branding, SMS reminders, coordinator mode.",
+              "Unlimited guests, multi-event support, custom branding, seating chart export, coordinator mode.",
           },
         },
         quantity: 1,

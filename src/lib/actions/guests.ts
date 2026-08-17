@@ -6,24 +6,33 @@ import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
 import type { GuestSide } from "@/generated/prisma/enums";
+import type { ActionState } from "@/lib/actions/types";
 
-async function assertGuestCapacity(weddingId: string, tier: string, adding: number) {
-  if (tier === "PREMIUM") return;
+async function assertGuestCapacity(
+  weddingId: string,
+  tier: string,
+  adding: number
+): Promise<string | null> {
+  if (tier === "PREMIUM") return null;
   const count = await prisma.guest.count({ where: { weddingId } });
   if (count + adding > FREE_TIER_LIMITS.maxGuests) {
-    throw new Error(
-      `Free plan is limited to ${FREE_TIER_LIMITS.maxGuests} guests. Upgrade to add more.`
-    );
+    return `Free plan is limited to ${FREE_TIER_LIMITS.maxGuests} guests. Upgrade to add more.`;
   }
+  return null;
 }
 
-export async function addGuest(weddingId: string, formData: FormData) {
+export async function addGuest(
+  weddingId: string,
+  _prevState: ActionState,
+  formData: FormData
+): Promise<ActionState> {
   const { wedding } = await requireWeddingOwner(weddingId);
-  await assertGuestCapacity(weddingId, wedding.tier, 1);
+  const capacityError = await assertGuestCapacity(weddingId, wedding.tier, 1);
+  if (capacityError) return { error: capacityError };
 
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
-  if (!firstName) throw new Error("First name is required.");
+  if (!firstName) return { error: "First name is required." };
 
   const guest = await prisma.guest.create({
     data: {
@@ -49,6 +58,7 @@ export async function addGuest(weddingId: string, formData: FormData) {
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
   revalidatePath(`/dashboard/w/${weddingId}`);
+  return { error: null };
 }
 
 export async function updateGuest(weddingId: string, guestId: string, formData: FormData) {
@@ -90,13 +100,19 @@ interface CsvGuestRow {
   dietaryNotes?: string;
 }
 
+interface ImportResult {
+  error: string | null;
+  imported?: number;
+}
+
 async function createGuestsFromRows(
   weddingId: string,
   tier: string,
   rows: CsvGuestRow[]
-) {
+): Promise<ImportResult> {
   const valid = rows.filter((r) => r.firstName?.trim());
-  await assertGuestCapacity(weddingId, tier, valid.length);
+  const capacityError = await assertGuestCapacity(weddingId, tier, valid.length);
+  if (capacityError) return { error: capacityError };
 
   const events = await prisma.event.findMany({ where: { weddingId } });
 
@@ -121,12 +137,19 @@ async function createGuestsFromRows(
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
   revalidatePath(`/dashboard/w/${weddingId}`);
-  return { imported: valid.length };
+  return { error: null, imported: valid.length };
 }
 
-export async function importGuestsCsv(weddingId: string, rows: CsvGuestRow[]) {
-  const { wedding } = await requireWeddingOwner(weddingId);
-  return createGuestsFromRows(weddingId, wedding.tier, rows);
+export async function importGuestsCsv(
+  weddingId: string,
+  rows: CsvGuestRow[]
+): Promise<ImportResult> {
+  try {
+    const { wedding } = await requireWeddingOwner(weddingId);
+    return await createGuestsFromRows(weddingId, wedding.tier, rows);
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : "Import failed." };
+  }
 }
 
 function mapSheetRow(row: Record<string, string>): CsvGuestRow {
@@ -147,28 +170,38 @@ function parseGoogleSheetUrl(url: string): { id: string; gid: string } | null {
   return { id: idMatch[1], gid: gidMatch ? gidMatch[1] : "0" };
 }
 
-export async function importGuestsFromSheet(weddingId: string, sheetUrl: string) {
-  const { wedding } = await requireWeddingOwner(weddingId);
+export async function importGuestsFromSheet(
+  weddingId: string,
+  sheetUrl: string
+): Promise<ImportResult> {
+  try {
+    const { wedding } = await requireWeddingOwner(weddingId);
 
-  const parsed = parseGoogleSheetUrl(sheetUrl.trim());
-  if (!parsed) {
-    throw new Error("That doesn't look like a Google Sheets link.");
+    const parsed = parseGoogleSheetUrl(sheetUrl.trim());
+    if (!parsed) {
+      return { error: "That doesn't look like a Google Sheets link." };
+    }
+
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${parsed.id}/export?format=csv&gid=${parsed.gid}`;
+    const res = await fetch(csvUrl);
+    const csvText = await res.text();
+
+    if (!res.ok || csvText.trim().startsWith("<")) {
+      return {
+        error:
+          'Couldn\'t read that sheet. Make sure it\'s shared as "Anyone with the link can view."',
+      };
+    }
+
+    const { data } = Papa.parse<Record<string, string>>(csvText, {
+      header: true,
+      skipEmptyLines: true,
+    });
+
+    return await createGuestsFromRows(weddingId, wedding.tier, data.map(mapSheetRow));
+  } catch (err) {
+    return {
+      error: err instanceof Error ? err.message : "Couldn't import from that sheet.",
+    };
   }
-
-  const csvUrl = `https://docs.google.com/spreadsheets/d/${parsed.id}/export?format=csv&gid=${parsed.gid}`;
-  const res = await fetch(csvUrl);
-  const csvText = await res.text();
-
-  if (!res.ok || csvText.trim().startsWith("<")) {
-    throw new Error(
-      'Couldn\'t read that sheet. Make sure it\'s shared as "Anyone with the link can view."'
-    );
-  }
-
-  const { data } = Papa.parse<Record<string, string>>(csvText, {
-    header: true,
-    skipEmptyLines: true,
-  });
-
-  return createGuestsFromRows(weddingId, wedding.tier, data.map(mapSheetRow));
 }

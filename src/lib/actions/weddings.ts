@@ -28,6 +28,10 @@ export async function requireWeddingOwner(weddingId: string) {
   return { session, wedding, isOwner };
 }
 
+function generateCheckInPin() {
+  return String(Math.floor(100000 + Math.random() * 900000));
+}
+
 export async function createWedding(
   _prevState: ActionState,
   formData: FormData
@@ -51,6 +55,7 @@ export async function createWedding(
       title,
       slug,
       weddingDate: new Date(weddingDateRaw),
+      checkInPin: generateCheckInPin(),
       ownerId: session.user!.id!,
       events: {
         create: [{ name: "Reception", startsAt: new Date(weddingDateRaw) }],
@@ -102,6 +107,23 @@ export async function updatePartnerEmail(
 
   revalidatePath(`/dashboard/w/${weddingId}/settings`);
   return { error: null };
+}
+
+/** Backfills a check-in PIN for weddings created before this feature existed. */
+export async function ensureCheckInPin(weddingId: string, currentPin: string | null) {
+  if (currentPin) return currentPin;
+  const pin = generateCheckInPin();
+  await prisma.wedding.update({ where: { id: weddingId }, data: { checkInPin: pin } });
+  return pin;
+}
+
+export async function regenerateCheckInPin(weddingId: string) {
+  await requireWeddingOwner(weddingId);
+  await prisma.wedding.update({
+    where: { id: weddingId },
+    data: { checkInPin: generateCheckInPin() },
+  });
+  revalidatePath(`/dashboard/w/${weddingId}/settings`);
 }
 
 export async function getMyWeddings() {

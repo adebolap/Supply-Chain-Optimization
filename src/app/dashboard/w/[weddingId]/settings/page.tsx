@@ -1,4 +1,9 @@
-import { requireWeddingOwner, updateRsvpDeadline } from "@/lib/actions/weddings";
+import {
+  requireWeddingOwner,
+  updateRsvpDeadline,
+  ensureCheckInPin,
+  regenerateCheckInPin,
+} from "@/lib/actions/weddings";
 import { simulatePremiumUpgrade } from "@/lib/actions/billing";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
@@ -16,6 +21,7 @@ export default async function SettingsPage({
   const { wedding, isOwner } = await requireWeddingOwner(weddingId);
   const { upgraded } = await searchParams;
   const isDev = process.env.NODE_ENV !== "production";
+  const checkInPin = await ensureCheckInPin(weddingId, wedding.checkInPin);
 
   return (
     <div className="flex flex-col gap-8">
@@ -108,6 +114,32 @@ export default async function SettingsPage({
           <PartnerEmailForm weddingId={weddingId} currentEmail={wedding.partnerEmail} />
         </div>
       )}
+
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">Admin check-in code</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Share this with trusted door staff only. It unlocks a manual
+          check-in screen for guests who forgot their phone or printed
+          code: search their name, confirm who they are, and check them
+          in by hand.
+        </p>
+        <div className="flex items-center gap-3">
+          <code className="rounded-lg border border-border bg-muted px-3 py-2 text-lg font-mono tracking-widest">
+            {checkInPin}
+          </code>
+          <form action={regenerateCheckInPin.bind(null, weddingId)}>
+            <button
+              type="submit"
+              className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+            >
+              Regenerate
+            </button>
+          </form>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Admin page: <code className="font-mono">/checkin/{wedding.slug}/admin</code>
+        </p>
+      </div>
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Wedding link</h2>

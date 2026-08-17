@@ -83,6 +83,9 @@ model Wedding {
   /// Co-planner's email, granted the same access as the owner once they sign in with it.
   partnerEmail String?
 
+  /// Shared with trusted door staff only; unlocks manual name-based check-in.
+  checkInPin String?
+
   events            Event[]
   guests            Guest[]
   tables            Table[]

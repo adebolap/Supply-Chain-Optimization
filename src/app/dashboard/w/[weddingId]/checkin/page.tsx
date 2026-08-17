@@ -52,16 +52,17 @@ export default async function CheckInPage({
       </div>
 
       <p className="text-sm text-muted-foreground">
-        Each guest also has their own QR code (find it via the &quot;QR&quot;
-        link on their row in the{" "}
-        <a
-          href={`/dashboard/w/${weddingId}/guests`}
-          className="underline"
-        >
+        Each guest has their own QR code that checks them in the instant
+        it&apos;s scanned, and can&apos;t be used twice. Find one at a time
+        via the &quot;QR&quot; link on their row in the{" "}
+        <a href={`/dashboard/w/${weddingId}/guests`} className="underline">
           guest list
         </a>
-        ) that opens straight to their check-in screen when scanned with any
-        phone camera.
+        , or{" "}
+        <a href={`/dashboard/w/${weddingId}/checkin/cards`} className="underline">
+          print every guest&apos;s card at once
+        </a>{" "}
+        to hand to door staff.
       </p>
     </div>
   );

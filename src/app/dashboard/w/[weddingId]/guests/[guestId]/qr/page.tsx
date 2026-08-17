@@ -15,6 +15,7 @@ export default async function GuestQrPage({
 
   const guest = await prisma.guest.findFirst({
     where: { id: guestId, weddingId },
+    include: { seat: { include: { table: true } } },
   });
   if (!guest) notFound();
 
@@ -40,6 +41,11 @@ export default async function GuestQrPage({
           {guest.firstName} {guest.lastName}
         </div>
         <div className="text-sm text-muted-foreground">{wedding.title}</div>
+        {guest.seat && (
+          <div className="mt-1 text-sm font-medium text-accent">
+            Table {guest.seat.table.name}
+          </div>
+        )}
       </div>
       <p className="max-w-sm text-xs text-muted-foreground">
         Print this and hand it to your guest, or scan it yourself at the door

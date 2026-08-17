@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
-import { findGuestsForCheckIn } from "@/lib/actions/checkin";
+import { findGuestsForAdminCheckIn } from "@/lib/actions/checkin";
 
 interface Match {
   id: string;
@@ -12,7 +12,7 @@ interface Match {
   checkInToken: string;
 }
 
-export default function CheckInSearch({ weddingSlug }: { weddingSlug: string }) {
+export default function AdminCheckInSearch({ weddingSlug }: { weddingSlug: string }) {
   const [query, setQuery] = useState("");
   const [matches, setMatches] = useState<Match[]>([]);
   const [isPending, startTransition] = useTransition();
@@ -24,18 +24,22 @@ export default function CheckInSearch({ weddingSlug }: { weddingSlug: string }) 
       return;
     }
     startTransition(async () => {
-      const results = await findGuestsForCheckIn(weddingSlug, value);
+      const results = await findGuestsForAdminCheckIn(weddingSlug, value);
       setMatches(results);
     });
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <label className="text-sm font-medium" htmlFor="checkin-search">
-        Find a guest to check in
+    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-6">
+      <p className="text-xs text-muted-foreground">
+        For guests who forgot their phone or printed card. Confirm who
+        you&apos;re speaking to before checking them in.
+      </p>
+      <label className="text-sm font-medium" htmlFor="admin-checkin-search">
+        Find a guest by name
       </label>
       <input
-        id="checkin-search"
+        id="admin-checkin-search"
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Start typing their name..."

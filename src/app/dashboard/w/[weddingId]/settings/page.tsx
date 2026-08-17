@@ -1,9 +1,17 @@
 import {
   requireWeddingOwner,
   updateRsvpDeadline,
+  updateCheckInOpensAt,
   ensureCheckInPin,
   regenerateCheckInPin,
 } from "@/lib/actions/weddings";
+
+function toLocalDateTimeInputValue(date: Date) {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(
+    date.getHours()
+  )}:${pad(date.getMinutes())}`;
+}
 import { simulatePremiumUpgrade } from "@/lib/actions/billing";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
@@ -114,6 +122,41 @@ export default async function SettingsPage({
           <PartnerEmailForm weddingId={weddingId} currentEmail={wedding.partnerEmail} />
         </div>
       )}
+
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">Check-in opens at</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Scanning or admin check-in won&apos;t admit anyone before this
+          time, even with a valid code. Leave blank for no restriction.
+        </p>
+        <form
+          action={updateCheckInOpensAt.bind(null, weddingId)}
+          className="flex items-end gap-3"
+        >
+          <div className="flex flex-col gap-1">
+            <label className="text-xs text-muted-foreground" htmlFor="checkInOpensAt">
+              Date and time
+            </label>
+            <input
+              id="checkInOpensAt"
+              name="checkInOpensAt"
+              type="datetime-local"
+              defaultValue={
+                wedding.checkInOpensAt
+                  ? toLocalDateTimeInputValue(new Date(wedding.checkInOpensAt))
+                  : ""
+              }
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+          >
+            Save
+          </button>
+        </form>
+      </div>
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Admin check-in code</h2>

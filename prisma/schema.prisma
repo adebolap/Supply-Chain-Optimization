@@ -86,6 +86,9 @@ model Wedding {
   /// Shared with trusted door staff only; unlocks manual name-based check-in.
   checkInPin String?
 
+  /// Check-in (scan or admin) admits nobody before this time. Null = no restriction.
+  checkInOpensAt DateTime?
+
   events            Event[]
   guests            Guest[]
   tables            Table[]

@@ -24,6 +24,15 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
   });
   if (!guest) return null;
 
+  if (wedding.checkInOpensAt && Date.now() < wedding.checkInOpensAt.getTime()) {
+    return {
+      weddingTitle: wedding.title,
+      notYetOpen: true as const,
+      opensAt: wedding.checkInOpensAt,
+      guest: null,
+    };
+  }
+
   const tableMates = guest.seat
     ? guest.seat.table.seats
         .filter((s) => s.guestId !== guest.id)
@@ -66,6 +75,8 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
 
   return {
     weddingTitle: wedding.title,
+    notYetOpen: false as const,
+    opensAt: null,
     guest: {
       id: guest.id,
       firstName: guest.firstName,
@@ -95,6 +106,9 @@ export async function toggleCheckIn(
 ) {
   const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
   if (!wedding) throw new Error("Wedding not found.");
+  if (checkedIn && wedding.checkInOpensAt && Date.now() < wedding.checkInOpensAt.getTime()) {
+    return;
+  }
 
   await prisma.rSVP.update({
     where: { guestId_eventId: { guestId, eventId } },

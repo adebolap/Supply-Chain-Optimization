@@ -22,21 +22,37 @@ export default async function CheckInGuestPage({
             {data.weddingTitle}
           </h1>
         </div>
-        <GuestCheckInCard
-          weddingSlug={slug}
-          guestId={data.guest.id}
-          firstName={data.guest.firstName}
-          lastName={data.guest.lastName}
-          tableName={data.guest.tableName}
-          tableMates={data.guest.tableMates}
-          primaryEventId={data.guest.primaryEventId}
-          wasAlreadyCheckedIn={data.guest.wasAlreadyCheckedIn}
-          justCheckedIn={data.guest.justCheckedIn}
-          rsvps={data.guest.rsvps}
-        />
-        <p className="mt-6 text-center text-sm text-muted-foreground">
-          Scan the next guest&apos;s code to check them in.
-        </p>
+        {data.notYetOpen ? (
+          <div className="rounded-2xl border border-border bg-surface p-6 text-center">
+            <p className="text-lg font-semibold">Check-in isn&apos;t open yet</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Come back at{" "}
+              {new Date(data.opensAt!).toLocaleString([], {
+                dateStyle: "long",
+                timeStyle: "short",
+              })}
+              .
+            </p>
+          </div>
+        ) : (
+          <>
+            <GuestCheckInCard
+              weddingSlug={slug}
+              guestId={data.guest.id}
+              firstName={data.guest.firstName}
+              lastName={data.guest.lastName}
+              tableName={data.guest.tableName}
+              tableMates={data.guest.tableMates}
+              primaryEventId={data.guest.primaryEventId}
+              wasAlreadyCheckedIn={data.guest.wasAlreadyCheckedIn}
+              justCheckedIn={data.guest.justCheckedIn}
+              rsvps={data.guest.rsvps}
+            />
+            <p className="mt-6 text-center text-sm text-muted-foreground">
+              Scan the next guest&apos;s code to check them in.
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

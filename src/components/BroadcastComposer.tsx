@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useActionState } from "react";
 import { sendBroadcast, type BroadcastAudience } from "@/lib/actions/broadcast";
 
 interface Counts {
@@ -24,7 +24,10 @@ export default function BroadcastComposer({
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
 
-  const action = sendBroadcast.bind(null, weddingId);
+  const [state, formAction, isPending] = useActionState(
+    sendBroadcast.bind(null, weddingId),
+    { error: null } as { error: string | null; sent?: number }
+  );
 
   function applyReminderTemplate() {
     setChannel("EMAIL");
@@ -49,7 +52,17 @@ export default function BroadcastComposer({
           {counts.NOT_RESPONDED === 1 ? "" : "s"} who haven&apos;t responded
         </button>
       )}
-      <form action={action} className="flex flex-col gap-3">
+      {state.error && (
+        <p className="rounded-lg bg-accent/10 px-3 py-2 text-sm text-accent">
+          {state.error}
+        </p>
+      )}
+      {state.sent !== undefined && (
+        <p className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">
+          Sent to {state.sent} guest{state.sent === 1 ? "" : "s"}.
+        </p>
+      )}
+      <form action={formAction} className="flex flex-col gap-3">
         <div className="flex flex-wrap gap-3">
           <div className="flex flex-col gap-1">
             <label className="text-xs text-muted-foreground" htmlFor="channel">
@@ -105,9 +118,10 @@ export default function BroadcastComposer({
         />
         <button
           type="submit"
-          className="self-start rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
+          disabled={isPending}
+          className="self-start rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover disabled:opacity-50"
         >
-          Send announcement
+          {isPending ? "Sending..." : "Send announcement"}
         </button>
       </form>
     </div>

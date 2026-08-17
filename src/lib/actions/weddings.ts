@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { slugify, randomSuffix } from "@/lib/slug";
+import type { ActionState } from "@/lib/actions/types";
 
 export async function requireSession() {
   const session = await auth();
@@ -27,13 +28,16 @@ export async function requireWeddingOwner(weddingId: string) {
   return { session, wedding, isOwner };
 }
 
-export async function createWedding(formData: FormData) {
+export async function createWedding(
+  _prevState: ActionState,
+  formData: FormData
+): Promise<ActionState> {
   const session = await requireSession();
 
   const title = String(formData.get("title") || "").trim();
   const weddingDateRaw = String(formData.get("weddingDate") || "");
   if (!title || !weddingDateRaw) {
-    throw new Error("Title and wedding date are required.");
+    return { error: "Title and wedding date are required." };
   }
 
   const base = slugify(title) || "wedding";
@@ -80,10 +84,14 @@ export async function updateRsvpDeadline(weddingId: string, formData: FormData) 
   revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
-export async function updatePartnerEmail(weddingId: string, formData: FormData) {
+export async function updatePartnerEmail(
+  weddingId: string,
+  _prevState: ActionState,
+  formData: FormData
+): Promise<ActionState> {
   const { session, wedding } = await requireWeddingOwner(weddingId);
   if (wedding.ownerId !== session.user!.id) {
-    throw new Error("Only the wedding owner can change who it's shared with.");
+    return { error: "Only the wedding owner can change who it's shared with." };
   }
 
   const raw = String(formData.get("partnerEmail") || "").trim();
@@ -93,6 +101,7 @@ export async function updatePartnerEmail(weddingId: string, formData: FormData) 
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/settings`);
+  return { error: null };
 }
 
 export async function getMyWeddings() {

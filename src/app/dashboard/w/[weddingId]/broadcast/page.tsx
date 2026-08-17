@@ -10,21 +10,6 @@ export default async function BroadcastPage({
   const { weddingId } = await params;
   const { wedding } = await requireWeddingOwner(weddingId);
 
-  if (wedding.tier === "FREE") {
-    return (
-      <div className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-900/20 dark:text-amber-300">
-        Broadcast messaging (email and SMS announcements to your guest list)
-        is a Premium feature.{" "}
-        <a
-          href={`/dashboard/w/${weddingId}/settings`}
-          className="underline"
-        >
-          Upgrade to send announcements.
-        </a>
-      </div>
-    );
-  }
-
   const [counts, history] = await Promise.all([
     getAudienceCounts(weddingId),
     getBroadcastHistory(weddingId),

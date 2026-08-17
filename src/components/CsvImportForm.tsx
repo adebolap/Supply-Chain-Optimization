@@ -23,12 +23,10 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
         }));
 
         startTransition(async () => {
-          try {
-            const result = await importGuestsCsv(weddingId, rows);
-            setMessage(`Imported ${result.imported} guest(s).`);
-          } catch (err) {
-            setMessage(err instanceof Error ? err.message : "Import failed.");
-          }
+          const result = await importGuestsCsv(weddingId, rows);
+          setMessage(
+            result.error ? result.error : `Imported ${result.imported} guest(s).`
+          );
         });
       },
     });

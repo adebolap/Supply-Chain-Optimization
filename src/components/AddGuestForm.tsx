@@ -66,6 +66,11 @@ export default function AddGuestForm({ weddingId }: { weddingId: string }) {
           placeholder="Dietary notes"
           className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
         />
+        <input
+          name="notes"
+          placeholder="Notes (address, etc.)"
+          className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent"
+        />
         <button
           type="submit"
           disabled={isPending}

@@ -14,6 +14,7 @@ interface Guest {
   side: string;
   tags: string[];
   dietaryNotes: string | null;
+  notes: string | null;
 }
 
 interface RsvpSummary {
@@ -174,6 +175,12 @@ export default function GuestList({
                           name="dietaryNotes"
                           defaultValue={g.dietaryNotes || ""}
                           placeholder="Dietary notes"
+                          className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
+                        />
+                        <input
+                          name="notes"
+                          defaultValue={g.notes || ""}
+                          placeholder="Notes (address, etc.)"
                           className="rounded-lg border border-border bg-background px-2 py-1.5 text-sm text-foreground"
                         />
                         <button

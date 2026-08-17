@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getGuestForCheckIn } from "@/lib/actions/checkin";
 import GuestCheckInCard from "@/components/GuestCheckInCard";
 
@@ -29,17 +28,15 @@ export default async function CheckInGuestPage({
           firstName={data.guest.firstName}
           lastName={data.guest.lastName}
           tableName={data.guest.tableName}
+          tableMates={data.guest.tableMates}
           primaryEventId={data.guest.primaryEventId}
           wasAlreadyCheckedIn={data.guest.wasAlreadyCheckedIn}
           justCheckedIn={data.guest.justCheckedIn}
           rsvps={data.guest.rsvps}
         />
-        <Link
-          href={`/checkin/${slug}`}
-          className="mt-6 block text-center text-sm text-muted-foreground hover:underline"
-        >
-          Check in a different guest
-        </Link>
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          Scan the next guest&apos;s code to check them in.
+        </p>
       </div>
     </div>
   );

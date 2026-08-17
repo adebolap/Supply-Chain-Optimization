@@ -3,32 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
-export async function findGuestsForCheckIn(weddingSlug: string, query: string) {
-  const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
-  if (!wedding || query.trim().length < 2) return [];
-
-  const terms = query.trim().split(/\s+/);
-
-  const guests = await prisma.guest.findMany({
-    where: {
-      weddingId: wedding.id,
-      OR: terms.flatMap((term) => [
-        { firstName: { contains: term, mode: "insensitive" as const } },
-        { lastName: { contains: term, mode: "insensitive" as const } },
-      ]),
-    },
-    take: 10,
-  });
-
-  return guests.map((g) => ({
-    id: g.id,
-    firstName: g.firstName,
-    lastName: g.lastName,
-    household: g.household,
-    checkInToken: g.checkInToken,
-  }));
-}
-
+// No name-search lookup here on purpose: admission is only ever triggered
+// by visiting a guest's own check-in link (their QR code), never by an
+// usher typing a name. That's the only way to guarantee nobody gets
+// admitted under someone else's name.
 export async function getGuestForCheckIn(weddingSlug: string, token: string) {
   const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
   if (!wedding) return null;
@@ -37,10 +15,16 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
     where: { checkInToken: token, weddingId: wedding.id },
     include: {
       rsvps: { include: { event: true }, orderBy: { event: { startsAt: "asc" } } },
-      seat: { include: { table: true } },
+      seat: { include: { table: { include: { seats: { include: { guest: true } } } } } },
     },
   });
   if (!guest) return null;
+
+  const tableMates = guest.seat
+    ? guest.seat.table.seats
+        .filter((s) => s.guestId !== guest.id)
+        .map((s) => `${s.guest.firstName} ${s.guest.lastName}`)
+    : [];
 
   // Scanning a code at the door is the check-in action itself, so this
   // admits the guest for whichever event's door they're at (the one
@@ -83,6 +67,7 @@ export async function getGuestForCheckIn(weddingSlug: string, token: string) {
       firstName: guest.firstName,
       lastName: guest.lastName,
       tableName: guest.seat?.table.name ?? null,
+      tableMates,
       primaryEventId,
       wasAlreadyCheckedIn,
       justCheckedIn,

@@ -18,6 +18,7 @@ export default function GuestCheckInCard({
   firstName,
   lastName,
   tableName,
+  tableMates,
   primaryEventId,
   wasAlreadyCheckedIn,
   justCheckedIn,
@@ -28,6 +29,7 @@ export default function GuestCheckInCard({
   firstName: string;
   lastName: string;
   tableName: string | null;
+  tableMates: string[];
   primaryEventId: string | null;
   wasAlreadyCheckedIn: boolean;
   justCheckedIn: boolean;
@@ -53,11 +55,18 @@ export default function GuestCheckInCard({
         {firstName} {lastName}
       </h2>
       {primary && (
-        <p className="mb-4 text-sm text-muted-foreground">
-          Admits {primary.admits}
-          {primary.plusOneName ? ` (with ${primary.plusOneName})` : ""}
-          {tableName ? ` · Table ${tableName}` : ""}
-        </p>
+        <div className="mb-4">
+          <p className="text-sm text-muted-foreground">
+            Admits {primary.admits}
+            {primary.plusOneName ? ` (with ${primary.plusOneName})` : ""}
+            {tableName ? ` · Table ${tableName}` : ""}
+          </p>
+          {tableMates.length > 0 && (
+            <p className="text-sm text-muted-foreground">
+              Seated with: {tableMates.join(", ")}
+            </p>
+          )}
+        </div>
       )}
 
       {primary && justCheckedIn && (

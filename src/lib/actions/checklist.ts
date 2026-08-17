@@ -22,16 +22,19 @@ export async function addChecklistItem(weddingId: string, formData: FormData) {
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/checklist`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 export async function toggleChecklistItem(weddingId: string, itemId: string, isComplete: boolean) {
   await requireWeddingOwner(weddingId);
   await prisma.checklistItem.update({ where: { id: itemId }, data: { isComplete } });
   revalidatePath(`/dashboard/w/${weddingId}/checklist`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 export async function deleteChecklistItem(weddingId: string, itemId: string) {
   await requireWeddingOwner(weddingId);
   await prisma.checklistItem.delete({ where: { id: itemId } });
   revalidatePath(`/dashboard/w/${weddingId}/checklist`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }

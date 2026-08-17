@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
 import AddGuestForm from "@/components/AddGuestForm";
 import CsvImportForm from "@/components/CsvImportForm";
+import SheetImportForm from "@/components/SheetImportForm";
 import GuestList from "@/components/GuestList";
 import LinkBanner from "@/components/LinkBanner";
 
@@ -57,6 +58,7 @@ export default async function GuestsPage({
           <h3 className="font-semibold">Add a guest</h3>
           <AddGuestForm weddingId={weddingId} />
           <CsvImportForm weddingId={weddingId} />
+          <SheetImportForm weddingId={weddingId} />
         </div>
       )}
     </div>

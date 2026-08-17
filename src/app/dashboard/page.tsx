@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { auth } from "@/lib/auth";
 import { getMyWeddings, createWedding } from "@/lib/actions/weddings";
 
 export default async function DashboardPage() {
-  const weddings = await getMyWeddings();
+  const [session, weddings] = await Promise.all([auth(), getMyWeddings()]);
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16">
@@ -18,10 +19,17 @@ export default async function DashboardPage() {
           {weddings.map((w) => (
             <li key={w.id}>
               <Link
-                href={`/dashboard/w/${w.id}/guests`}
+                href={`/dashboard/w/${w.id}`}
                 className="flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition-colors hover:bg-muted"
               >
-                <span className="font-medium">{w.title}</span>
+                <span className="font-medium">
+                  {w.title}
+                  {w.ownerId !== session?.user?.id && (
+                    <span className="ml-2 rounded-full bg-accent/10 px-2 py-0.5 text-xs font-normal text-accent">
+                      Shared with you
+                    </span>
+                  )}
+                </span>
                 <span className="text-sm text-muted-foreground">
                   {new Date(w.weddingDate).toLocaleDateString()} ·{" "}
                   {w.tier === "PREMIUM" ? "Premium" : "Free"}

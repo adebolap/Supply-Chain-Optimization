@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import Papa from "papaparse";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
@@ -87,10 +88,13 @@ interface CsvGuestRow {
   dietaryNotes?: string;
 }
 
-export async function importGuestsCsv(weddingId: string, rows: CsvGuestRow[]) {
-  const { wedding } = await requireWeddingOwner(weddingId);
+async function createGuestsFromRows(
+  weddingId: string,
+  tier: string,
+  rows: CsvGuestRow[]
+) {
   const valid = rows.filter((r) => r.firstName?.trim());
-  await assertGuestCapacity(weddingId, wedding.tier, valid.length);
+  await assertGuestCapacity(weddingId, tier, valid.length);
 
   const events = await prisma.event.findMany({ where: { weddingId } });
 
@@ -115,4 +119,53 @@ export async function importGuestsCsv(weddingId: string, rows: CsvGuestRow[]) {
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
   return { imported: valid.length };
+}
+
+export async function importGuestsCsv(weddingId: string, rows: CsvGuestRow[]) {
+  const { wedding } = await requireWeddingOwner(weddingId);
+  return createGuestsFromRows(weddingId, wedding.tier, rows);
+}
+
+function mapSheetRow(row: Record<string, string>): CsvGuestRow {
+  return {
+    firstName: row.firstName || row["First Name"] || row.first_name || "",
+    lastName: row.lastName || row["Last Name"] || row.last_name || "",
+    email: row.email || row.Email || "",
+    phone: row.phone || row.Phone || "",
+    household: row.household || row.Household || "",
+    dietaryNotes: row.dietaryNotes || row["Dietary Notes"] || "",
+  };
+}
+
+function parseGoogleSheetUrl(url: string): { id: string; gid: string } | null {
+  const idMatch = url.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+  if (!idMatch) return null;
+  const gidMatch = url.match(/[#&?]gid=(\d+)/);
+  return { id: idMatch[1], gid: gidMatch ? gidMatch[1] : "0" };
+}
+
+export async function importGuestsFromSheet(weddingId: string, sheetUrl: string) {
+  const { wedding } = await requireWeddingOwner(weddingId);
+
+  const parsed = parseGoogleSheetUrl(sheetUrl.trim());
+  if (!parsed) {
+    throw new Error("That doesn't look like a Google Sheets link.");
+  }
+
+  const csvUrl = `https://docs.google.com/spreadsheets/d/${parsed.id}/export?format=csv&gid=${parsed.gid}`;
+  const res = await fetch(csvUrl);
+  const csvText = await res.text();
+
+  if (!res.ok || csvText.trim().startsWith("<")) {
+    throw new Error(
+      'Couldn\'t read that sheet. Make sure it\'s shared as "Anyone with the link can view."'
+    );
+  }
+
+  const { data } = Papa.parse<Record<string, string>>(csvText, {
+    header: true,
+    skipEmptyLines: true,
+  });
+
+  return createGuestsFromRows(weddingId, wedding.tier, data.map(mapSheetRow));
 }

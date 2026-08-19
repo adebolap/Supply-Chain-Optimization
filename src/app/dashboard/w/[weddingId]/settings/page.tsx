@@ -1,14 +1,25 @@
 import {
   requireWeddingOwner,
   updateRsvpDeadline,
+  updateCheckInOpensAt,
   ensureCheckInPin,
   regenerateCheckInPin,
 } from "@/lib/actions/weddings";
 import { simulatePremiumUpgrade } from "@/lib/actions/billing";
+import { blobConfigured } from "@/lib/blob";
 import { PREMIUM_PRICE_USD } from "@/lib/stripe";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
 import UpgradeButton from "@/components/UpgradeButton";
 import PartnerEmailForm from "@/components/PartnerEmailForm";
+import LogoUploadForm from "@/components/LogoUploadForm";
+import PhotoGalleryUpload from "@/components/PhotoGalleryUpload";
+
+function toLocalDateTimeInputValue(date: Date) {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(
+    date.getHours()
+  )}:${pad(date.getMinutes())}`;
+}
 
 export default async function SettingsPage({
   params,
@@ -103,6 +114,32 @@ export default async function SettingsPage({
         </form>
       </div>
 
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">Branding</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Your logo and photos appear as a subtle accent on the pages
+          guests see (RSVP and check-in), not on your own dashboard.
+          Images are automatically resized and compressed on upload.
+        </p>
+        {!blobConfigured ? (
+          <p className="rounded-lg bg-accent/10 px-3 py-2 text-sm text-accent">
+            Image uploads aren&apos;t configured yet. Set BLOB_READ_WRITE_TOKEN
+            to enable them.
+          </p>
+        ) : (
+          <div className="flex flex-col gap-6">
+            <div>
+              <h3 className="mb-2 text-sm font-medium">Logo</h3>
+              <LogoUploadForm weddingId={weddingId} currentLogoUrl={wedding.logoUrl} />
+            </div>
+            <div>
+              <h3 className="mb-2 text-sm font-medium">Photos (up to 4)</h3>
+              <PhotoGalleryUpload weddingId={weddingId} photoUrls={wedding.photoUrls} />
+            </div>
+          </div>
+        )}
+      </div>
+
       {isOwner && (
         <div>
           <h2 className="mb-1 text-lg font-semibold">Share with your spouse</h2>
@@ -114,6 +151,41 @@ export default async function SettingsPage({
           <PartnerEmailForm weddingId={weddingId} currentEmail={wedding.partnerEmail} />
         </div>
       )}
+
+      <div>
+        <h2 className="mb-1 text-lg font-semibold">Check-in opens at</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Scanning or admin check-in won&apos;t admit anyone before this
+          time, even with a valid code. Leave blank for no restriction.
+        </p>
+        <form
+          action={updateCheckInOpensAt.bind(null, weddingId)}
+          className="flex items-end gap-3"
+        >
+          <div className="flex flex-col gap-1">
+            <label className="text-xs text-muted-foreground" htmlFor="checkInOpensAt">
+              Date and time
+            </label>
+            <input
+              id="checkInOpensAt"
+              name="checkInOpensAt"
+              type="datetime-local"
+              defaultValue={
+                wedding.checkInOpensAt
+                  ? toLocalDateTimeInputValue(new Date(wedding.checkInOpensAt))
+                  : ""
+              }
+              className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+          >
+            Save
+          </button>
+        </form>
+      </div>
 
       <div>
         <h2 className="mb-1 text-lg font-semibold">Admin check-in code</h2>

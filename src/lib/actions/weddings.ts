@@ -89,6 +89,18 @@ export async function updateRsvpDeadline(weddingId: string, formData: FormData) 
   revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
+export async function updateCheckInOpensAt(weddingId: string, formData: FormData) {
+  await requireWeddingOwner(weddingId);
+
+  const raw = String(formData.get("checkInOpensAt") || "").trim();
+  await prisma.wedding.update({
+    where: { id: weddingId },
+    data: { checkInOpensAt: raw ? new Date(raw) : null },
+  });
+
+  revalidatePath(`/dashboard/w/${weddingId}/settings`);
+}
+
 export async function updatePartnerEmail(
   weddingId: string,
   _prevState: ActionState,

@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { pickPhotoForPage } from "@/lib/branding";
+import WeddingBackdrop from "@/components/WeddingBackdrop";
 
 export default async function CheckInLandingPage({
   params,
@@ -11,12 +13,24 @@ export default async function CheckInLandingPage({
   const wedding = await prisma.wedding.findUnique({ where: { slug } });
   if (!wedding) notFound();
 
+  const photoUrl = pickPhotoForPage(wedding.photoUrls, "checkin");
+
   return (
-    <div className="flex flex-1 flex-col items-center bg-background px-6 py-16">
+    <div className="relative flex flex-1 flex-col items-center px-6 py-16">
+      <WeddingBackdrop photoUrl={photoUrl} />
       <div className="w-full max-w-lg text-center">
-        <p className="mb-2 text-xs tracking-[0.3em] text-muted-foreground uppercase">
-          Day-of check-in
-        </p>
+        {wedding.logoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={wedding.logoUrl}
+            alt={wedding.title}
+            className="mx-auto mb-4 max-h-14 w-auto"
+          />
+        ) : (
+          <p className="mb-2 text-xs tracking-[0.3em] text-muted-foreground uppercase">
+            Day-of check-in
+          </p>
+        )}
         <h1 className="font-display mb-6 text-4xl font-semibold">
           {wedding.title}
         </h1>

@@ -6,7 +6,7 @@ import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { FREE_TIER_LIMITS } from "@/lib/limits";
 import { mapGuestRow, type RawGuestRow } from "@/lib/guestImport";
-import type { GuestSide } from "@/generated/prisma/enums";
+import type { GuestSide, RsvpStatus } from "@/generated/prisma/enums";
 import type { ActionState } from "@/lib/actions/types";
 
 async function assertGuestCapacity(
@@ -85,6 +85,23 @@ export async function updateGuest(weddingId: string, guestId: string, formData: 
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
+}
+
+/** Lets the couple record a guest's RSVP themselves, e.g. after a phone call
+ * or in-person answer, without the guest ever visiting the RSVP page. */
+export async function setGuestRsvpStatus(
+  weddingId: string,
+  guestId: string,
+  eventId: string,
+  status: RsvpStatus
+) {
+  await requireWeddingOwner(weddingId);
+  await prisma.rSVP.update({
+    where: { guestId_eventId: { guestId, eventId } },
+    data: { status, respondedAt: new Date() },
+  });
+  revalidatePath(`/dashboard/w/${weddingId}/guests`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
 export async function deleteGuest(weddingId: string, guestId: string) {

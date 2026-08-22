@@ -15,16 +15,19 @@ export default async function GuestsPage({
   const { weddingId } = await params;
   const { wedding } = await requireWeddingOwner(weddingId);
 
-  const guests = await prisma.guest.findMany({
-    where: { weddingId },
-    orderBy: [{ household: "asc" }, { lastName: "asc" }],
-    include: { rsvps: true },
-  });
+  const [guests, events] = await Promise.all([
+    prisma.guest.findMany({
+      where: { weddingId },
+      orderBy: [{ household: "asc" }, { lastName: "asc" }],
+      include: { rsvps: true },
+    }),
+    prisma.event.findMany({ where: { weddingId }, orderBy: { startsAt: "asc" } }),
+  ]);
 
   const rsvpByGuest = Object.fromEntries(
     guests.map((g) => [
       g.id,
-      g.rsvps.map((r) => ({ guestId: g.id, status: r.status })),
+      g.rsvps.map((r) => ({ guestId: g.id, eventId: r.eventId, status: r.status })),
     ])
   );
 
@@ -54,6 +57,7 @@ export default async function GuestsPage({
           weddingId={weddingId}
           weddingSlug={wedding.slug}
           guests={guests}
+          events={events}
           rsvpByGuest={rsvpByGuest}
         />
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useState, useTransition } from "react";
 import Link from "next/link";
-import { updateGuest, deleteGuest } from "@/lib/actions/guests";
+import { updateGuest, deleteGuest, setGuestRsvpStatus } from "@/lib/actions/guests";
 
 interface Guest {
   id: string;
@@ -20,18 +20,83 @@ interface Guest {
 
 interface RsvpSummary {
   guestId: string;
+  eventId: string;
   status: string;
+}
+
+interface WeddingEvent {
+  id: string;
+  name: string;
+}
+
+const STATUS_OPTIONS = [
+  { value: "PENDING", label: "Pending" },
+  { value: "ATTENDING", label: "Going" },
+  { value: "DECLINED", label: "Not going" },
+] as const;
+
+function RsvpStatusRow({
+  weddingId,
+  guestId,
+  events,
+  rsvps,
+}: {
+  weddingId: string;
+  guestId: string;
+  events: WeddingEvent[];
+  rsvps: RsvpSummary[];
+}) {
+  const [isPending, startTransition] = useTransition();
+  const statusByEvent = Object.fromEntries(rsvps.map((r) => [r.eventId, r.status]));
+
+  return (
+    <div className="mb-3 flex flex-col gap-2">
+      {events.map((event) => {
+        const current = statusByEvent[event.id] || "PENDING";
+        return (
+          <div key={event.id} className="flex items-center gap-2">
+            <span className="w-32 shrink-0 text-xs text-muted-foreground">
+              {event.name}
+            </span>
+            <div className="flex gap-1">
+              {STATUS_OPTIONS.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  disabled={isPending}
+                  onClick={() =>
+                    startTransition(async () => {
+                      await setGuestRsvpStatus(weddingId, guestId, event.id, opt.value);
+                    })
+                  }
+                  className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors disabled:opacity-50 ${
+                    current === opt.value
+                      ? "bg-accent text-accent-foreground"
+                      : "border border-border hover:bg-muted"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default function GuestList({
   weddingId,
   weddingSlug,
   guests,
+  events,
   rsvpByGuest,
 }: {
   weddingId: string;
   weddingSlug: string;
   guests: Guest[];
+  events: WeddingEvent[];
   rsvpByGuest: Record<string, RsvpSummary[]>;
 }) {
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -137,6 +202,17 @@ export default function GuestList({
                 {editingId === g.id && (
                   <tr className="border-t border-border-soft bg-muted">
                     <td colSpan={5} className="px-4 py-3">
+                      <div className="mb-3">
+                        <div className="mb-1 text-xs font-medium text-muted-foreground">
+                          RSVP status (set this yourself if the guest told you directly)
+                        </div>
+                        <RsvpStatusRow
+                          weddingId={weddingId}
+                          guestId={g.id}
+                          events={events}
+                          rsvps={rsvps}
+                        />
+                      </div>
                       <form
                         action={async (formData) => {
                           await updateGuest(weddingId, g.id, formData);

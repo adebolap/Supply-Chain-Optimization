@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { requireWeddingOwner } from "@/lib/actions/weddings";
 import { prisma } from "@/lib/prisma";
 import { twilioClient, TWILIO_FROM_NUMBER } from "@/lib/twilio";
+import { estimateSmsCost, type SmsCostEstimate } from "@/lib/smsCost";
 
 export interface BroadcastState {
   error: string | null;
@@ -128,6 +129,16 @@ export async function getBroadcastHistory(weddingId: string) {
     orderBy: { createdAt: "desc" },
     take: 20,
   });
+}
+
+export async function getSmsCostEstimate(
+  weddingId: string,
+  audience: BroadcastAudience
+): Promise<SmsCostEstimate> {
+  await requireWeddingOwner(weddingId);
+  const guests = await getAudienceGuests(weddingId, audience);
+  const phones = guests.map((g) => g.phone).filter((p): p is string => Boolean(p));
+  return estimateSmsCost(phones);
 }
 
 export async function getAudienceCounts(weddingId: string) {

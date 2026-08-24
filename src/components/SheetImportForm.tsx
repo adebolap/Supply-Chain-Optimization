@@ -16,7 +16,12 @@ export default function SheetImportForm({ weddingId }: { weddingId: string }) {
       if (result.error) {
         setMessage(result.error);
       } else {
-        setMessage(`Imported ${result.imported} guest(s).`);
+        const parts = [];
+        if (result.imported) parts.push(`${result.imported} new`);
+        if (result.updated) parts.push(`${result.updated} updated`);
+        setMessage(
+          parts.length > 0 ? `${parts.join(", ")} guest(s).` : "No changes found."
+        );
         setUrl("");
       }
     });
@@ -29,7 +34,8 @@ export default function SheetImportForm({ weddingId }: { weddingId: string }) {
         <span className="text-xs text-muted-foreground">
           Share the sheet as &quot;Anyone with the link can view,&quot; then
           paste its link. Any column headers work, e.g. Name (or First/Last
-          Name), Email, Phone, Household, RSVP status, Notes.
+          Name), Email, Phone, Household, RSVP status, Notes. Re-importing
+          later updates matching guests by name instead of duplicating them.
         </span>
         <div className="flex gap-2">
           <input

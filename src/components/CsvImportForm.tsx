@@ -15,9 +15,16 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
       complete: (results) => {
         startTransition(async () => {
           const result = await importGuestsCsv(weddingId, results.data);
-          setMessage(
-            result.error ? result.error : `Imported ${result.imported} guest(s).`
-          );
+          if (result.error) {
+            setMessage(result.error);
+          } else {
+            const parts = [];
+            if (result.imported) parts.push(`${result.imported} new`);
+            if (result.updated) parts.push(`${result.updated} updated`);
+            setMessage(
+              parts.length > 0 ? `${parts.join(", ")} guest(s).` : "No changes found."
+            );
+          }
         });
       },
     });
@@ -29,7 +36,8 @@ export default function CsvImportForm({ weddingId }: { weddingId: string }) {
         <span className="font-medium">Import guests from CSV</span>
         <span className="text-xs text-muted-foreground">
           Any column headers work, e.g. Name (or First/Last Name), Email,
-          Phone, Household, RSVP status, Notes.
+          Phone, Household, RSVP status, Notes. Re-uploading later updates
+          matching guests by name instead of duplicating them.
         </span>
         <input
           type="file"

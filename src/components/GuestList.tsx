@@ -2,7 +2,14 @@
 
 import { Fragment, useState, useTransition } from "react";
 import Link from "next/link";
-import { updateGuest, deleteGuest, setGuestRsvpStatus } from "@/lib/actions/guests";
+import {
+  updateGuest,
+  deleteGuest,
+  setGuestRsvpStatus,
+  bulkSetSide,
+  bulkAddTag,
+  bulkDeleteGuests,
+} from "@/lib/actions/guests";
 
 interface Guest {
   id: string;
@@ -86,6 +93,97 @@ function RsvpStatusRow({
   );
 }
 
+function BulkActionBar({
+  weddingId,
+  selectedIds,
+  onClear,
+}: {
+  weddingId: string;
+  selectedIds: string[];
+  onClear: () => void;
+}) {
+  const [isPending, startTransition] = useTransition();
+  const [bulkSide, setBulkSide] = useState<"SHARED" | "PARTNER_ONE" | "PARTNER_TWO">(
+    "SHARED"
+  );
+  const [bulkTag, setBulkTag] = useState("");
+
+  return (
+    <div className="flex flex-wrap items-center gap-2 border-b border-border-soft bg-muted px-4 py-2 text-sm">
+      <span className="font-medium">{selectedIds.length} selected</span>
+
+      <select
+        value={bulkSide}
+        disabled={isPending}
+        onChange={(e) =>
+          setBulkSide(e.target.value as "SHARED" | "PARTNER_ONE" | "PARTNER_TWO")
+        }
+        className="rounded-lg border border-border bg-background px-2 py-1 text-xs"
+      >
+        <option value="SHARED">Shared</option>
+        <option value="PARTNER_ONE">Partner 1</option>
+        <option value="PARTNER_TWO">Partner 2</option>
+      </select>
+      <button
+        type="button"
+        disabled={isPending}
+        onClick={() =>
+          startTransition(async () => {
+            await bulkSetSide(weddingId, selectedIds, bulkSide);
+          })
+        }
+        className="rounded-full border border-border px-3 py-1 text-xs font-medium transition-colors hover:bg-background disabled:opacity-50"
+      >
+        Set side
+      </button>
+
+      <input
+        value={bulkTag}
+        disabled={isPending}
+        onChange={(e) => setBulkTag(e.target.value)}
+        placeholder="Add tag…"
+        className="w-28 rounded-lg border border-border bg-background px-2 py-1 text-xs"
+      />
+      <button
+        type="button"
+        disabled={isPending || !bulkTag.trim()}
+        onClick={() =>
+          startTransition(async () => {
+            await bulkAddTag(weddingId, selectedIds, bulkTag.trim());
+            setBulkTag("");
+          })
+        }
+        className="rounded-full border border-border px-3 py-1 text-xs font-medium transition-colors hover:bg-background disabled:opacity-50"
+      >
+        Add tag
+      </button>
+
+      <button
+        type="button"
+        disabled={isPending}
+        onClick={() => {
+          if (!confirm(`Remove ${selectedIds.length} guest(s)? This can't be undone.`)) return;
+          startTransition(async () => {
+            await bulkDeleteGuests(weddingId, selectedIds);
+            onClear();
+          });
+        }}
+        className="rounded-full border border-red-300 px-3 py-1 text-xs font-medium text-red-600 transition-colors hover:bg-red-50 disabled:opacity-50 dark:hover:bg-red-950/30"
+      >
+        Remove selected
+      </button>
+
+      <button
+        type="button"
+        onClick={onClear}
+        className="ml-auto text-xs text-muted-foreground hover:underline"
+      >
+        Clear selection
+      </button>
+    </div>
+  );
+}
+
 export default function GuestList({
   weddingId,
   weddingSlug,
@@ -101,12 +199,28 @@ export default function GuestList({
 }) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   function copyRsvpLink(guestId: string, token: string) {
     const url = `${window.location.origin}/rsvp/${weddingSlug}/g/${token}`;
     navigator.clipboard.writeText(url);
     setCopiedId(guestId);
     setTimeout(() => setCopiedId((id) => (id === guestId ? null : id)), 2000);
+  }
+
+  function toggleSelected(guestId: string) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(guestId)) next.delete(guestId);
+      else next.add(guestId);
+      return next;
+    });
+  }
+
+  function toggleSelectAll() {
+    setSelectedIds((prev) =>
+      prev.size === guests.length ? new Set() : new Set(guests.map((g) => g.id))
+    );
   }
 
   if (guests.length === 0) {
@@ -119,9 +233,24 @@ export default function GuestList({
 
   return (
     <div className="overflow-x-auto rounded-xl border border-border">
+      {selectedIds.size > 0 && (
+        <BulkActionBar
+          weddingId={weddingId}
+          selectedIds={Array.from(selectedIds)}
+          onClear={() => setSelectedIds(new Set())}
+        />
+      )}
       <table className="w-full text-sm">
         <thead className="bg-muted text-left">
           <tr>
+            <th className="w-8 px-4 py-2">
+              <input
+                type="checkbox"
+                checked={selectedIds.size === guests.length}
+                onChange={toggleSelectAll}
+                aria-label="Select all guests"
+              />
+            </th>
             <th className="px-4 py-2 font-medium">Name</th>
             <th className="px-4 py-2 font-medium">Household</th>
             <th className="px-4 py-2 font-medium">Tags</th>
@@ -139,6 +268,14 @@ export default function GuestList({
             return (
               <Fragment key={g.id}>
                 <tr className="border-t border-border-soft">
+                  <td className="px-4 py-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.has(g.id)}
+                      onChange={() => toggleSelected(g.id)}
+                      aria-label={`Select ${g.firstName} ${g.lastName}`}
+                    />
+                  </td>
                   <td className="px-4 py-2">
                     {g.firstName} {g.lastName}
                   </td>
@@ -201,7 +338,7 @@ export default function GuestList({
                 </tr>
                 {editingId === g.id && (
                   <tr className="border-t border-border-soft bg-muted">
-                    <td colSpan={5} className="px-4 py-3">
+                    <td colSpan={6} className="px-4 py-3">
                       <div className="mb-3">
                         <div className="mb-1 text-xs font-medium text-muted-foreground">
                           RSVP status (set this yourself if the guest told you directly)

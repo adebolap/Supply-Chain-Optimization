@@ -111,9 +111,51 @@ export async function deleteGuest(weddingId: string, guestId: string) {
   revalidatePath(`/dashboard/w/${weddingId}`);
 }
 
+export async function bulkSetSide(weddingId: string, guestIds: string[], side: GuestSide) {
+  await requireWeddingOwner(weddingId);
+  await prisma.guest.updateMany({
+    where: { id: { in: guestIds }, weddingId },
+    data: { side },
+  });
+  revalidatePath(`/dashboard/w/${weddingId}/guests`);
+}
+
+export async function bulkAddTag(weddingId: string, guestIds: string[], tag: string) {
+  await requireWeddingOwner(weddingId);
+  const cleanTag = tag.trim();
+  if (!cleanTag) return;
+
+  const guests = await prisma.guest.findMany({
+    where: { id: { in: guestIds }, weddingId },
+  });
+  await prisma.$transaction(
+    guests
+      .filter((g) => !g.tags.includes(cleanTag))
+      .map((g) =>
+        prisma.guest.update({
+          where: { id: g.id },
+          data: { tags: [...g.tags, cleanTag] },
+        })
+      )
+  );
+  revalidatePath(`/dashboard/w/${weddingId}/guests`);
+}
+
+export async function bulkDeleteGuests(weddingId: string, guestIds: string[]) {
+  await requireWeddingOwner(weddingId);
+  await prisma.guest.deleteMany({ where: { id: { in: guestIds }, weddingId } });
+  revalidatePath(`/dashboard/w/${weddingId}/guests`);
+  revalidatePath(`/dashboard/w/${weddingId}`);
+}
+
 interface ImportResult {
   error: string | null;
   imported?: number;
+  updated?: number;
+}
+
+function normalizeNameKey(firstName: string, lastName: string): string {
+  return `${firstName.trim().toLowerCase()}|${lastName.trim().toLowerCase()}`;
 }
 
 async function createGuestsFromRows(
@@ -123,13 +165,30 @@ async function createGuestsFromRows(
 ): Promise<ImportResult> {
   const mapped = rawRows.map(mapGuestRow);
   const valid = mapped.filter((r) => r.firstName);
-  const capacityError = await assertGuestCapacity(weddingId, tier, valid.length);
+
+  // Re-importing an updated sheet shouldn't create duplicates: a row whose
+  // name matches an existing guest updates that guest instead (only the
+  // columns present in the row, so a sparse re-upload never blanks out
+  // fields it didn't include).
+  const existingGuests = await prisma.guest.findMany({ where: { weddingId } });
+  const existingByName = new Map(
+    existingGuests.map((g) => [normalizeNameKey(g.firstName, g.lastName), g])
+  );
+
+  const toCreate = valid.filter(
+    (r) => !existingByName.has(normalizeNameKey(r.firstName, r.lastName))
+  );
+  const toUpdate = valid.filter((r) =>
+    existingByName.has(normalizeNameKey(r.firstName, r.lastName))
+  );
+
+  const capacityError = await assertGuestCapacity(weddingId, tier, toCreate.length);
   if (capacityError) return { error: capacityError };
 
   const events = await prisma.event.findMany({ where: { weddingId } });
 
   await prisma.$transaction(async (tx) => {
-    for (const row of valid) {
+    for (const row of toCreate) {
       const guest = await tx.guest.create({
         data: {
           weddingId,
@@ -150,11 +209,30 @@ async function createGuestsFromRows(
         })),
       });
     }
+
+    for (const row of toUpdate) {
+      const existing = existingByName.get(normalizeNameKey(row.firstName, row.lastName))!;
+      const updateData: Record<string, string> = {};
+      if (row.email) updateData.email = row.email;
+      if (row.phone) updateData.phone = row.phone;
+      if (row.household) updateData.household = row.household;
+      if (row.dietaryNotes) updateData.dietaryNotes = row.dietaryNotes;
+      if (row.notes) updateData.notes = row.notes;
+      if (Object.keys(updateData).length > 0) {
+        await tx.guest.update({ where: { id: existing.id }, data: updateData });
+      }
+      if (row.rsvpStatus) {
+        await tx.rSVP.updateMany({
+          where: { guestId: existing.id },
+          data: { status: row.rsvpStatus, respondedAt: new Date() },
+        });
+      }
+    }
   });
 
   revalidatePath(`/dashboard/w/${weddingId}/guests`);
   revalidatePath(`/dashboard/w/${weddingId}`);
-  return { error: null, imported: valid.length };
+  return { error: null, imported: toCreate.length, updated: toUpdate.length };
 }
 
 export async function importGuestsCsv(

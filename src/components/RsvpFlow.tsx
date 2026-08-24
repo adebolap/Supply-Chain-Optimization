@@ -5,7 +5,9 @@ import {
   findGuestsByName,
   getHouseholdForRsvp,
   submitRsvps,
+  updateGuestContactInfo,
   type RsvpEntry,
+  type GuestContactUpdate,
 } from "@/lib/actions/rsvp";
 
 interface Match {
@@ -34,6 +36,9 @@ interface HouseholdGuest {
   id: string;
   firstName: string;
   lastName: string;
+  email: string | null;
+  phone: string | null;
+  notes: string | null;
   dietaryNotes: string | null;
   rsvps: HouseholdGuestRsvp[];
 }
@@ -45,6 +50,7 @@ interface HouseholdData {
 }
 
 type FormState = Record<string, Record<string, Partial<RsvpEntry>>>;
+type ContactFormState = Record<string, Omit<GuestContactUpdate, "guestId">>;
 
 export default function RsvpFlow({
   weddingSlug,
@@ -57,6 +63,7 @@ export default function RsvpFlow({
   const [matches, setMatches] = useState<Match[]>([]);
   const [household, setHousehold] = useState<HouseholdData | null>(null);
   const [form, setForm] = useState<FormState>({});
+  const [contactForm, setContactForm] = useState<ContactFormState>({});
   const [submitted, setSubmitted] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -83,6 +90,7 @@ export default function RsvpFlow({
       if (!data) return;
       setHousehold(data);
       const initial: FormState = {};
+      const initialContact: ContactFormState = {};
       for (const g of data.guests) {
         initial[g.id] = {};
         for (const r of g.rsvps) {
@@ -94,8 +102,15 @@ export default function RsvpFlow({
             notes: r.notes || "",
           };
         }
+        initialContact[g.id] = {
+          email: g.email || "",
+          phone: g.phone || "",
+          notes: g.notes || "",
+          dietaryNotes: g.dietaryNotes || "",
+        };
       }
       setForm(initial);
+      setContactForm(initialContact);
     });
   }
 
@@ -111,6 +126,17 @@ export default function RsvpFlow({
         ...prev[guestId],
         [eventId]: { ...prev[guestId]?.[eventId], [field]: value },
       },
+    }));
+  }
+
+  function updateContactField(
+    guestId: string,
+    field: keyof Omit<GuestContactUpdate, "guestId">,
+    value: string
+  ) {
+    setContactForm((prev) => ({
+      ...prev,
+      [guestId]: { ...prev[guestId], [field]: value },
     }));
   }
 
@@ -131,8 +157,15 @@ export default function RsvpFlow({
         });
       }
     }
+    const contactUpdates: GuestContactUpdate[] = household.guests.map((g) => ({
+      guestId: g.id,
+      ...contactForm[g.id],
+    }));
     startTransition(async () => {
-      await submitRsvps(weddingSlug, entries);
+      await Promise.all([
+        submitRsvps(weddingSlug, entries),
+        updateGuestContactInfo(weddingSlug, contactUpdates),
+      ]);
       setSubmitted(true);
     });
   }
@@ -159,6 +192,34 @@ export default function RsvpFlow({
             <h3 className="mb-3 font-semibold">
               {g.firstName} {g.lastName}
             </h3>
+            <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <input
+                type="email"
+                placeholder="Email"
+                value={contactForm[g.id]?.email || ""}
+                onChange={(ev) => updateContactField(g.id, "email", ev.target.value)}
+                className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground"
+              />
+              <input
+                type="tel"
+                placeholder="Phone"
+                value={contactForm[g.id]?.phone || ""}
+                onChange={(ev) => updateContactField(g.id, "phone", ev.target.value)}
+                className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground"
+              />
+              <input
+                placeholder="Mailing address (optional)"
+                value={contactForm[g.id]?.notes || ""}
+                onChange={(ev) => updateContactField(g.id, "notes", ev.target.value)}
+                className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground sm:col-span-2"
+              />
+              <input
+                placeholder="Dietary notes (optional)"
+                value={contactForm[g.id]?.dietaryNotes || ""}
+                onChange={(ev) => updateContactField(g.id, "dietaryNotes", ev.target.value)}
+                className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground sm:col-span-2"
+              />
+            </div>
             <div className="flex flex-col gap-4">
               {household.events.map((e) => {
                 const f = form[g.id]?.[e.id];

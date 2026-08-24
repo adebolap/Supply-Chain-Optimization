@@ -71,6 +71,9 @@ export async function getHouseholdForRsvp(weddingSlug: string, guestId: string) 
       id: g.id,
       firstName: g.firstName,
       lastName: g.lastName,
+      email: g.email,
+      phone: g.phone,
+      notes: g.notes,
       dietaryNotes: g.dietaryNotes,
       rsvps: g.rsvps.map((r) => ({
         eventId: r.eventId,
@@ -82,6 +85,41 @@ export async function getHouseholdForRsvp(weddingSlug: string, guestId: string) 
       })),
     })),
   };
+}
+
+export interface GuestContactUpdate {
+  guestId: string;
+  email?: string;
+  phone?: string;
+  notes?: string;
+  dietaryNotes?: string;
+}
+
+/** Lets a guest keep their own contact info current from the RSVP page,
+ * scoped to guests in this wedding so a crafted guestId can't touch anyone
+ * else's record. */
+export async function updateGuestContactInfo(
+  weddingSlug: string,
+  updates: GuestContactUpdate[]
+) {
+  const wedding = await prisma.wedding.findUnique({ where: { slug: weddingSlug } });
+  if (!wedding) throw new Error("Wedding not found.");
+
+  await prisma.$transaction(
+    updates.map((u) =>
+      prisma.guest.updateMany({
+        where: { id: u.guestId, weddingId: wedding.id },
+        data: {
+          email: u.email?.trim() || null,
+          phone: u.phone?.trim() || null,
+          notes: u.notes?.trim() || null,
+          dietaryNotes: u.dietaryNotes?.trim() || null,
+        },
+      })
+    )
+  );
+
+  revalidatePath(`/dashboard/w/${wedding.id}/guests`);
 }
 
 export interface RsvpEntry {

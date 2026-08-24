@@ -1,7 +1,12 @@
 "use client";
 
-import { useState, useActionState } from "react";
-import { sendBroadcast, type BroadcastAudience } from "@/lib/actions/broadcast";
+import { useState, useEffect, useActionState } from "react";
+import {
+  sendBroadcast,
+  getSmsCostEstimate,
+  type BroadcastAudience,
+} from "@/lib/actions/broadcast";
+import type { SmsCostEstimate } from "@/lib/smsCost";
 
 interface Counts {
   ALL: number;
@@ -23,11 +28,30 @@ export default function BroadcastComposer({
   const [audience, setAudience] = useState<BroadcastAudience>("ALL");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  const [smsEstimate, setSmsEstimate] = useState<SmsCostEstimate | null>(null);
 
   const [state, formAction, isPending] = useActionState(
     sendBroadcast.bind(null, weddingId),
     { error: null } as { error: string | null; sent?: number }
   );
+
+  useEffect(() => {
+    let cancelled = false;
+    if (channel !== "SMS") {
+      Promise.resolve().then(() => {
+        if (!cancelled) setSmsEstimate(null);
+      });
+      return () => {
+        cancelled = true;
+      };
+    }
+    getSmsCostEstimate(weddingId, audience).then((result) => {
+      if (!cancelled) setSmsEstimate(result);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [weddingId, channel, audience]);
 
   function applyReminderTemplate() {
     setChannel("EMAIL");
@@ -121,6 +145,21 @@ export default function BroadcastComposer({
             Your RSVP link will be added to the end of this message
             automatically.
           </p>
+        )}
+        {channel === "SMS" && smsEstimate && smsEstimate.breakdown.length > 0 && (
+          <div className="rounded-lg border border-border bg-muted px-3 py-2 text-xs text-muted-foreground">
+            <div className="mb-1 font-medium text-foreground">
+              Estimated cost: ${smsEstimate.total.toFixed(2)}
+            </div>
+            {smsEstimate.breakdown.map((b) => (
+              <div key={b.country} className="flex justify-between">
+                <span>
+                  {b.country} &times; {b.count}
+                </span>
+                <span>${b.subtotal.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
         )}
         <button
           type="submit"
